@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More Return — Find Your Pegasus 42</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F4F4F1;
+    --bg-deep: #E7E7E2;
+    --ink: #111111;
+    --ink-soft: #5B5B58;
+    --volt: #D7FE63;
+    --volt-deep: #9DC22B;
+    --line: rgba(17,17,17,0.14);
+    --running: #D7FE63;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    padding: 32px 16px;
+  }
+  .stage{ width:100%; max-width: 460px; }
+
+  .brand{ text-align:center; margin-bottom: 22px; }
+  .brand .mark{
+    font-family:'Anton', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .brand .tag{
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .progress-ring{
+    width: 46px; height: 46px; border-radius: 50%;
+    margin: 0 auto 22px;
+    display:flex; align-items:center; justify-content:center;
+    background: conic-gradient(var(--running) var(--fill, 0%), rgba(17,17,17,0.1) 0%);
+    transition: background 700ms ease;
+  }
+  .progress-ring::after{
+    content:''; width: 34px; height: 34px; border-radius: 50%; background: var(--bg);
+  }
+
+  .card{
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px 26px;
+    box-shadow: 0 24px 60px -34px rgba(17,17,17,0.28);
+  }
+
+  .step{ display:none; }
+  .step.active{ display:block; animation: rise 420ms ease; }
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(10px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  .eyebrow{
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft); font-weight: 700; margin: 0 0 10px;
+  }
+  h1.question{
+    font-family:'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin: 0 0 22px;
+  }
+
+  .options{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .opt{
+    border: 1px solid var(--line);
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align:left;
+    font-family:'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--ink);
+    cursor:pointer;
+    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  }
+  .opt:hover{ border-color: var(--ink); transform: translateY(-2px); background:#fff; }
+  .opt .dot{ width: 10px; height: 10px; border-radius: 50%; display:inline-block; margin-bottom: 8px; }
+
+  .reveal{ text-align:center; }
+  .swatch{
+    width: 130px; height: 130px; border-radius: 50%;
+    margin: 4px auto 20px;
+    box-shadow: 0 18px 40px -18px rgba(17,17,17,0.4), inset 0 -6px 14px rgba(0,0,0,0.12);
+    animation: bloom 650ms ease;
+  }
+  @keyframes bloom{
+    from{ transform: scale(0.4); opacity:0; }
+    to{ transform: scale(1); opacity:1; }
+  }
+  .return-name{
+    font-family:'Anton', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .colorway{
+    font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-soft); font-weight: 700; margin: 4px 0 18px;
+  }
+  .affirmation{
+    font-size: 15.5px; line-height: 1.55; color: var(--ink);
+    margin: 0 0 26px; padding: 0 4px;
+  }
+
+  .cta{
+    display:block; width: 100%; padding: 14px 18px; border-radius: 999px;
+    border: none; background: var(--ink); color: var(--volt);
+    font-family:'Inter', sans-serif; font-weight: 700; font-size: 14px;
+    cursor: pointer; text-decoration:none; text-align:center;
+    transition: background 160ms ease, transform 160ms ease;
+    margin-bottom: 10px;
+  }
+  .cta:hover{ background:#000; transform: translateY(-1px); }
+
+  .ghost{
+    display:block; width:100%; padding: 12px 18px; border-radius: 999px;
+    border: 1px solid var(--line); background: transparent; color: var(--ink-soft);
+    font-family:'Inter', sans-serif; font-size: 13px; font-weight:600; cursor:pointer;
+  }
+
+  .share-hint{ margin-top: 18px; font-size: 12px; color: var(--ink-soft); }
+  .share-hint b{ color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="brand">
+    <div class="mark">NIKE · PEGASUS 42</div>
+    <div class="tag">More Return · Colorway Match</div>
+  </div>
+
+  <div class="progress-ring" id="ring"></div>
+
+  <div class="card">
+
+    <div class="step active" data-step="0">
+      <p class="eyebrow">Question 1 of 3</p>
+      <h1 class="question">Why are you lacing up today?</h1>
+      <div class="options">
+        <button class="opt" data-shades="clarity,reset" data-color="#8FA6E0">
+          <span class="dot" style="background:#8FA6E0"></span>
+          To think something through
+        </button>
+        <button class="opt" data-shades="power,fire" data-color="#FF5C39">
+          <span class="dot" style="background:#FF5C39"></span>
+          To prove something to myself
+        </button>
+        <button class="opt" data-shades="foundation,momentum" data-color="#3FA66B">
+          <span class="dot" style="background:#3FA66B"></span>
+          Because it's just what I do
+        </button>
+        <button class="opt" data-shades="momentum,power" data-color="#E8792E">
+          <span class="dot" style="background:#E8792E"></span>
+          To keep the streak alive
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="1">
+      <p class="eyebrow">Question 2 of 3</p>
+      <h1 class="question">What pace is today?</h1>
+      <div class="options">
+        <button class="opt" data-shades="foundation,clarity" data-color="#D9D2C5">
+          <span class="dot" style="background:#D9D2C5"></span>
+          Easy and steady
+        </button>
+        <button class="opt" data-shades="power,fire" data-color="#FF5C39">
+          <span class="dot" style="background:#FF5C39"></span>
+          Fast, all-out
+        </button>
+        <button class="opt" data-shades="clarity,reset" data-color="#8FA6E0">
+          <span class="dot" style="background:#8FA6E0"></span>
+          Whatever today feels like
+        </button>
+        <button class="opt" data-shades="momentum,foundation" data-color="#17A672">
+          <span class="dot" style="background:#17A672"></span>
+          Consistent, on schedule
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="2">
+      <p class="eyebrow">Question 3 of 3</p>
+      <h1 class="question">Which color energy calls to you?</h1>
+      <div class="options">
+        <button class="opt" data-shades="clarity,foundation" data-color="#D9D2C5">
+          <span class="dot" style="background:#D9D2C5"></span>
+          Warm neutral tones
+        </button>
+        <button class="opt" data-shades="power" data-color="#E8792E">
+          <span class="dot" style="background:#E8792E"></span>
+          Bold orange
+        </button>
+        <button class="opt" data-shades="momentum" data-color="#17A672">
+          <span class="dot" style="background:#17A672"></span>
+          Cool green
+        </button>
+        <button class="opt" data-shades="reset" data-color="#8FA6E0">
+          <span class="dot" style="background:#8FA6E0"></span>
+          Soft lilac-blue
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="reveal">
+      <div class="reveal">
+        <div class="swatch" id="swatch"></div>
+        <h1 class="return-name" id="returnName">Power Return</h1>
+        <p class="colorway" id="colorway">Chalk / Orange Pulse</p>
+        <p class="affirmation" id="affirmation">For the miles you run to feel unstoppable.</p>
+        <a class="cta" id="shopLink" href="https://www.nike.com/t/pegasus-42-womens-road-running-shoes-VCB6baKU" target="_blank" rel="noopener">Shop this colorway</a>
+        <button class="ghost" id="retake">Retake the quiz</button>
+        <p class="share-hint">Share your return with <b>#MoreReturn</b></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const data = {
+    clarity:    { name: "Clarity Return",    colorway: "Light Bone",           hex: "#D9D2C5", line: "For the miles you run to think straight." },
+    power:      { name: "Power Return",      colorway: "Chalk / Orange Pulse", hex: "#E8792E", line: "For the miles you run to feel unstoppable." },
+    momentum:   { name: "Momentum Return",   colorway: "White / Malachite",    hex: "#17A672", line: "For the miles that keep the streak alive." },
+    fire:       { name: "Fire Return",       colorway: "Lava Glow",            hex: "#FF5C39", line: "For the miles you run to let something out." },
+    reset:      { name: "Reset Return",      colorway: "Lilac / Blue",         hex: "#8FA6E0", line: "For the miles that clear your head." },
+    foundation: { name: "Foundation Return", colorway: "Black / White / Grey", hex: "#2B2B2B", line: "For the miles that are just routine — and that's enough." }
+  };
+
+  const scores = Object.fromEntries(Object.keys(data).map(k => [k, 0]));
+  let pickedColors = [];
+  let step = 0;
+  const steps = document.querySelectorAll('.step');
+  const ring = document.getElementById('ring');
+
+  function showStep(t){
+    steps.forEach(s => s.classList.remove('active'));
+    document.querySelector(`.step[data-step="${t}"]`).classList.add('active');
+  }
+
+  function blend(colors){
+    if(colors.length === 0) return '#D7FE63';
+    let r=0,g=0,b=0;
+    colors.forEach(hex => {
+      r += parseInt(hex.substr(1,2),16);
+      g += parseInt(hex.substr(3,2),16);
+      b += parseInt(hex.substr(5,2),16);
+    });
+    r = Math.round(r/colors.length); g = Math.round(g/colors.length); b = Math.round(b/colors.length);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function updateRing(){
+    ring.style.setProperty('--fill', (step/3)*100 + '%');
+    ring.style.setProperty('--running', blend(pickedColors));
+  }
+
+  document.querySelectorAll('.opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.dataset.shades.split(',').forEach(s => scores[s] += 1);
+      pickedColors.push(btn.dataset.color);
+      step += 1;
+      updateRing();
+
+      if(step < 3){
+        showStep(String(step));
+      } else {
+        const winner = Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+        const d = data[winner];
+        document.getElementById('swatch').style.background = `radial-gradient(circle at 35% 30%, ${d.hex}ee, ${d.hex})`;
+        document.getElementById('returnName').textContent = d.name;
+        document.getElementById('colorway').textContent = d.colorway;
+        document.getElementById('affirmation').textContent = d.line;
+        document.getElementById('shopLink').textContent = `Shop ${d.colorway}`;
+        showStep('reveal');
+      }
+    });
+  });
+
+  document.getElementById('retake').addEventListener('click', () => {
+    Object.keys(scores).forEach(k => scores[k] = 0);
+    pickedColors = [];
+    step = 0;
+    updateRing();
+    showStep('0');
+  });
+
+  updateRing();
+</script>
+
+</body>
+</html>

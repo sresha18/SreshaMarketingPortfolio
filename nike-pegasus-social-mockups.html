@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More Return — Social Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page-bg: #EDEDE8;
+    --ink: #111111;
+    --ink-soft: #5B5B58;
+    --card-bg: #FFFFFF;
+    --volt: #D7FE63;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background: var(--page-bg); font-family:'Inter', sans-serif; color: var(--ink);
+    padding: 40px 20px 60px;
+  }
+  .header{ text-align:center; max-width: 640px; margin: 0 auto 40px; }
+  .header .eyebrow{
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft); font-weight: 700; margin: 0 0 10px;
+  }
+  .header h1{
+    font-family:'Anton', sans-serif; text-transform: uppercase;
+    font-size: 32px; margin: 0 0 10px;
+  }
+  .header p{ color: var(--ink-soft); font-size: 14px; line-height: 1.6; margin: 0; }
+
+  .grid{
+    display:grid; grid-template-columns: repeat(2, minmax(260px, 340px)); gap: 28px;
+    justify-content:center; max-width: 760px; margin: 0 auto;
+  }
+  @media (max-width: 640px){ .grid{ grid-template-columns: 1fr; } }
+
+  .post{ background: var(--card-bg); border-radius: 16px; overflow:hidden; box-shadow: 0 20px 50px -28px rgba(17,17,17,0.35); }
+  .post-head{ display:flex; align-items:center; gap: 8px; padding: 10px 12px; }
+  .avatar{ width: 26px; height:26px; border-radius:50%; background: var(--ink); flex-shrink:0; }
+  .handle{ font-size: 12.5px; font-weight: 700; }
+  .square{
+    aspect-ratio: 1/1; width: 100%; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding: 24px;
+  }
+  .square .day{
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 800; opacity: 0.7; margin: 0 0 14px;
+  }
+  .square .line{
+    font-family:'Anton', sans-serif; text-transform: uppercase;
+    font-size: 22px; line-height: 1.25; margin: 0 0 16px; max-width: 240px;
+  }
+  .square .tag{
+    display:inline-flex; align-items:center; gap: 6px;
+    background: rgba(255,255,255,0.55); border-radius: 999px; padding: 6px 12px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em;
+  }
+  .tag .dot{ width: 9px; height:9px; border-radius:50%; }
+  .post-foot{ padding: 10px 14px 14px; }
+  .icons{ display:flex; gap: 14px; font-size: 15px; margin-bottom: 8px; }
+  .caption{ font-size: 12.5px; line-height: 1.5; }
+  .caption b{ font-weight: 700; }
+  .tagrow{ font-size: 12px; color: var(--ink-soft); margin-top: 4px; font-weight: 600; }
+
+  .bg-power{ background: linear-gradient(160deg, #FBD9BE, #E8792E); color: #2E1600; }
+  .bg-clarity{ background: linear-gradient(160deg, #EDEAE2, #D9D2C5); color: #2A2620; }
+  .bg-fire{ background: linear-gradient(160deg, #FFC3AE, #FF5C39); color: #3A0F02; }
+  .bg-momentum{ background: linear-gradient(160deg, #C9F3DC, #17A672); color: #052B1B; }
+
+  .ugc-section{ max-width: 760px; margin: 56px auto 0; text-align:center; }
+  .ugc-section .eyebrow{
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft); font-weight: 700; margin: 0 0 10px;
+  }
+  .ugc-section h2{
+    font-family:'Anton', sans-serif; text-transform: uppercase; font-size: 26px; margin: 0 0 28px;
+  }
+  .ugc-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 640px){ .ugc-grid{ grid-template-columns: 1fr; } }
+  .ugc-card{
+    background: var(--card-bg); border-radius: 14px; padding: 20px 16px;
+    box-shadow: 0 16px 40px -26px rgba(17,17,17,0.3); text-align:left;
+  }
+  .ugc-card .quote{ font-size: 14px; line-height: 1.5; margin: 0 0 12px; font-weight: 500; }
+  .ugc-card .who{ font-size: 12px; font-weight: 700; color: var(--ink-soft); }
+  .ugc-card .hash{ font-size: 11.5px; color: var(--ink); margin-top: 6px; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="eyebrow">More Return · Content Mockups</p>
+  <h1>Return of the Day</h1>
+  <p>A recurring social series pairing each Pegasus 42 colorway with what the run is actually for — turning a technical benefit (energy return) into an everyday emotional one.</p>
+</div>
+
+<div class="grid">
+
+  <div class="post">
+    <div class="post-head"><div class="avatar"></div><div class="handle">nikewomen</div></div>
+    <div class="square bg-power">
+      <p class="day">Monday</p>
+      <p class="line">"Prove it to yourself first."</p>
+      <div class="tag"><span class="dot" style="background:#E8792E"></span> Power Return</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>nikewomen</b> Some Mondays need Chalk/Orange Pulse. What's today's return?</div>
+      <div class="tagrow">#MoreReturn #Pegasus42</div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-head"><div class="avatar"></div><div class="handle">nikewomen</div></div>
+    <div class="square bg-clarity">
+      <p class="day">Wednesday</p>
+      <p class="line">"Run it out. Think it through."</p>
+      <div class="tag"><span class="dot" style="background:#D9D2C5"></span> Clarity Return</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>nikewomen</b> Light Bone for the miles that clear your head, not just your calendar.</div>
+      <div class="tagrow">#MoreReturn #Pegasus42</div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-head"><div class="avatar"></div><div class="handle">nikewomen</div></div>
+    <div class="square bg-fire">
+      <p class="day">Friday</p>
+      <p class="line">"Let it out at mile three."</p>
+      <div class="tag"><span class="dot" style="background:#FF5C39"></span> Fire Return</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>nikewomen</b> Lava Glow was made for the runs that are really about something else.</div>
+      <div class="tagrow">#MoreReturn #Pegasus42</div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-head"><div class="avatar"></div><div class="handle">nikewomen</div></div>
+    <div class="square bg-momentum">
+      <p class="day">Sunday</p>
+      <p class="line">"Streak stays alive."</p>
+      <div class="tag"><span class="dot" style="background:#17A672"></span> Momentum Return</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>nikewomen</b> White/Malachite for the Sundays you almost skipped — and didn't.</div>
+      <div class="tagrow">#MoreReturn #Pegasus42</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ugc-section">
+  <p class="eyebrow">UGC Challenge</p>
+  <h2>#MoreReturn — what did today's mile give you back?</h2>
+  <div class="ugc-grid">
+    <div class="ugc-card">
+      <p class="quote">"Ran 4 easy miles in the Light Bone pair and came back with an answer to something I'd been stuck on for a week."</p>
+      <div class="who">@paceandpatience</div>
+      <div class="hash">#MoreReturn</div>
+    </div>
+    <div class="ugc-card">
+      <p class="quote">"Wore the Lava Glow on a bad day. Ran it angry, came back lighter. That's the return."</p>
+      <div class="who">@runwithreese</div>
+      <div class="hash">#MoreReturn</div>
+    </div>
+    <div class="ugc-card">
+      <p class="quote">"37-day streak in these. Some days it's just consistency, and that's the whole point."</p>
+      <div class="who">@milesbymaya</div>
+      <div class="hash">#MoreReturn</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
