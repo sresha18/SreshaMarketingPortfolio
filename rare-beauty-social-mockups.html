@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wear Your Truth — Social Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page-bg: #F3E5DC;
+    --ink: #2E2320;
+    --ink-soft: #7A6A63;
+    --card-bg: #FFFFFF;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background: var(--page-bg);
+    font-family:'Inter', sans-serif;
+    color: var(--ink);
+    padding: 40px 20px 60px;
+  }
+  .header{
+    text-align:center;
+    max-width: 640px;
+    margin: 0 auto 40px;
+  }
+  .header .eyebrow{
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9C4A57;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .header h1{
+    font-family:'Fraunces', serif;
+    font-weight: 500;
+    font-size: 30px;
+    margin: 0 0 10px;
+  }
+  .header p{
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(260px, 340px));
+    gap: 28px;
+    justify-content:center;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  @media (max-width: 640px){
+    .grid{ grid-template-columns: 1fr; }
+  }
+
+  .post{
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow:hidden;
+    box-shadow: 0 20px 50px -28px rgba(60,30,30,0.35);
+  }
+  .post-head{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+  .avatar{
+    width: 26px; height:26px; border-radius:50%;
+    background: linear-gradient(135deg, #C77B86, #9C4A57);
+    flex-shrink:0;
+  }
+  .handle{
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+  .square{
+    aspect-ratio: 1/1;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    padding: 24px;
+  }
+  .square .day{
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.75;
+    margin: 0 0 14px;
+  }
+  .square .line{
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.35;
+    margin: 0 0 16px;
+    max-width: 240px;
+  }
+  .square .shade-tag{
+    display:inline-flex;
+    align-items:center;
+    gap: 6px;
+    background: rgba(255,255,255,0.55);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .shade-tag .swatch-dot{
+    width: 9px; height:9px; border-radius:50%;
+  }
+  .post-foot{
+    padding: 10px 14px 14px;
+  }
+  .icons{
+    display:flex;
+    gap: 14px;
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .caption{
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .caption b{ font-weight: 700; }
+  .tagrow{
+    font-size: 12px;
+    color: #9C4A57;
+    margin-top: 4px;
+  }
+
+  /* shade-specific backgrounds */
+  .bg-grateful{ background: linear-gradient(160deg, #E9BFC4, #C9576A); color: #3A1620; }
+  .bg-joy{ background: linear-gradient(160deg, #F5DCC7, #E8B49A); color: #4A2C1B; }
+  .bg-encourage{ background: linear-gradient(160deg, #F3DCDC, #D9A6A6); color: #4A2C2C; }
+  .bg-love{ background: linear-gradient(160deg, #EFC2AC, #C4623F); color: #3A1B10; }
+
+  .ugc-section{
+    max-width: 760px;
+    margin: 56px auto 0;
+    text-align:center;
+  }
+  .ugc-section .eyebrow{
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9C4A57;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .ugc-section h2{
+    font-family:'Fraunces', serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0 0 28px;
+  }
+  .ugc-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 640px){
+    .ugc-grid{ grid-template-columns: 1fr; }
+  }
+  .ugc-card{
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 20px 16px;
+    box-shadow: 0 16px 40px -26px rgba(60,30,30,0.3);
+    text-align:left;
+  }
+  .ugc-card .quote{
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin: 0 0 12px;
+  }
+  .ugc-card .who{
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .ugc-card .hash{
+    font-size: 11.5px;
+    color: #9C4A57;
+    margin-top: 6px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="eyebrow">Wear Your Truth · Content Mockups</p>
+  <h1>Shade of the Day</h1>
+  <p>A recurring social series that pairs each Soft Pinch shade with a mood and a small affirmation — designed to feel like a daily check-in, not an ad.</p>
+</div>
+
+<div class="grid">
+
+  <div class="post">
+    <div class="post-head">
+      <div class="avatar"></div>
+      <div class="handle">rarebeauty</div>
+    </div>
+    <div class="square bg-grateful">
+      <p class="day">Monday</p>
+      <p class="line">"It's a Grateful kind of day."</p>
+      <div class="shade-tag"><span class="swatch-dot" style="background:#9C2B3F"></span> Grateful</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>rarebeauty</b> Some days call for red. What's your shade today?</div>
+      <div class="tagrow">#WearYourTruth #SoftPinchBlush</div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="avatar"></div>
+      <div class="handle">rarebeauty</div>
+    </div>
+    <div class="square bg-joy">
+      <p class="day">Wednesday</p>
+      <p class="line">"Today, we choose light."</p>
+      <div class="shade-tag"><span class="swatch-dot" style="background:#D98E5F"></span> Joy</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>rarebeauty</b> One dot of Joy for a midweek reset 🍑</div>
+      <div class="tagrow">#WearYourTruth #SoftPinchBlush</div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="avatar"></div>
+      <div class="handle">rarebeauty</div>
+    </div>
+    <div class="square bg-encourage">
+      <p class="day">Friday</p>
+      <p class="line">"A little push goes a long way."</p>
+      <div class="shade-tag"><span class="swatch-dot" style="background:#C77B86"></span> Encourage</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>rarebeauty</b> For the days you need to hear it: you're doing fine.</div>
+      <div class="tagrow">#WearYourTruth #SoftPinchBlush</div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="avatar"></div>
+      <div class="handle">rarebeauty</div>
+    </div>
+    <div class="square bg-love">
+      <p class="day">Sunday</p>
+      <p class="line">"Choose yourself first this week."</p>
+      <div class="shade-tag"><span class="swatch-dot" style="background:#A8461F"></span> Love</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>rarebeauty</b> Sunday reset, one warm dot at a time.</div>
+      <div class="tagrow">#WearYourTruth #SoftPinchBlush</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ugc-section">
+  <p class="eyebrow">UGC Hashtag Challenge</p>
+  <h2>#WearYourTruth — real shades, real reasons</h2>
+  <div class="ugc-grid">
+    <div class="ugc-card">
+      <p class="quote">"Wore Hope today because I have an interview. Small ritual, big difference."</p>
+      <div class="who">@mira.does.makeup</div>
+      <div class="hash">#WearYourTruth</div>
+    </div>
+    <div class="ugc-card">
+      <p class="quote">"Grateful on the days I actually remember to be. Which is most days now."</p>
+      <div class="who">@softglowdiaries</div>
+      <div class="hash">#WearYourTruth</div>
+    </div>
+    <div class="ugc-card">
+      <p class="quote">"Started picking my blush by mood instead of matching my outfit. Didn't expect that to change anything, but it did."</p>
+      <div class="who">@juno.rae</div>
+      <div class="hash">#WearYourTruth</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wear Your Truth — Shade Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FBF2EC;
+    --cream-deep: #F3E5DC;
+    --ink: #2E2320;
+    --ink-soft: #6B5A54;
+    --rose: #C77B86;
+    --rose-deep: #9C4A57;
+    --line: rgba(46,35,32,0.12);
+    --bg-a: #FBF2EC;
+    --bg-b: #F3E5DC;
+    --running: #D9A6A6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background: radial-gradient(120% 120% at 50% 0%, var(--bg-b) 0%, var(--bg-a) 55%);
+    transition: background 900ms ease;
+    padding: 32px 16px;
+  }
+  .stage{
+    width:100%;
+    max-width:460px;
+  }
+  .brand{
+    text-align:center;
+    margin-bottom: 28px;
+  }
+  .brand .mark{
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-weight:500;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: var(--rose-deep);
+  }
+  .brand .tag{
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .progress-ring{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin: 0 auto 22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: conic-gradient(var(--running) var(--fill, 0%), rgba(46,35,32,0.08) 0%);
+    transition: background 700ms ease;
+  }
+  .progress-ring::after{
+    content:'';
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--cream);
+  }
+
+  .card{
+    background: rgba(255,255,255,0.55);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 34px 28px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 20px 60px -30px rgba(80,40,40,0.35);
+  }
+
+  .step{ display:none; }
+  .step.active{ display:block; animation: rise 480ms ease; }
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(10px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  .eyebrow{
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    margin: 0 0 10px;
+    font-weight: 600;
+  }
+  h1.question{
+    font-family:'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.25;
+    margin: 0 0 24px;
+  }
+
+  .options{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .opt{
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.5);
+    border-radius: 14px;
+    padding: 16px 14px;
+    text-align:left;
+    font-family:'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--ink);
+    cursor:pointer;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  }
+  .opt:hover{ border-color: var(--rose); transform: translateY(-2px); }
+  .opt:active{ transform: translateY(0); }
+  .opt .dot{
+    width: 10px; height: 10px; border-radius: 50%;
+    display:inline-block; margin-bottom: 8px;
+  }
+
+  .reveal{
+    text-align:center;
+  }
+  .swatch{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 4px auto 22px;
+    box-shadow: 0 18px 40px -18px rgba(80,30,40,0.5), inset 0 -6px 14px rgba(0,0,0,0.08);
+    position: relative;
+    animation: bloom 700ms ease;
+  }
+  @keyframes bloom{
+    from{ transform: scale(0.4); opacity:0; }
+    to{ transform: scale(1); opacity:1; }
+  }
+  .shade-name{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 34px;
+    margin: 0;
+  }
+  .shade-sub{
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 4px 0 18px;
+  }
+  .affirmation{
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 26px;
+    padding: 0 8px;
+  }
+
+  .cta{
+    display:block;
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 999px;
+    border: none;
+    background: var(--rose-deep);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration:none;
+    text-align:center;
+    transition: background 180ms ease, transform 180ms ease;
+    margin-bottom: 10px;
+  }
+  .cta:hover{ background: var(--ink); transform: translateY(-1px); }
+
+  .ghost{
+    display:block;
+    width:100%;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink-soft);
+    font-family:'Inter', sans-serif;
+    font-size: 13px;
+    cursor:pointer;
+  }
+
+  .share-hint{
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .share-hint b{ color: var(--rose-deep); }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="brand">
+    <div class="mark">rare beauty</div>
+    <div class="tag">Wear Your Truth · Shade Quiz</div>
+  </div>
+
+  <div class="progress-ring" id="ring"></div>
+
+  <div class="card">
+
+    <div class="step active" data-step="0">
+      <p class="eyebrow">Question 1 of 3</p>
+      <h1 class="question">How does today feel?</h1>
+      <div class="options">
+        <button class="opt" data-shades="joy,hope" data-color="#E8B49A">
+          <span class="dot" style="background:#E8B49A"></span>
+          Soft and easy
+        </button>
+        <button class="opt" data-shades="grateful,truth" data-color="#B33B4A">
+          <span class="dot" style="background:#B33B4A"></span>
+          Bold and unstoppable
+        </button>
+        <button class="opt" data-shades="grateful,love" data-color="#C4623F">
+          <span class="dot" style="background:#C4623F"></span>
+          Warm and grateful
+        </button>
+        <button class="opt" data-shades="faith,hope" data-color="#6B2A3B">
+          <span class="dot" style="background:#6B2A3B"></span>
+          Quiet and reflective
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="1">
+      <p class="eyebrow">Question 2 of 3</p>
+      <h1 class="question">What do you need more of right now?</h1>
+      <div class="options">
+        <button class="opt" data-shades="joy,happy" data-color="#E8A0AE">
+          <span class="dot" style="background:#E8A0AE"></span>
+          Lightness
+        </button>
+        <button class="opt" data-shades="truth,grateful" data-color="#7A3B45">
+          <span class="dot" style="background:#7A3B45"></span>
+          Confidence
+        </button>
+        <button class="opt" data-shades="encourage,hope" data-color="#D9A6A6">
+          <span class="dot" style="background:#D9A6A6"></span>
+          Comfort
+        </button>
+        <button class="opt" data-shades="faith,truth" data-color="#8B3A4A">
+          <span class="dot" style="background:#8B3A4A"></span>
+          Trust in the process
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="2">
+      <p class="eyebrow">Question 3 of 3</p>
+      <h1 class="question">Pick a color that calls to you.</h1>
+      <div class="options">
+        <button class="opt" data-shades="joy,love" data-color="#E8B49A">
+          <span class="dot" style="background:#E8B49A"></span>
+          Peachy warmth
+        </button>
+        <button class="opt" data-shades="happy,encourage" data-color="#E8A0AE">
+          <span class="dot" style="background:#E8A0AE"></span>
+          Rosy pink
+        </button>
+        <button class="opt" data-shades="grateful,faith" data-color="#B33B4A">
+          <span class="dot" style="background:#B33B4A"></span>
+          Deep red
+        </button>
+        <button class="opt" data-shades="hope,truth" data-color="#C48A8E">
+          <span class="dot" style="background:#C48A8E"></span>
+          Mauve
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="reveal">
+      <div class="reveal">
+        <div class="swatch" id="swatch"></div>
+        <p class="shade-sub">Today, wear</p>
+        <h1 class="shade-name" id="shadeName">Grateful</h1>
+        <p class="affirmation" id="affirmation">"for the days you feel full — even the small things count."</p>
+        <a class="cta" id="shopLink" href="https://www.rarebeauty.com/products/soft-pinch-liquid-blush" target="_blank" rel="noopener">Shop this shade</a>
+        <button class="ghost" id="retake">Retake the quiz</button>
+        <p class="share-hint">Share your shade with <b>#WearYourTruth</b></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const shadeData = {
+    joy:       { name: "Joy",       hex: "#E8B49A", line: "for the days you feel light." },
+    happy:     { name: "Happy",     hex: "#E8A0AE", line: "for the days you feel bright." },
+    grateful:  { name: "Grateful",  hex: "#B33B4A", line: "for the days you feel full — even the small things count." },
+    hope:      { name: "Hope",      hex: "#C48A8E", line: "for the days you're looking forward." },
+    encourage: { name: "Encourage", hex: "#D9A6A6", line: "for the days you need a gentle push." },
+    truth:     { name: "Truth",     hex: "#7A3B45", line: "for the days you feel bold and real." },
+    faith:     { name: "Faith",     hex: "#6B2A3B", line: "for the days you trust the process." },
+    love:      { name: "Love",      hex: "#C4623F", line: "for the days you choose yourself." }
+  };
+
+  const scores = Object.fromEntries(Object.keys(shadeData).map(k => [k, 0]));
+  let pickedColors = [];
+  let step = 0;
+  const steps = document.querySelectorAll('.step');
+  const ring = document.getElementById('ring');
+
+  function showStep(target){
+    steps.forEach(s => s.classList.remove('active'));
+    document.querySelector(`.step[data-step="${target}"]`).classList.add('active');
+  }
+
+  function blend(colors){
+    if(colors.length === 0) return '#D9A6A6';
+    let r=0,g=0,b=0;
+    colors.forEach(hex => {
+      r += parseInt(hex.substr(1,2),16);
+      g += parseInt(hex.substr(3,2),16);
+      b += parseInt(hex.substr(5,2),16);
+    });
+    r = Math.round(r/colors.length); g = Math.round(g/colors.length); b = Math.round(b/colors.length);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function updateRing(){
+    const pct = (step/3)*100;
+    ring.style.setProperty('--fill', pct + '%');
+    ring.style.setProperty('--running', blend(pickedColors));
+  }
+
+  function warmBackground(hex){
+    document.body.style.background = `radial-gradient(120% 120% at 50% 0%, ${hex}22 0%, var(--bg-a) 60%)`;
+  }
+
+  document.querySelectorAll('.opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const shades = btn.dataset.shades.split(',');
+      shades.forEach(s => scores[s] += 1);
+      pickedColors.push(btn.dataset.color);
+      warmBackground(btn.dataset.color);
+      step += 1;
+      updateRing();
+
+      if(step < 3){
+        showStep(String(step));
+      } else {
+        const winner = Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+        const data = shadeData[winner];
+        document.getElementById('swatch').style.background =
+          `radial-gradient(circle at 35% 30%, ${data.hex}ee, ${data.hex})`;
+        document.getElementById('shadeName').textContent = data.name;
+        document.getElementById('affirmation').textContent = `"${data.line}"`;
+        document.getElementById('shopLink').textContent = `Shop ${data.name}`;
+        showStep('reveal');
+      }
+    });
+  });
+
+  document.getElementById('retake').addEventListener('click', () => {
+    Object.keys(scores).forEach(k => scores[k] = 0);
+    pickedColors = [];
+    step = 0;
+    updateRing();
+    document.body.style.background = '';
+    showStep('0');
+  });
+
+  updateRing();
+</script>
+
+</body>
+</html>
