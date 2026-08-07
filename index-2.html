@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sresha Rajesh — Marketing Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F5F1E8;
+    --paper-deep: #ECE3D1;
+    --ink: #22201B;
+    --ink-soft: #6B6355;
+    --sage: #3B5D50;
+    --sage-light: #7FA396;
+    --line: rgba(34,32,27,0.14);
+    --rose-deep: #9C4A57;
+    --rose: #C77B86;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+  }
+  a{ color: inherit; text-decoration:none; }
+  section{ padding: 90px 24px; max-width: 980px; margin: 0 auto; }
+  .eyebrow{
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--sage);
+    margin-bottom: 14px;
+  }
+
+  /* NAV */
+  nav{
+    position: sticky; top:0; z-index: 50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 28px;
+    background: rgba(245,241,232,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .name{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  nav ul{
+    display:flex; gap: 26px; list-style:none;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+  }
+  nav ul a{ color: var(--ink-soft); transition: color 160ms ease; }
+  nav ul a:hover{ color: var(--sage); }
+
+  /* HERO */
+  .hero{
+    padding-top: 110px;
+    padding-bottom: 60px;
+    position: relative;
+  }
+  .hero .eyebrow{ margin-bottom: 18px; }
+  .hero h1{
+    font-family:'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(52px, 9vw, 96px);
+    line-height: 1.02;
+    margin-bottom: 6px;
+  }
+  .hero .role{
+    font-family:'Fraunces', serif;
+    font-size: clamp(18px, 3vw, 24px);
+    color: var(--sage);
+    font-weight: 500;
+    margin-bottom: 26px;
+  }
+  .hero .bio{
+    max-width: 560px;
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 34px;
+  }
+  .growth-line{
+    width: 220px;
+    height: 40px;
+    margin-bottom: 30px;
+  }
+  .hero-actions{
+    display:flex; gap: 14px; flex-wrap: wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    transition: transform 160ms ease, background 160ms ease;
+  }
+  .btn-primary{ background: var(--sage); color: #fff; }
+  .btn-primary:hover{ background: var(--ink); transform: translateY(-1px); }
+  .btn-ghost{ border: 1px solid var(--line); color: var(--ink); }
+  .btn-ghost:hover{ border-color: var(--sage); color: var(--sage); }
+
+  /* SECTION HEADERS */
+  h2.section-title{
+    font-family:'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 8px;
+  }
+  .section-sub{
+    color: var(--ink-soft);
+    font-size: 15px;
+    max-width: 560px;
+    margin-bottom: 44px;
+  }
+
+  /* ABOUT */
+  .about-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    align-items:start;
+  }
+  @media (max-width: 720px){ .about-grid{ grid-template-columns: 1fr; } }
+  .about-grid p{ font-size: 15.5px; color: var(--ink); margin-bottom: 16px; }
+  .tag-list{ display:flex; flex-wrap:wrap; gap: 10px; }
+  .tag{
+    font-size: 12.5px; font-weight: 600;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--paper-deep); color: var(--ink);
+    border: 1px solid var(--line);
+  }
+
+  /* FEATURED WORK */
+  .work{ background: var(--paper-deep); }
+  .case-card{
+    background: linear-gradient(155deg, #FBF2EC, #F3E0DC);
+    border-radius: 24px;
+    padding: 44px;
+    border: 1px solid rgba(156,74,87,0.18);
+    box-shadow: 0 30px 70px -40px rgba(120,50,55,0.35);
+  }
+  @media (max-width: 640px){ .case-card{ padding: 30px 22px; } }
+  .case-card .kicker{
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 700; color: var(--rose-deep); margin-bottom: 14px;
+  }
+  .case-card h3{
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 38px);
+    margin-bottom: 14px;
+  }
+  .case-card p.desc{
+    max-width: 620px;
+    color: #4A2C2C;
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  .case-tags{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 30px; }
+  .case-tags span{
+    font-size: 11.5px; font-weight: 700;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(255,255,255,0.6); color: var(--rose-deep);
+  }
+  .case-stats{
+    display:grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 640px){ .case-stats{ grid-template-columns: 1fr; } }
+  .case-stats .stat{
+    background: rgba(255,255,255,0.55);
+    border-radius: 14px; padding: 16px;
+  }
+  .case-stats .stat .num{
+    font-family:'Fraunces', serif; font-weight: 600; font-size: 24px; color: var(--rose-deep);
+  }
+  .case-stats .stat .label{ font-size: 12px; color: #4A2C2C; margin-top: 2px; }
+  .case-actions{ display:flex; gap: 12px; flex-wrap: wrap; }
+  .case-btn{
+    padding: 12px 20px; border-radius: 999px; font-size: 13px; font-weight: 700;
+    background: var(--rose-deep); color: #fff;
+    transition: background 160ms ease, transform 160ms ease;
+  }
+  .case-btn:hover{ background: #742E38; transform: translateY(-1px); }
+  .case-btn.alt{ background: rgba(255,255,255,0.7); color: var(--rose-deep); }
+  .case-btn.alt:hover{ background: #fff; }
+
+  /* Nike case card variant */
+  .case-card.nike{
+    background: linear-gradient(155deg, #1B1B1B, #0D0D0D);
+    border: 1px solid rgba(215,254,99,0.18);
+    box-shadow: 0 30px 70px -40px rgba(0,0,0,0.6);
+    margin-top: 32px;
+  }
+  .case-card.nike .kicker{ color: #D7FE63; }
+  .case-card.nike h3{
+    font-family: 'Anton', 'Fraunces', sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.01em;
+  }
+  .case-card.nike p.desc{ color: #C9C9C4; }
+  .case-card.nike .case-tags span{ background: rgba(255,255,255,0.08); color: #D7FE63; }
+  .case-card.nike .case-stats .stat{ background: rgba(255,255,255,0.06); }
+  .case-card.nike .case-stats .stat .num{ color: #D7FE63; font-family:'Inter', sans-serif; font-weight: 800; }
+  .case-card.nike .case-stats .stat .label{ color: #C9C9C4; }
+  .case-card.nike .case-btn{ background: #D7FE63; color: #111; }
+  .case-card.nike .case-btn:hover{ background: #fff; }
+  .case-card.nike .case-btn.alt{ background: rgba(255,255,255,0.1); color: #fff; }
+  .case-card.nike .case-btn.alt:hover{ background: rgba(255,255,255,0.18); }
+
+  /* SKILLS */
+  .skills-grid{
+    display:grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+  }
+  @media (max-width: 720px){ .skills-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px){ .skills-grid{ grid-template-columns: 1fr; } }
+  .skill-card{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px 20px;
+  }
+  .skill-card .n{
+    font-family:'Fraunces', serif; color: var(--sage); font-weight: 600; font-size: 13px; margin-bottom: 8px;
+  }
+  .skill-card .t{ font-weight: 700; font-size: 14.5px; margin-bottom: 6px; }
+  .skill-card .d{ font-size: 13px; color: var(--ink-soft); }
+
+  /* CONTACT */
+  .contact{
+    text-align:center;
+    padding-bottom: 120px;
+  }
+  .contact h2{
+    font-family:'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(36px, 6vw, 56px);
+    margin-bottom: 18px;
+  }
+  .contact p{ color: var(--ink-soft); margin-bottom: 30px; }
+  .contact-links{ display:flex; gap: 14px; justify-content:center; flex-wrap: wrap; }
+
+  footer{
+    text-align:center; padding: 26px; font-size: 12px; color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+  }
+
+  .reveal{ opacity:0; transform: translateY(18px); transition: opacity 700ms ease, transform 700ms ease; }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="name">Sresha Rajesh</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <p class="eyebrow">Marketing Specialist</p>
+  <h1>Sresha<br>Rajesh</h1>
+  <p class="role">Brand & campaign strategy, with a focus on beauty and consumer lifestyle.</p>
+
+  <svg class="growth-line" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 34 C 40 34, 55 30, 75 24 C 100 16, 115 10, 140 8 C 165 6, 190 8, 218 2"
+      stroke="#3B5D50" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <circle cx="218" cy="2" r="4" fill="#3B5D50"/>
+  </svg>
+
+  <p class="bio">I build marketing campaigns that connect a brand's real identity to how people actually feel — from strategy through to the content itself. This site walks through one full campaign concept, end to end.</p>
+
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#work">View featured work</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/sresha-rajesh-2825a1271/" target="_blank" id="linkedinBtn">Connect on LinkedIn</a>
+  </div>
+</section>
+
+<section id="about" class="reveal">
+  <p class="eyebrow">About</p>
+  <h2 class="section-title">A little about my approach</h2>
+  <div class="about-grid">
+    <div>
+      <p>I like campaigns that start from something a brand already owns — a product detail, a name, a ritual — rather than inventing a message from nothing. The best ideas usually feel like they were always there.</p>
+      <p>This site features a full concept campaign for Rare Beauty's Soft Pinch Blush, built end-to-end: strategy, an interactive prototype, content mockups, and a measurement plan.</p>
+    </div>
+    <div>
+      <p style="font-weight:700; margin-bottom:12px;">Focus areas</p>
+      <div class="tag-list">
+        <span class="tag">Brand Strategy</span>
+        <span class="tag">Campaign Planning</span>
+        <span class="tag">Social & Content</span>
+        <span class="tag">Consumer Insights</span>
+        <span class="tag">Beauty & Lifestyle</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="work reveal">
+  <p class="eyebrow">Featured Work</p>
+  <h2 class="section-title">Campaign case study</h2>
+  <p class="section-sub">Two campaign concepts, from strategy to interactive prototype.</p>
+
+  <div class="case-card">
+    <p class="kicker">Rare Beauty · Soft Pinch Blush</p>
+    <h3>Wear Your Truth</h3>
+    <p class="desc">Instead of picking a blush shade for skin tone, you pick it for how you want to feel. The campaign turns shade names like Joy, Grateful, and Truth into a daily self-love ritual — deepening a brand identity Rare Beauty already owns.</p>
+
+    <div class="case-tags">
+      <span>Campaign Strategy</span>
+      <span>Interactive Prototype</span>
+      <span>Social Content</span>
+      <span>UGC</span>
+    </div>
+
+    <div class="case-stats">
+      <div class="stat"><div class="num">+30%</div><div class="label">Sales lift goal</div></div>
+      <div class="stat"><div class="num">8</div><div class="label">Shades mapped to moods</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">Deliverables prototyped</div></div>
+    </div>
+
+    <div class="case-actions">
+      <a class="case-btn" href="rare-beauty-shade-quiz.html" target="_blank">Try the live shade quiz →</a>
+      <a class="case-btn alt" href="rare-beauty-social-mockups.html" target="_blank">View social mockups</a>
+      <a class="case-btn alt" href="wear-your-truth-case-study.docx">Download full case study</a>
+    </div>
+  </div>
+
+  <div class="case-card nike">
+    <p class="kicker">Nike · Pegasus 42, Women's</p>
+    <h3>More Return.</h3>
+    <p class="desc">The Pegasus 42's real upgrade is energy return — 15% more than the Pegasus 41. This campaign turns that engineering fact into an emotional one: every mile gives back more than it costs, matching runners to a real colorway based on what they need from today's run.</p>
+
+    <div class="case-tags">
+      <span>Launch Campaign</span>
+      <span>Interactive Prototype</span>
+      <span>Social Content</span>
+      <span>UGC</span>
+    </div>
+
+    <div class="case-stats">
+      <div class="stat"><div class="num">15%</div><div class="label">More energy return</div></div>
+      <div class="stat"><div class="num">6</div><div class="label">Colorways mapped to moods</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">Deliverables prototyped</div></div>
+    </div>
+
+    <div class="case-actions">
+      <a class="case-btn" href="nike-pegasus-return-quiz.html" target="_blank">Try the live colorway quiz →</a>
+      <a class="case-btn alt" href="nike-pegasus-social-mockups.html" target="_blank">View social mockups</a>
+      <a class="case-btn alt" href="more-return-case-study.docx">Download full case study</a>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <p class="eyebrow">Skills</p>
+  <h2 class="section-title">What I bring to a marketing team</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="n">01</div>
+      <div class="t">Campaign Strategy</div>
+      <div class="d">Turning a brand insight into a full plan — audience, message, channels, and timeline.</div>
+    </div>
+    <div class="skill-card">
+      <div class="n">02</div>
+      <div class="t">Content & Social</div>
+      <div class="d">Writing and mocking up on-brand content across social, email, and landing pages.</div>
+    </div>
+    <div class="skill-card">
+      <div class="n">03</div>
+      <div class="t">Consumer Insight</div>
+      <div class="d">Grounding creative ideas in what an audience actually values, not just what's trendy.</div>
+    </div>
+    <div class="skill-card">
+      <div class="n">04</div>
+      <div class="t">Measurement</div>
+      <div class="d">Setting KPIs that actually match campaign goals — awareness vs. conversion vs. loyalty.</div>
+    </div>
+    <div class="skill-card">
+      <div class="n">05</div>
+      <div class="t">Cross-functional Collaboration</div>
+      <div class="d">Comfortable working across creative, growth, and product to ship a campaign.</div>
+    </div>
+    <div class="skill-card">
+      <div class="n">06</div>
+      <div class="t">Rapid Prototyping</div>
+      <div class="d">Mocking up interactive concepts quickly to pitch ideas before full production.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact reveal">
+  <h2>Let's talk.</h2>
+  <p>Open to Marketing Specialist roles — reach out anytime.</p>
+  <div class="contact-links">
+    <a class="btn btn-primary" href="mailto:sresharajesh@gmail.com">Email me</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/sresha-rajesh-2825a1271/" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<footer>© 2026 Sresha Rajesh</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  items.forEach(i => obs.observe(i));
+</script>
+
+</body>
+</html>
