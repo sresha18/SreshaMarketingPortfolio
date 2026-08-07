@@ -60,10 +60,17 @@
 
   /* HERO */
   .hero{
-    padding-top: 110px;
+    padding-top: 36px;
     padding-bottom: 60px;
     position: relative;
+    text-align: center;
   }
+  .hero .greeting{ justify-content: center; }
+  .rotate-wrap{ justify-content: center; }
+  .hero .bio{ margin-left: auto; margin-right: auto; }
+  .growth-line{ display: block; margin-left: auto; margin-right: auto; }
+  .fact-strip{ justify-content: center; }
+  .hero-actions{ justify-content: center; }
   .hero .eyebrow{ margin-bottom: 18px; }
   .hero h1{
     font-family:'Instrument Serif', serif;
@@ -79,6 +86,89 @@
     color: var(--sage);
     font-weight: 500;
     margin-bottom: 26px;
+  }
+  .hero .greeting{
+    font-family:'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+    display:flex; align-items:center; gap: 8px;
+  }
+  .hero .greeting .wave{
+    display:inline-block;
+    animation: wave 2.2s ease-in-out infinite;
+    transform-origin: 70% 70%;
+  }
+  @keyframes wave{
+    0%,60%,100%{ transform: rotate(0deg); }
+    10%{ transform: rotate(14deg); }
+    20%{ transform: rotate(-8deg); }
+    30%{ transform: rotate(14deg); }
+    40%{ transform: rotate(-4deg); }
+  }
+  .rotate-wrap{
+    display:flex; align-items:baseline; gap: 8px; flex-wrap: wrap;
+    font-family:'Fraunces', serif;
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 500;
+    margin-bottom: 26px;
+  }
+  .rotate-wrap .static{ color: var(--ink); }
+  .rotate-text{
+    color: var(--sage);
+    display:inline-block;
+    transition: opacity 280ms ease, transform 280ms ease;
+  }
+  .rotate-text.fade{ opacity: 0; transform: translateY(6px); }
+
+  .fact-strip{
+    display:flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 34px;
+  }
+  .fact-pill{
+    font-size: 12.5px; font-weight: 600;
+    padding: 8px 14px; border-radius: 999px;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    display:inline-flex; align-items:center; gap: 6px;
+  }
+
+  /* MARQUEE DIVIDER */
+  .marquee{
+    overflow: hidden;
+    background: var(--sage);
+    padding: 18px 0;
+    white-space: nowrap;
+  }
+  .marquee-track{
+    display: inline-flex;
+    animation: marquee-scroll 26s linear infinite;
+  }
+  .marquee-track span{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 17px;
+    color: var(--paper);
+    padding: 0 26px;
+    display:inline-flex;
+    align-items:center;
+    gap: 26px;
+  }
+  .marquee-track span::after{
+    content: '✦';
+    font-style: normal;
+    opacity: 0.6;
+    font-size: 12px;
+  }
+  @keyframes marquee-scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{ animation: none; }
   }
   .hero .bio{
     max-width: 560px;
@@ -275,9 +365,13 @@
 </nav>
 
 <section class="hero">
-  <p class="eyebrow">Marketing Specialist</p>
+  <p class="greeting"><span class="wave">👋</span> Hi, I'm</p>
   <h1>Sresha<br>Rajesh</h1>
-  <p class="role">Brand & campaign strategy, with a focus on beauty and consumer lifestyle.</p>
+
+  <div class="rotate-wrap">
+    <span class="static">I'm a</span>
+    <span class="rotate-text" id="rotateText">Marketing Specialist</span>
+  </div>
 
   <svg class="growth-line" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M2 34 C 40 34, 55 30, 75 24 C 100 16, 115 10, 140 8 C 165 6, 190 8, 218 2"
@@ -285,7 +379,13 @@
     <circle cx="218" cy="2" r="4" fill="#3B5D50"/>
   </svg>
 
-  <p class="bio">I build marketing campaigns that connect a brand's real identity to how people actually feel — from strategy through to the content itself. This site walks through one full campaign concept, end to end.</p>
+  <p class="bio">I'm the person who reads the ingredient list on a shampoo bottle for fun and has strong opinions about font choices on restaurant menus. Turns out that's basically the job. I like taking something a brand already has, a name, a color, a weird little detail nobody's used yet, and building a whole idea around it instead of starting from a blank page every time.</p>
+
+  <div class="fact-strip">
+    <span class="fact-pill">🎯 2 full campaigns shipped (here)</span>
+    <span class="fact-pill">💡 Idea-first, spreadsheet-second</span>
+    <span class="fact-pill">☕ Fueled by iced coffee</span>
+  </div>
 
   <div class="hero-actions">
     <a class="btn btn-primary" href="#work">View featured work</a>
@@ -293,12 +393,27 @@
   </div>
 </section>
 
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Brand Strategy</span>
+    <span>Campaign Planning</span>
+    <span>Storytelling</span>
+    <span>Consumer Insights</span>
+    <span>Social & Content</span>
+    <span>Brand Strategy</span>
+    <span>Campaign Planning</span>
+    <span>Storytelling</span>
+    <span>Consumer Insights</span>
+    <span>Social & Content</span>
+  </div>
+</div>
+
 <section id="about" class="reveal">
   <p class="eyebrow">About</p>
   <h2 class="section-title">A little about my approach</h2>
   <div class="about-grid">
     <div>
-      <p>I like campaigns that start from something a brand already owns — a product detail, a name, a ritual — rather than inventing a message from nothing. The best ideas usually feel like they were always there.</p>
+      <p>I like campaigns that start from something a brand already owns, a product detail, a name, a ritual, rather than inventing a message from nothing. The best ideas usually feel like they were always there.</p>
       <p>This site features a full concept campaign for Rare Beauty's Soft Pinch Blush, built end-to-end: strategy, an interactive prototype, content mockups, and a measurement plan.</p>
     </div>
     <div>
@@ -322,7 +437,7 @@
   <div class="case-card">
     <p class="kicker">Rare Beauty · Soft Pinch Blush</p>
     <h3>Wear Your Truth</h3>
-    <p class="desc">Instead of picking a blush shade for skin tone, you pick it for how you want to feel. The campaign turns shade names like Joy, Grateful, and Truth into a daily self-love ritual — deepening a brand identity Rare Beauty already owns.</p>
+    <p class="desc">Instead of picking a blush shade for skin tone, you pick it for how you want to feel. The campaign turns shade names like Joy, Grateful, and Truth into a daily self-love ritual, deepening a brand identity Rare Beauty already owns.</p>
 
     <div class="case-tags">
       <span>Campaign Strategy</span>
@@ -347,7 +462,7 @@
   <div class="case-card nike">
     <p class="kicker">Nike · Pegasus 42, Women's</p>
     <h3>More Return.</h3>
-    <p class="desc">The Pegasus 42's real upgrade is energy return — 15% more than the Pegasus 41. This campaign turns that engineering fact into an emotional one: every mile gives back more than it costs, matching runners to a real colorway based on what they need from today's run.</p>
+    <p class="desc">The Pegasus 42's real upgrade is energy return, 15% more than the Pegasus 41. This campaign turns that engineering fact into an emotional one: every mile gives back more than it costs, matching runners to a real colorway based on what they need from today's run.</p>
 
     <div class="case-tags">
       <span>Launch Campaign</span>
@@ -377,7 +492,7 @@
     <div class="skill-card">
       <div class="n">01</div>
       <div class="t">Campaign Strategy</div>
-      <div class="d">Turning a brand insight into a full plan — audience, message, channels, and timeline.</div>
+      <div class="d">Turning a brand insight into a full plan: audience, message, channels, and timeline.</div>
     </div>
     <div class="skill-card">
       <div class="n">02</div>
@@ -392,7 +507,7 @@
     <div class="skill-card">
       <div class="n">04</div>
       <div class="t">Measurement</div>
-      <div class="d">Setting KPIs that actually match campaign goals — awareness vs. conversion vs. loyalty.</div>
+      <div class="d">Setting KPIs that actually match campaign goals, whether that's awareness, conversion, or loyalty.</div>
     </div>
     <div class="skill-card">
       <div class="n">05</div>
@@ -409,7 +524,7 @@
 
 <section id="contact" class="contact reveal">
   <h2>Let's talk.</h2>
-  <p>Open to Marketing Specialist roles — reach out anytime.</p>
+  <p>Open to Marketing Specialist roles. Reach out anytime.</p>
   <div class="contact-links">
     <a class="btn btn-primary" href="mailto:sresharajesh@gmail.com">Email me</a>
     <a class="btn btn-ghost" href="https://www.linkedin.com/in/sresha-rajesh-2825a1271/" target="_blank">LinkedIn</a>
@@ -424,6 +539,20 @@
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.15 });
   items.forEach(i => obs.observe(i));
+
+  const roles = ["Marketing Specialist", "Brand Strategist", "Campaign Builder", "Storyteller (with a spreadsheet)"];
+  const rotateEl = document.getElementById('rotateText');
+  let roleIndex = 0;
+  if(rotateEl){
+    setInterval(() => {
+      rotateEl.classList.add('fade');
+      setTimeout(() => {
+        roleIndex = (roleIndex + 1) % roles.length;
+        rotateEl.textContent = roles[roleIndex];
+        rotateEl.classList.remove('fade');
+      }, 280);
+    }, 2600);
+  }
 </script>
 
 </body>
