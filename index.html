@@ -441,11 +441,11 @@
 
 <section id="about" class="reveal">
   <p class="eyebrow">About</p>
-  <h2 class="section-title">A little about my approach</h2>
+  <h2 class="section-title">Why I do this</h2>
   <div class="about-grid">
     <div>
-      <p>I like campaigns that start from something a brand already owns, a product detail, a name, a ritual, rather than inventing a message from nothing. The best ideas usually feel like they were always there.</p>
-      <p>This site features a full concept campaign for Rare Beauty's Soft Pinch Blush, built end-to-end: strategy, an interactive prototype, content mockups, and a measurement plan.</p>
+      <p>Honestly, what pulls me into marketing is the psychology of it. Why does one shade name make you reach for the blush and not another? Why does a shoe ad about "energy return" actually make you think about your own energy? I like poking at the small, half-conscious reasons people buy things, and then building a campaign around the real one instead of a made-up one.</p>
+      <p>This site walks through two campaign concepts built end-to-end: strategy, an interactive prototype, content mockups, and a measurement plan.</p>
     </div>
     <div>
       <p style="font-weight:700; margin-bottom:12px;">Focus areas</p>
@@ -574,19 +574,26 @@
   const roles = ["Marketing Specialist", "Brand Strategist", "Campaign Builder", "Storyteller (with a spreadsheet)"];
   const rotateEl = document.getElementById('rotateText');
   let roleIndex = 0;
+  let lastScrollY = window.scrollY;
+  let isAnimating = false;
+  const scrollThreshold = 60;
+
   if(rotateEl){
-    const interval = setInterval(() => {
-      if(roleIndex >= roles.length - 1){
-        clearInterval(interval);
-        return;
-      }
+    window.addEventListener('scroll', () => {
+      if(isAnimating) return;
+      const currentY = window.scrollY;
+      if(Math.abs(currentY - lastScrollY) < scrollThreshold) return;
+      lastScrollY = currentY;
+      isAnimating = true;
+
       rotateEl.classList.add('fade');
       setTimeout(() => {
-        roleIndex += 1;
+        roleIndex = (roleIndex + 1) % roles.length;
         rotateEl.textContent = roles[roleIndex];
         rotateEl.classList.remove('fade');
+        isAnimating = false;
       }, 400);
-    }, 2600);
+    }, { passive: true });
   }
 </script>
 
