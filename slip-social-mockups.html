@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep On It — Social Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page-bg: #ECE3D3;
+    --ink: #2A2420;
+    --ink-soft: #7A6F62;
+    --card-bg: #FFFFFF;
+    --plum: #5C3A4E;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background: var(--page-bg); font-family:'Inter', sans-serif; color: var(--ink); padding: 40px 20px 60px; }
+  .header{ text-align:center; max-width: 640px; margin: 0 auto 40px; }
+  .header .eyebrow{ font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--plum); font-weight: 700; margin: 0 0 10px; }
+  .header h1{ font-family:'Instrument Serif', serif; font-style: italic; font-size: 32px; margin: 0 0 10px; }
+  .header p{ color: var(--ink-soft); font-size: 14px; line-height: 1.6; margin: 0; }
+
+  .grid{ display:grid; grid-template-columns: repeat(2, minmax(260px, 340px)); gap: 28px; justify-content:center; max-width: 760px; margin: 0 auto; }
+  @media (max-width: 640px){ .grid{ grid-template-columns: 1fr; } }
+
+  .post{ background: var(--card-bg); border-radius: 16px; overflow:hidden; box-shadow: 0 20px 50px -28px rgba(92,58,78,0.35); }
+  .post-head{ display:flex; align-items:center; gap: 8px; padding: 10px 12px; }
+  .avatar{ width: 26px; height:26px; border-radius:50%; background: linear-gradient(135deg, #D9A6A0, #5C3A4E); flex-shrink:0; }
+  .handle{ font-size: 12.5px; font-weight: 600; }
+  .square{
+    aspect-ratio: 1/1; width: 100%; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding: 24px;
+  }
+  .square .tod{ font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; opacity: 0.75; margin: 0 0 14px; }
+  .square .line{
+    font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
+    font-size: 23px; line-height: 1.3; margin: 0 0 16px; max-width: 240px;
+  }
+  .square .tag{
+    display:inline-flex; align-items:center; gap: 6px; background: rgba(255,255,255,0.55);
+    border-radius: 999px; padding: 6px 12px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em;
+  }
+  .tag .swatch-dot{ width: 9px; height:9px; border-radius:50%; }
+  .post-foot{ padding: 10px 14px 14px; }
+  .icons{ display:flex; gap: 14px; font-size: 15px; margin-bottom: 8px; color: var(--ink); }
+  .caption{ font-size: 12.5px; line-height: 1.5; }
+  .caption b{ font-weight: 700; }
+  .tagrow{ font-size: 12px; color: var(--plum); margin-top: 4px; }
+
+  .bg-champagne{ background: linear-gradient(160deg, #F3E7CC, #E8D4A8); color: #4A3B1B; }
+  .bg-rosegold{ background: linear-gradient(160deg, #F0D6D0, #D9A6A0); color: #4A2622; }
+  .bg-lavender{ background: linear-gradient(160deg, #E4DAF0, #B9A6D9); color: #33254A; }
+  .bg-burgundy{ background: linear-gradient(160deg, #C98C99, #6B2635); color: #FDECEF; }
+
+  .ugc-section{ max-width: 760px; margin: 56px auto 0; text-align:center; }
+  .ugc-section .eyebrow{ font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--plum); font-weight: 700; margin: 0 0 10px; }
+  .ugc-section h2{ font-family:'Instrument Serif', serif; font-style: italic; font-size: 26px; margin: 0 0 28px; }
+  .ugc-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 640px){ .ugc-grid{ grid-template-columns: 1fr; } }
+  .ugc-card{ background: var(--card-bg); border-radius: 14px; padding: 20px 16px; box-shadow: 0 16px 40px -26px rgba(92,58,78,0.3); text-align:left; }
+  .ugc-card .quote{ font-family:'Instrument Serif', serif; font-style: italic; font-size: 15px; line-height: 1.5; margin: 0 0 12px; }
+  .ugc-card .who{ font-size: 12px; font-weight: 600; color: var(--ink-soft); }
+  .ugc-card .hash{ font-size: 11.5px; color: var(--plum); margin-top: 6px; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="eyebrow">Sleep On It · Content Mockups</p>
+  <h1>Set Tonight's Intention</h1>
+  <p>A recurring evening social series pairing a Slip colorway with a one-line wind-down thought, treating sleep like the last step of the routine instead of an afterthought.</p>
+</div>
+
+<div class="grid">
+
+  <div class="post">
+    <div class="post-head"><div class="avatar"></div><div class="handle">slip</div></div>
+    <div class="square bg-champagne">
+      <p class="tod">Tonight</p>
+      <p class="line">"Let it be a golden one."</p>
+      <div class="tag"><span class="swatch-dot" style="background:#E8D4A8"></span> Champagne</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>slip</b> Some nights ask for Champagne. What's tonight's shade?</div>
+      <div class="tagrow">#SleepOnIt</div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-head"><div class="avatar"></div><div class="handle">slip</div></div>
+    <div class="square bg-rosegold">
+      <p class="tod">Tonight</p>
+      <p class="line">"Rest is the glow-up."</p>
+      <div class="tag"><span class="swatch-dot" style="background:#D9A6A0"></span> Rose Gold</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>slip</b> Rose Gold for the nights you want tomorrow's version of you to thank you.</div>
+      <div class="tagrow">#SleepOnIt</div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-head"><div class="avatar"></div><div class="handle">slip</div></div>
+    <div class="square bg-lavender">
+      <p class="tod">Tonight</p>
+      <p class="line">"Ease all the way out."</p>
+      <div class="tag"><span class="swatch-dot" style="background:#B9A6D9"></span> Lavender</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>slip</b> Lavender nights are for letting the day actually end.</div>
+      <div class="tagrow">#SleepOnIt</div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-head"><div class="avatar"></div><div class="handle">slip</div></div>
+    <div class="square bg-burgundy">
+      <p class="tod">Tonight</p>
+      <p class="line">"Sleep like you mean it."</p>
+      <div class="tag"><span class="swatch-dot" style="background:#6B2635"></span> Burgundy</div>
+    </div>
+    <div class="post-foot">
+      <div class="icons">♡ ⤳ ⋯</div>
+      <div class="caption"><b>slip</b> Burgundy for the nights before the mornings that matter.</div>
+      <div class="tagrow">#SleepOnIt</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ugc-section">
+  <p class="eyebrow">UGC Challenge</p>
+  <h2>#SleepOnIt — what did you notice this morning?</h2>
+  <div class="ugc-grid">
+    <div class="ugc-card">
+      <p class="quote">"Woke up and my hair didn't need a single pass of the brush. Didn't expect a pillowcase to be the reason."</p>
+      <div class="who">@glowbeforecoffee</div>
+      <div class="hash">#SleepOnIt</div>
+    </div>
+    <div class="ugc-card">
+      <p class="quote">"Slept on the Lavender one before a big presentation. Don't know if it helped, but I woke up calm and I'll take it."</p>
+      <div class="who">@softmornings_</div>
+      <div class="hash">#SleepOnIt</div>
+    </div>
+    <div class="ugc-card">
+      <p class="quote">"The one step in my routine I never have to remember to do. Just have to go to sleep."</p>
+      <div class="who">@ritualsandrest</div>
+      <div class="hash">#SleepOnIt</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

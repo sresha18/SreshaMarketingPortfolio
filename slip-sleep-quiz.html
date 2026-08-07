@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep On It — Find Your Slip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --champagne: #F3EBDA;
+    --champagne-deep: #E9DBC0;
+    --ink: #2A2420;
+    --ink-soft: #7A6F62;
+    --plum: #5C3A4E;
+    --plum-light: #9C7089;
+    --line: rgba(42,36,32,0.14);
+    --running: #D9A6A0;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:'Inter', sans-serif; color: var(--ink);
+    background: radial-gradient(120% 120% at 50% 0%, var(--champagne-deep) 0%, var(--champagne) 55%);
+    padding: 32px 16px;
+  }
+  .stage{ width:100%; max-width: 460px; }
+  .brand{ text-align:center; margin-bottom: 26px; }
+  .brand .mark{
+    font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
+    font-size: 22px; color: var(--plum);
+  }
+  .brand .tag{
+    font-size: 11px; color: var(--ink-soft); margin-top: 4px;
+    letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+  }
+  .progress-ring{
+    width: 46px; height: 46px; border-radius: 50%; margin: 0 auto 22px;
+    display:flex; align-items:center; justify-content:center;
+    background: conic-gradient(var(--running) var(--fill, 0%), rgba(42,36,32,0.08) 0%);
+    transition: background 700ms ease;
+  }
+  .progress-ring::after{ content:''; width: 34px; height: 34px; border-radius: 50%; background: var(--champagne); }
+  .card{
+    background: rgba(255,255,255,0.6); border: 1px solid var(--line); border-radius: 22px;
+    padding: 34px 28px; backdrop-filter: blur(6px);
+    box-shadow: 0 20px 60px -30px rgba(92,58,78,0.35);
+  }
+  .step{ display:none; }
+  .step.active{ display:block; animation: rise 460ms ease; }
+  @keyframes rise{ from{ opacity:0; transform: translateY(10px); } to{ opacity:1; transform: translateY(0); } }
+  .eyebrow{
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--plum); margin: 0 0 10px; font-weight: 700;
+  }
+  h1.question{
+    font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
+    font-size: 27px; line-height: 1.25; margin: 0 0 24px;
+  }
+  .options{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .opt{
+    border: 1px solid var(--line); background: rgba(255,255,255,0.5); border-radius: 14px;
+    padding: 16px 14px; text-align:left; font-family:'Inter', sans-serif; font-size: 14px;
+    line-height: 1.4; color: var(--ink); cursor:pointer;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  }
+  .opt:hover{ border-color: var(--plum-light); transform: translateY(-2px); }
+  .opt .dot{ width: 10px; height: 10px; border-radius: 50%; display:inline-block; margin-bottom: 8px; }
+  .reveal{ text-align:center; }
+  .swatch{
+    width: 120px; height: 120px; border-radius: 50%; margin: 4px auto 22px;
+    box-shadow: 0 18px 40px -18px rgba(92,58,78,0.5), inset 0 -6px 14px rgba(0,0,0,0.08);
+    animation: bloom 700ms ease;
+  }
+  @keyframes bloom{ from{ transform: scale(0.4); opacity:0; } to{ transform: scale(1); opacity:1; } }
+  .wake-name{ font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 32px; margin: 0; }
+  .colorway{ font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin: 4px 0 18px; }
+  .affirmation{ font-size: 16px; line-height: 1.55; color: var(--ink); margin: 0 0 26px; padding: 0 6px; }
+  .cta{
+    display:block; width: 100%; padding: 14px 18px; border-radius: 999px; border: none;
+    background: var(--plum); color: #fff; font-family:'Inter', sans-serif; font-weight: 600;
+    font-size: 14px; cursor: pointer; text-decoration:none; text-align:center;
+    transition: background 160ms ease, transform 160ms ease; margin-bottom: 10px;
+  }
+  .cta:hover{ background: #45283A; transform: translateY(-1px); }
+  .ghost{
+    display:block; width:100%; padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line);
+    background: transparent; color: var(--ink-soft); font-family:'Inter', sans-serif; font-size: 13px; cursor:pointer;
+  }
+  .share-hint{ margin-top: 18px; font-size: 12px; color: var(--ink-soft); }
+  .share-hint b{ color: var(--plum); }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="brand">
+    <div class="mark">slip</div>
+    <div class="tag">Sleep On It · Find Your Slip</div>
+  </div>
+
+  <div class="progress-ring" id="ring"></div>
+
+  <div class="card">
+
+    <div class="step active" data-step="0">
+      <p class="eyebrow">Question 1 of 3</p>
+      <h1 class="question">What does tonight need to be?</h1>
+      <div class="options">
+        <button class="opt" data-shades="lavender,sage" data-color="#B9A6D9">
+          <span class="dot" style="background:#B9A6D9"></span>
+          Slow and quiet
+        </button>
+        <button class="opt" data-shades="champagne,rosegold" data-color="#E8D4A8">
+          <span class="dot" style="background:#E8D4A8"></span>
+          A little indulgent
+        </button>
+        <button class="opt" data-shades="black,burgundy" data-color="#6B2635">
+          <span class="dot" style="background:#6B2635"></span>
+          All business, early morning ahead
+        </button>
+        <button class="opt" data-shades="sage,champagne" data-color="#9BAE8F">
+          <span class="dot" style="background:#9BAE8F"></span>
+          Just another consistent night
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="1">
+      <p class="eyebrow">Question 2 of 3</p>
+      <h1 class="question">What do you want waiting for you tomorrow?</h1>
+      <div class="options">
+        <button class="opt" data-shades="lavender,sage" data-color="#B9A6D9">
+          <span class="dot" style="background:#B9A6D9"></span>
+          A fresh start
+        </button>
+        <button class="opt" data-shades="champagne,rosegold" data-color="#D9A6A0">
+          <span class="dot" style="background:#D9A6A0"></span>
+          A little glow
+        </button>
+        <button class="opt" data-shades="black,burgundy" data-color="#2B2B2B">
+          <span class="dot" style="background:#2B2B2B"></span>
+          Sharp focus
+        </button>
+        <button class="opt" data-shades="sage,black" data-color="#9BAE8F">
+          <span class="dot" style="background:#9BAE8F"></span>
+          Steadiness
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="2">
+      <p class="eyebrow">Question 3 of 3</p>
+      <h1 class="question">Pick a color that matches tonight's mood.</h1>
+      <div class="options">
+        <button class="opt" data-shades="champagne" data-color="#E8D4A8">
+          <span class="dot" style="background:#E8D4A8"></span>
+          Soft champagne
+        </button>
+        <button class="opt" data-shades="rosegold" data-color="#D9A6A0">
+          <span class="dot" style="background:#D9A6A0"></span>
+          Blush rose gold
+        </button>
+        <button class="opt" data-shades="lavender" data-color="#B9A6D9">
+          <span class="dot" style="background:#B9A6D9"></span>
+          Cool lavender
+        </button>
+        <button class="opt" data-shades="burgundy" data-color="#6B2635">
+          <span class="dot" style="background:#6B2635"></span>
+          Deep burgundy
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="reveal">
+      <div class="reveal">
+        <div class="swatch" id="swatch"></div>
+        <p class="colorway" id="colorwayLabel" style="margin-bottom:2px;">Tonight, sleep in</p>
+        <h1 class="wake-name" id="wakeName">Wake Up Glowing</h1>
+        <p class="colorway" id="colorway">Champagne</p>
+        <p class="affirmation" id="affirmation">For the mornings you want to feel golden.</p>
+        <a class="cta" id="shopLink" href="https://slip.us/" target="_blank" rel="noopener">Shop this colorway</a>
+        <button class="ghost" id="retake">Retake the quiz</button>
+        <p class="share-hint">Share your night with <b>#SleepOnIt</b></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const data = {
+    champagne: { name: "Wake Up Glowing",  colorway: "Champagne",   hex: "#E8D4A8", line: "For the mornings you want to feel golden." },
+    rosegold:  { name: "Wake Up Radiant",  colorway: "Rose Gold",   hex: "#D9A6A0", line: "For the mornings that call for a little shine." },
+    lavender:  { name: "Wake Up Calm",     colorway: "Lavender",    hex: "#B9A6D9", line: "For the mornings you want to ease into." },
+    sage:      { name: "Wake Up Grounded", colorway: "Sage",        hex: "#9BAE8F", line: "For the mornings you need to feel steady." },
+    black:     { name: "Wake Up Sharp",    colorway: "Black",       hex: "#2B2B2B", line: "For the mornings you mean business." },
+    burgundy:  { name: "Wake Up Bold",     colorway: "Burgundy",    hex: "#6B2635", line: "For the mornings you want a little edge." }
+  };
+
+  const scores = Object.fromEntries(Object.keys(data).map(k => [k, 0]));
+  let pickedColors = [];
+  let step = 0;
+  const steps = document.querySelectorAll('.step');
+  const ring = document.getElementById('ring');
+
+  function showStep(t){
+    steps.forEach(s => s.classList.remove('active'));
+    document.querySelector(`.step[data-step="${t}"]`).classList.add('active');
+  }
+  function blend(colors){
+    if(colors.length === 0) return '#D9A6A0';
+    let r=0,g=0,b=0;
+    colors.forEach(hex => {
+      r += parseInt(hex.substr(1,2),16);
+      g += parseInt(hex.substr(3,2),16);
+      b += parseInt(hex.substr(5,2),16);
+    });
+    r = Math.round(r/colors.length); g = Math.round(g/colors.length); b = Math.round(b/colors.length);
+    return `rgb(${r},${g},${b})`;
+  }
+  function updateRing(){
+    ring.style.setProperty('--fill', (step/3)*100 + '%');
+    ring.style.setProperty('--running', blend(pickedColors));
+  }
+
+  document.querySelectorAll('.opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.dataset.shades.split(',').forEach(s => scores[s] += 1);
+      pickedColors.push(btn.dataset.color);
+      step += 1;
+      updateRing();
+
+      if(step < 3){
+        showStep(String(step));
+      } else {
+        const winner = Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+        const d = data[winner];
+        document.getElementById('swatch').style.background = `radial-gradient(circle at 35% 30%, ${d.hex}ee, ${d.hex})`;
+        document.getElementById('wakeName').textContent = d.name;
+        document.getElementById('colorway').textContent = d.colorway;
+        document.getElementById('affirmation').textContent = d.line;
+        document.getElementById('shopLink').textContent = `Shop ${d.colorway}`;
+        showStep('reveal');
+      }
+    });
+  });
+
+  document.getElementById('retake').addEventListener('click', () => {
+    Object.keys(scores).forEach(k => scores[k] = 0);
+    pickedColors = [];
+    step = 0;
+    updateRing();
+    showStep('0');
+  });
+
+  updateRing();
+</script>
+
+</body>
+</html>
