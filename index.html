@@ -17,6 +17,7 @@
     --line: rgba(34,32,27,0.14);
     --rose-deep: #9C4A57;
     --rose: #C77B86;
+    --gold: #B8863E;
   }
   *{ box-sizing:border-box; margin:0; padding:0; }
   html{ scroll-behavior:smooth; }
@@ -118,9 +119,11 @@
   .rotate-text{
     color: var(--sage);
     display:inline-block;
-    transition: opacity 280ms ease, transform 280ms ease;
+    min-width: 260px;
+    text-align: left;
+    transition: opacity 400ms ease, transform 400ms ease;
   }
-  .rotate-text.fade{ opacity: 0; transform: translateY(6px); }
+  .rotate-text.fade{ opacity: 0; transform: translateY(4px); }
 
   .fact-strip{
     display:flex; flex-wrap: wrap; gap: 10px;
@@ -135,40 +138,38 @@
     display:inline-flex; align-items:center; gap: 6px;
   }
 
-  /* MARQUEE DIVIDER */
+  /* DIVIDER BAND */
   .marquee{
     overflow: hidden;
     background: var(--sage);
-    padding: 18px 0;
-    white-space: nowrap;
+    padding: 20px 24px;
   }
   .marquee-track{
-    display: inline-flex;
-    animation: marquee-scroll 26s linear infinite;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
   }
   .marquee-track span{
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--paper);
-    padding: 0 26px;
+    padding: 4px 22px;
     display:inline-flex;
     align-items:center;
-    gap: 26px;
+    gap: 22px;
   }
   .marquee-track span::after{
     content: '✦';
     font-style: normal;
     opacity: 0.6;
-    font-size: 12px;
+    font-size: 11px;
   }
-  @keyframes marquee-scroll{
-    from{ transform: translateX(0); }
-    to{ transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce){
-    .marquee-track{ animation: none; }
+  .marquee-track span:last-child::after{
+    content: '';
   }
   .hero .bio{
     max-width: 560px;
@@ -218,12 +219,33 @@
   }
   @media (max-width: 720px){ .about-grid{ grid-template-columns: 1fr; } }
   .about-grid p{ font-size: 15.5px; color: var(--ink); margin-bottom: 16px; }
-  .tag-list{ display:flex; flex-wrap:wrap; gap: 10px; }
+  .tag-list{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 480px){ .tag-list{ grid-template-columns: 1fr; } }
   .tag{
-    font-size: 12.5px; font-weight: 600;
-    padding: 8px 14px; border-radius: 999px;
-    background: var(--paper-deep); color: var(--ink);
-    border: 1px solid var(--line);
+    background: linear-gradient(155deg, #FFFFFF, #FBF2EC);
+    border: 1px solid rgba(156,74,87,0.14);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 14px 28px -22px rgba(34,32,27,0.3);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .tag:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 18px 32px -18px rgba(156,74,87,0.4);
+  }
+  .tag .badge{
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--rose-deep); color: #fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size: 11px; font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .tag .label{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    display:block;
   }
 
   /* FEATURED WORK */
@@ -314,16 +336,30 @@
   @media (max-width: 720px){ .skills-grid{ grid-template-columns: 1fr 1fr; } }
   @media (max-width: 480px){ .skills-grid{ grid-template-columns: 1fr; } }
   .skill-card{
-    background: var(--paper);
+    background: #fff;
     border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 22px 20px;
+    border-radius: 18px;
+    padding: 24px 20px;
+    box-shadow: 0 12px 26px -22px rgba(34,32,27,0.28);
+    transition: transform 220ms ease, box-shadow 220ms ease;
   }
-  .skill-card .n{
-    font-family:'Fraunces', serif; color: var(--sage); font-weight: 600; font-size: 13px; margin-bottom: 8px;
+  .skill-card:hover{
+    transform: translateY(-5px) rotate(-0.4deg);
+    box-shadow: 0 20px 36px -20px rgba(34,32,27,0.32);
   }
-  .skill-card .t{ font-weight: 700; font-size: 14.5px; margin-bottom: 6px; }
-  .skill-card .d{ font-size: 13px; color: var(--ink-soft); }
+  .skill-card .icon-badge{
+    width: 46px; height: 46px; border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size: 21px; margin-bottom: 14px;
+  }
+  .skill-card.c-sage .icon-badge{ background: rgba(59,93,80,0.14); }
+  .skill-card.c-rose .icon-badge{ background: rgba(156,74,87,0.14); }
+  .skill-card.c-gold .icon-badge{ background: rgba(184,134,62,0.16); }
+  .skill-card .t{
+    font-family:'Fraunces', serif;
+    font-weight: 600; font-size: 16px; margin-bottom: 6px;
+  }
+  .skill-card .d{ font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
 
   /* CONTACT */
   .contact{
@@ -365,11 +401,11 @@
 </nav>
 
 <section class="hero">
-  <p class="greeting"><span class="wave">👋</span> Hi, I'm</p>
+  <p class="greeting"><span class="wave">👋</span> Hi, I am</p>
   <h1>Sresha<br>Rajesh</h1>
 
   <div class="rotate-wrap">
-    <span class="static">I'm a</span>
+    <span class="static">I am a</span>
     <span class="rotate-text" id="rotateText">Marketing Specialist</span>
   </div>
 
@@ -379,12 +415,12 @@
     <circle cx="218" cy="2" r="4" fill="#3B5D50"/>
   </svg>
 
-  <p class="bio">I'm the person who reads the ingredient list on a shampoo bottle for fun and has strong opinions about font choices on restaurant menus. Turns out that's basically the job. I like taking something a brand already has, a name, a color, a weird little detail nobody's used yet, and building a whole idea around it instead of starting from a blank page every time.</p>
+  <p class="bio">I am the person who reads the ingredient list on a shampoo bottle for fun and has strong opinions about font choices on restaurant menus. Turns out that's basically the job. I like taking something a brand already has, a name, a color, a weird little detail nobody's used yet, and building a whole idea around it instead of starting from a blank page every time.</p>
 
   <div class="fact-strip">
-    <span class="fact-pill">🎯 2 full campaigns shipped (here)</span>
-    <span class="fact-pill">💡 Idea-first, spreadsheet-second</span>
-    <span class="fact-pill">☕ Fueled by iced coffee</span>
+    <span class="fact-pill">2 end-to-end campaign case studies</span>
+    <span class="fact-pill">Strategy through execution</span>
+    <span class="fact-pill">Focus: beauty & consumer lifestyle</span>
   </div>
 
   <div class="hero-actions">
@@ -395,11 +431,6 @@
 
 <div class="marquee">
   <div class="marquee-track">
-    <span>Brand Strategy</span>
-    <span>Campaign Planning</span>
-    <span>Storytelling</span>
-    <span>Consumer Insights</span>
-    <span>Social & Content</span>
     <span>Brand Strategy</span>
     <span>Campaign Planning</span>
     <span>Storytelling</span>
@@ -419,11 +450,11 @@
     <div>
       <p style="font-weight:700; margin-bottom:12px;">Focus areas</p>
       <div class="tag-list">
-        <span class="tag">Brand Strategy</span>
-        <span class="tag">Campaign Planning</span>
-        <span class="tag">Social & Content</span>
-        <span class="tag">Consumer Insights</span>
-        <span class="tag">Beauty & Lifestyle</span>
+        <div class="tag"><span class="badge">01</span><span class="label">Brand Positioning</span></div>
+        <div class="tag"><span class="badge">02</span><span class="label">Go-to-Market Campaigns</span></div>
+        <div class="tag"><span class="badge">03</span><span class="label">Consumer Research</span></div>
+        <div class="tag"><span class="badge">04</span><span class="label">Content Strategy</span></div>
+        <div class="tag"><span class="badge">05</span><span class="label">Beauty & Lifestyle Marketing</span></div>
       </div>
     </div>
   </div>
@@ -489,33 +520,33 @@
   <p class="eyebrow">Skills</p>
   <h2 class="section-title">What I bring to a marketing team</h2>
   <div class="skills-grid">
-    <div class="skill-card">
-      <div class="n">01</div>
+    <div class="skill-card c-sage">
+      <div class="icon-badge">🧭</div>
       <div class="t">Campaign Strategy</div>
       <div class="d">Turning a brand insight into a full plan: audience, message, channels, and timeline.</div>
     </div>
-    <div class="skill-card">
-      <div class="n">02</div>
+    <div class="skill-card c-rose">
+      <div class="icon-badge">✍️</div>
       <div class="t">Content & Social</div>
       <div class="d">Writing and mocking up on-brand content across social, email, and landing pages.</div>
     </div>
-    <div class="skill-card">
-      <div class="n">03</div>
+    <div class="skill-card c-gold">
+      <div class="icon-badge">🔍</div>
       <div class="t">Consumer Insight</div>
       <div class="d">Grounding creative ideas in what an audience actually values, not just what's trendy.</div>
     </div>
-    <div class="skill-card">
-      <div class="n">04</div>
+    <div class="skill-card c-sage">
+      <div class="icon-badge">📊</div>
       <div class="t">Measurement</div>
       <div class="d">Setting KPIs that actually match campaign goals, whether that's awareness, conversion, or loyalty.</div>
     </div>
-    <div class="skill-card">
-      <div class="n">05</div>
+    <div class="skill-card c-rose">
+      <div class="icon-badge">🤝</div>
       <div class="t">Cross-functional Collaboration</div>
       <div class="d">Comfortable working across creative, growth, and product to ship a campaign.</div>
     </div>
-    <div class="skill-card">
-      <div class="n">06</div>
+    <div class="skill-card c-gold">
+      <div class="icon-badge">⚡</div>
       <div class="t">Rapid Prototyping</div>
       <div class="d">Mocking up interactive concepts quickly to pitch ideas before full production.</div>
     </div>
@@ -544,13 +575,17 @@
   const rotateEl = document.getElementById('rotateText');
   let roleIndex = 0;
   if(rotateEl){
-    setInterval(() => {
+    const interval = setInterval(() => {
+      if(roleIndex >= roles.length - 1){
+        clearInterval(interval);
+        return;
+      }
       rotateEl.classList.add('fade');
       setTimeout(() => {
-        roleIndex = (roleIndex + 1) % roles.length;
+        roleIndex += 1;
         rotateEl.textContent = roles[roleIndex];
         rotateEl.classList.remove('fade');
-      }, 280);
+      }, 400);
     }, 2600);
   }
 </script>
