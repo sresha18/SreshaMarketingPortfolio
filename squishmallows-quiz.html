@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Squish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cloud: #F6F1FB;
+    --cloud-deep: #EAE0F5;
+    --ink: #2E2A38;
+    --ink-soft: #6B637A;
+    --line: rgba(46,42,56,0.12);
+    --running: #9B7FE0;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:'Inter', sans-serif; color: var(--ink);
+    background: radial-gradient(120% 120% at 50% 0%, var(--cloud-deep) 0%, var(--cloud) 55%);
+    padding: 32px 16px;
+  }
+  .stage{ width:100%; max-width: 460px; }
+  .brand{ text-align:center; margin-bottom: 22px; }
+  .brand .mark{
+    font-family:'Baloo 2', sans-serif; font-weight: 800; font-size: 24px; color: #7A5FC7;
+  }
+  .brand .tag{
+    font-size: 11.5px; color: var(--ink-soft); margin-top: 4px;
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+  }
+  .progress-ring{
+    width: 48px; height: 48px; border-radius: 50%; margin: 0 auto 22px;
+    display:flex; align-items:center; justify-content:center;
+    background: conic-gradient(var(--running) var(--fill, 0%), rgba(46,42,56,0.08) 0%);
+    transition: background 700ms ease;
+  }
+  .progress-ring::after{ content:''; width: 36px; height: 36px; border-radius: 50%; background: var(--cloud); }
+  .card{
+    background: #fff; border: 2px solid var(--line); border-radius: 28px;
+    padding: 34px 26px;
+    box-shadow: 0 24px 60px -30px rgba(122,95,199,0.35);
+  }
+  .step{ display:none; }
+  .step.active{ display:block; animation: rise 460ms ease; }
+  @keyframes rise{ from{ opacity:0; transform: translateY(10px) scale(0.98); } to{ opacity:1; transform: translateY(0) scale(1); } }
+  .eyebrow{
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #7A5FC7; margin: 0 0 10px; font-weight: 800;
+  }
+  h1.question{
+    font-family:'Baloo 2', sans-serif; font-weight: 700;
+    font-size: 24px; line-height: 1.25; margin: 0 0 22px;
+  }
+  .options{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .opt{
+    border: 2px solid var(--line); background: var(--cloud); border-radius: 18px;
+    padding: 16px 14px; text-align:left; font-family:'Inter', sans-serif; font-size: 13.5px;
+    font-weight: 600; line-height: 1.4; color: var(--ink); cursor:pointer;
+    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  }
+  .opt:hover{ border-color: #9B7FE0; transform: translateY(-3px) rotate(-0.5deg); background:#fff; }
+  .opt .dot{ width: 12px; height: 12px; border-radius: 50%; display:inline-block; margin-bottom: 8px; }
+  .reveal{ text-align:center; }
+  .swatch{
+    width: 130px; height: 130px; border-radius: 50%; margin: 4px auto 20px;
+    box-shadow: 0 18px 40px -18px rgba(122,95,199,0.5), inset 0 -6px 14px rgba(0,0,0,0.08);
+    animation: bloom 650ms ease;
+    display:flex; align-items:center; justify-content:center;
+    font-size: 46px;
+  }
+  @keyframes bloom{ from{ transform: scale(0.4); opacity:0; } to{ transform: scale(1); opacity:1; } }
+  .squish-name{ font-family:'Baloo 2', sans-serif; font-weight: 800; font-size: 28px; margin: 0; }
+  .squad{ font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin: 4px 0 18px; }
+  .affirmation{ font-size: 15.5px; line-height: 1.55; color: var(--ink); margin: 0 0 26px; padding: 0 4px; }
+  .cta{
+    display:block; width: 100%; padding: 14px 18px; border-radius: 999px; border: none;
+    background: #7A5FC7; color: #fff; font-family:'Inter', sans-serif; font-weight: 700;
+    font-size: 14px; cursor: pointer; text-decoration:none; text-align:center;
+    transition: background 160ms ease, transform 160ms ease; margin-bottom: 10px;
+  }
+  .cta:hover{ background: #5E45A8; transform: translateY(-1px); }
+  .ghost{
+    display:block; width:100%; padding: 12px 18px; border-radius: 999px; border: 2px solid var(--line);
+    background: transparent; color: var(--ink-soft); font-family:'Inter', sans-serif; font-size: 13px; font-weight:600; cursor:pointer;
+  }
+  .share-hint{ margin-top: 18px; font-size: 12px; color: var(--ink-soft); }
+  .share-hint b{ color: #7A5FC7; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="brand">
+    <div class="mark">Find Your Squish</div>
+    <div class="tag">Everyone Needs A Squish</div>
+  </div>
+
+  <div class="progress-ring" id="ring"></div>
+
+  <div class="card">
+
+    <div class="step active" data-step="0">
+      <p class="eyebrow">Question 1 of 3</p>
+      <h1 class="question">Pick today's mood.</h1>
+      <div class="options">
+        <button class="opt" data-shades="zoo,sealife" data-color="#FFB347">
+          <span class="dot" style="background:#FFB347"></span>
+          Big energy, ready for anything
+        </button>
+        <button class="opt" data-shades="sealife,baby" data-color="#6EE7C2">
+          <span class="dot" style="background:#6EE7C2"></span>
+          Calm, floaty, low-key
+        </button>
+        <button class="opt" data-shades="baby,stackables" data-color="#FF8FB1">
+          <span class="dot" style="background:#FF8FB1"></span>
+          Need extra soft today
+        </button>
+        <button class="opt" data-shades="stackables,zoo" data-color="#9B7FE0">
+          <span class="dot" style="background:#9B7FE0"></span>
+          Want the whole crew around
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="1">
+      <p class="eyebrow">Question 2 of 3</p>
+      <h1 class="question">What's today calling for?</h1>
+      <div class="options">
+        <button class="opt" data-shades="zoo" data-color="#FFB347">
+          <span class="dot" style="background:#FFB347"></span>
+          Exploring something new
+        </button>
+        <button class="opt" data-shades="sealife" data-color="#6EE7C2">
+          <span class="dot" style="background:#6EE7C2"></span>
+          Daydreaming a little
+        </button>
+        <button class="opt" data-shades="baby" data-color="#FF8FB1">
+          <span class="dot" style="background:#FF8FB1"></span>
+          A lot of cuddles
+        </button>
+        <button class="opt" data-shades="stackables" data-color="#9B7FE0">
+          <span class="dot" style="background:#9B7FE0"></span>
+          Collecting a few more friends
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="2">
+      <p class="eyebrow">Question 3 of 3</p>
+      <h1 class="question">Pick a color that feels like today.</h1>
+      <div class="options">
+        <button class="opt" data-shades="zoo" data-color="#FFB347">
+          <span class="dot" style="background:#FFB347"></span>
+          Sunny orange
+        </button>
+        <button class="opt" data-shades="sealife" data-color="#6EE7C2">
+          <span class="dot" style="background:#6EE7C2"></span>
+          Ocean teal
+        </button>
+        <button class="opt" data-shades="baby" data-color="#FF8FB1">
+          <span class="dot" style="background:#FF8FB1"></span>
+          Bubblegum pink
+        </button>
+        <button class="opt" data-shades="stackables" data-color="#9B7FE0">
+          <span class="dot" style="background:#9B7FE0"></span>
+          Playful purple
+        </button>
+      </div>
+    </div>
+
+    <div class="step" data-step="reveal">
+      <div class="reveal">
+        <div class="swatch" id="swatch">🧸</div>
+        <h1 class="squish-name" id="squishName">The Explorer</h1>
+        <p class="squad" id="squad">Zoo Squad</p>
+        <p class="affirmation" id="affirmation">For the days you want big energy in a soft package.</p>
+        <a class="cta" id="shopLink" href="https://www.squishmallows.com/" target="_blank" rel="noopener">Shop this squad</a>
+        <button class="ghost" id="retake">Retake the quiz</button>
+        <p class="share-hint">Show your squad with <b>#EveryoneNeedsASquish</b></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const data = {
+    zoo:        { name: "The Explorer", squad: "Zoo Squad",     hex: "#FFB347", emoji: "🦁", line: "For the days you want big energy in a soft package." },
+    sealife:    { name: "The Dreamer",  squad: "Sealife Squad", hex: "#6EE7C2", emoji: "🐙", line: "For the days you want to float through everything." },
+    baby:       { name: "The Softie",   squad: "Baby Squad",    hex: "#FF8FB1", emoji: "🐰", line: "For the days you need extra gentle." },
+    stackables: { name: "The Collector",squad: "Stackables",    hex: "#9B7FE0", emoji: "🦄", line: "For the days you want a whole squad on your side." }
+  };
+
+  const scores = Object.fromEntries(Object.keys(data).map(k => [k, 0]));
+  let pickedColors = [];
+  let step = 0;
+  const steps = document.querySelectorAll('.step');
+  const ring = document.getElementById('ring');
+
+  function showStep(t){
+    steps.forEach(s => s.classList.remove('active'));
+    document.querySelector(`.step[data-step="${t}"]`).classList.add('active');
+  }
+  function blend(colors){
+    if(colors.length === 0) return '#9B7FE0';
+    let r=0,g=0,b=0;
+    colors.forEach(hex => {
+      r += parseInt(hex.substr(1,2),16);
+      g += parseInt(hex.substr(3,2),16);
+      b += parseInt(hex.substr(5,2),16);
+    });
+    r = Math.round(r/colors.length); g = Math.round(g/colors.length); b = Math.round(b/colors.length);
+    return `rgb(${r},${g},${b})`;
+  }
+  function updateRing(){
+    ring.style.setProperty('--fill', (step/3)*100 + '%');
+    ring.style.setProperty('--running', blend(pickedColors));
+  }
+
+  document.querySelectorAll('.opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.dataset.shades.split(',').forEach(s => scores[s] += 1);
+      pickedColors.push(btn.dataset.color);
+      step += 1;
+      updateRing();
+
+      if(step < 3){
+        showStep(String(step));
+      } else {
+        const winner = Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+        const d = data[winner];
+        document.getElementById('swatch').style.background = `radial-gradient(circle at 35% 30%, ${d.hex}ee, ${d.hex})`;
+        document.getElementById('swatch').textContent = d.emoji;
+        document.getElementById('squishName').textContent = d.name;
+        document.getElementById('squad').textContent = d.squad;
+        document.getElementById('affirmation').textContent = d.line;
+        document.getElementById('shopLink').textContent = `Shop ${d.squad}`;
+        showStep('reveal');
+      }
+    });
+  });
+
+  document.getElementById('retake').addEventListener('click', () => {
+    Object.keys(scores).forEach(k => scores[k] = 0);
+    pickedColors = [];
+    step = 0;
+    updateRing();
+    showStep('0');
+  });
+
+  updateRing();
+</script>
+
+</body>
+</html>
