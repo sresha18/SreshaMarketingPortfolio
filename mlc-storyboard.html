@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your First Six — Storyboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0F2C4C;
+    --navy-deep: #0A1F38;
+    --red: #E9532B;
+    --paper: #F4F1EA;
+    --ink: #1B2430;
+    --ink-soft: #5C6675;
+    --line: rgba(15,44,76,0.14);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background: var(--paper); font-family:'Inter', sans-serif; color: var(--ink);
+    padding: 44px 20px 70px;
+  }
+  .header{ text-align:center; max-width: 640px; margin: 0 auto 46px; }
+  .header .eyebrow{
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--red); font-weight: 700; margin: 0 0 10px;
+  }
+  .header h1{
+    font-family:'Oswald', sans-serif; font-weight: 700; text-transform: uppercase;
+    font-size: 34px; letter-spacing: 0.01em; color: var(--navy); margin: 0 0 12px;
+  }
+  .header p{ color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; margin: 0; }
+  .header .runtime{
+    display:inline-block; margin-top: 16px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy);
+    background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 16px;
+  }
+
+  .storyboard{
+    max-width: 640px; margin: 0 auto;
+    display:flex; flex-direction:column; gap: 18px;
+  }
+
+  .frame{
+    background: #fff; border-radius: 18px; overflow:hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 16px 36px -26px rgba(15,44,76,0.35);
+    display:grid; grid-template-columns: 96px 1fr;
+  }
+  @media (max-width: 520px){ .frame{ grid-template-columns: 1fr; } }
+
+  .frame .meta{
+    background: var(--navy); color: #fff;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding: 14px 8px; text-align:center;
+  }
+  @media (max-width: 520px){ .frame .meta{ flex-direction:row; justify-content:space-between; padding: 10px 16px; } }
+  .frame .meta .num{ font-family:'Oswald', sans-serif; font-size: 22px; font-weight: 700; }
+  .frame .meta .time{ font-size: 10.5px; opacity: 0.75; margin-top: 4px; font-weight: 600; letter-spacing: 0.04em; }
+
+  .frame .content{ padding: 18px 20px; }
+
+  .visual-box{
+    aspect-ratio: 16/9; border-radius: 12px; margin-bottom: 14px;
+    display:flex; align-items:center; justify-content:center; position:relative;
+    overflow:hidden; background: linear-gradient(150deg, var(--navy), var(--navy-deep));
+  }
+  .visual-box .onscreen-text{
+    position:absolute; bottom: 10px; left: 10px; right: 10px;
+    font-family:'Oswald', sans-serif; font-weight: 700; text-transform: uppercase;
+    color: #fff; font-size: 13px; letter-spacing: 0.02em;
+    background: rgba(0,0,0,0.35); padding: 6px 10px; border-radius: 6px;
+  }
+  .visual-box .icon{ font-size: 40px; }
+
+  .frame .label{
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 4px;
+  }
+  .frame .vo{
+    font-size: 14px; line-height: 1.5; color: var(--ink); margin-bottom: 10px;
+  }
+  .frame .direction{
+    font-size: 12.5px; color: var(--ink-soft); line-height: 1.5;
+  }
+
+  .cta-frame .visual-box{ background: linear-gradient(150deg, var(--red), #B5391B); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="eyebrow">MLC · Your First Six</p>
+  <h1>30-Second Vertical Spot</h1>
+  <p>A TikTok / Reels storyboard built for first-time viewers, leaning on the format's speed and spectacle instead of explaining the rules.</p>
+  <span class="runtime">Runtime: 0:30 · Vertical 9:16</span>
+</div>
+
+<div class="storyboard">
+
+  <div class="frame">
+    <div class="meta"><div class="num">01</div><div class="time">0:00–0:03</div></div>
+    <div class="content">
+      <div class="visual-box">
+        <span class="icon">🏏</span>
+        <div class="onscreen-text">You've never seen a home run like this.</div>
+      </div>
+      <p class="label">Voiceover / Caption</p>
+      <p class="vo">"You've never seen a home run like this."</p>
+      <p class="direction">Slow-motion bat connecting with ball. Sound design: a deep, satisfying crack, then silence for a beat before the crowd noise hits.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="meta"><div class="num">02</div><div class="time">0:03–0:07</div></div>
+    <div class="content">
+      <div class="visual-box">
+        <span class="icon">⏱️</span>
+        <div class="onscreen-text">3 hours. Non-stop action.</div>
+      </div>
+      <p class="label">Voiceover / Caption</p>
+      <p class="vo">"Cricket's fastest format. Three hours. Zero downtime."</p>
+      <p class="direction">Quick match-cut montage: stadium filling up, scoreboard ticking, crowd on their feet. Fast cuts, upbeat percussion track kicks in here.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="meta"><div class="num">03</div><div class="time">0:07–0:12</div></div>
+    <div class="content">
+      <div class="visual-box">
+        <span class="icon">🚀</span>
+        <div class="onscreen-text">It's called a SIX.</div>
+      </div>
+      <p class="label">Voiceover / Caption</p>
+      <p class="vo">"That's called a six. It's exactly what it sounds like."</p>
+      <p class="direction">Ball sails over the boundary rope in slow motion, a fan in the stands catches it one-handed. Freeze-frame on the catch, "SIX" stamps on screen like a scoreboard graphic.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="meta"><div class="num">04</div><div class="time">0:12–0:17</div></div>
+    <div class="content">
+      <div class="visual-box">
+        <span class="icon">🎉</span>
+        <div class="onscreen-text">The whole stadium loses it.</div>
+      </div>
+      <p class="label">Voiceover / Caption</p>
+      <p class="vo">(No VO — crowd noise peaks, team chant audible.)</p>
+      <p class="direction">Player celebration, teammates running in, flags waving in team colors. Widen to a full stadium shot to sell the scale and energy.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="meta"><div class="num">05</div><div class="time">0:17–0:22</div></div>
+    <div class="content">
+      <div class="visual-box">
+        <span class="icon">⚡</span>
+        <div class="onscreen-text">Every ball, something happens.</div>
+      </div>
+      <p class="label">Voiceover / Caption</p>
+      <p class="vo">"Every single ball, something happens."</p>
+      <p class="direction">Rapid montage: a fast bowler's delivery, a diving catch, a wicket falling, MLC team logos flashing between cuts (LA Knight Riders, MI New York, San Francisco Unicorns, Seattle Orcas, Texas Super Kings, Washington Freedom).</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="meta"><div class="num">06</div><div class="time">0:22–0:26</div></div>
+    <div class="content">
+      <div class="visual-box">
+        <span class="icon">📈</span>
+        <div class="onscreen-text">84% of fans last season: first-timers.</div>
+      </div>
+      <p class="label">Voiceover / Caption</p>
+      <p class="vo">"Most people at these games last year were watching their very first match."</p>
+      <p class="direction">Candid-style reaction shots of visibly new fans mid-cheer, genuinely confused-then-delighted expressions. Stat overlays on screen as a bold scoreboard-style graphic.</p>
+    </div>
+  </div>
+
+  <div class="frame cta-frame">
+    <div class="meta"><div class="num">07</div><div class="time">0:26–0:30</div></div>
+    <div class="content">
+      <div class="visual-box">
+        <span class="icon">🏆</span>
+        <div class="onscreen-text">Your first six starts here.</div>
+      </div>
+      <p class="label">Voiceover / Caption</p>
+      <p class="vo">"Your first six starts here. MLC, June 18."</p>
+      <p class="direction">MLC logo lockup, season dates, "Get Tickets" swipe-up / link-in-bio prompt. Music button hits on the logo reveal.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
