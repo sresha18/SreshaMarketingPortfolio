@@ -209,7 +209,39 @@
     color: var(--ink-soft);
     font-size: 15px;
     max-width: 560px;
-    margin-bottom: 44px;
+    margin-bottom: 32px;
+  }
+
+  /* WORK JUMP NAV */
+  .jump-nav{
+    display:flex; flex-wrap: wrap; gap: 9px;
+    margin-bottom: 40px;
+  }
+  .jump-chip{
+    font-size: 12.5px; font-weight: 700;
+    padding: 9px 16px; border-radius: 999px;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: transform 160ms ease, border-color 160ms ease, color 160ms ease, background 160ms ease;
+  }
+  .jump-chip:hover{
+    border-color: var(--rose-deep);
+    color: var(--rose-deep);
+    transform: translateY(-2px);
+    background: #fff;
+  }
+  .jump-chip:active{ transform: translateY(0); }
+
+  @keyframes cardPulse{
+    0%{ box-shadow: 0 0 0 0 rgba(59,93,80,0.5); }
+    100%{ box-shadow: 0 0 0 26px rgba(59,93,80,0); }
+  }
+  .case-card.pulse{ animation: cardPulse 900ms ease-out; }
+
+  @media (prefers-reduced-motion: reduce){
+    .case-card.pulse{ animation: none; }
   }
 
   /* ABOUT */
@@ -645,7 +677,17 @@
   <h2 class="section-title">Campaign case study</h2>
   <p class="section-sub">Campaign concepts across categories, each with a different set of deliverables.</p>
 
-  <div class="case-card">
+  <div class="jump-nav" id="jumpNav">
+    <span class="jump-chip" data-target="work-rarebeauty">Rare Beauty</span>
+    <span class="jump-chip" data-target="work-nike">Nike</span>
+    <span class="jump-chip" data-target="work-slip">Slip</span>
+    <span class="jump-chip" data-target="work-squish">Squishmallows</span>
+    <span class="jump-chip" data-target="work-mlc">MLC</span>
+    <span class="jump-chip" data-target="work-spotify">Spotify</span>
+    <span class="jump-chip" data-target="work-tiktok">TikTok</span>
+  </div>
+
+  <div class="case-card" id="work-rarebeauty">
     <p class="kicker">Rare Beauty · Soft Pinch Blush</p>
     <h3>Wear Your Truth</h3>
     <p class="desc">Instead of picking a blush shade for skin tone, you pick it for how you want to feel. The campaign turns shade names like Joy, Grateful, and Truth into a daily self-love ritual, deepening a brand identity Rare Beauty already owns.</p>
@@ -670,7 +712,7 @@
     </div>
   </div>
 
-  <div class="case-card nike">
+  <div class="case-card nike" id="work-nike">
     <p class="kicker">Nike · Pegasus 42, Women's</p>
     <h3>More Return.</h3>
     <p class="desc">The Pegasus 42's real upgrade is energy return, 15% more than the Pegasus 41. This campaign turns that engineering fact into an emotional one: every mile gives back more than it costs, matching runners to a real colorway based on what they need from today's run.</p>
@@ -695,7 +737,7 @@
     </div>
   </div>
 
-  <div class="case-card slip">
+  <div class="case-card slip" id="work-slip">
     <p class="kicker">Slip · Silk Pillowcases</p>
     <h3>Sleep On It.</h3>
     <p class="desc">Slip already claims its silk fights sleep creases and bedhead. This campaign treats sleep itself as the easiest step in any beauty routine, matching people to a real Slip colorway based on how they want to wake up, not just what matches their sheets.</p>
@@ -720,7 +762,7 @@
     </div>
   </div>
 
-  <div class="case-card squish">
+  <div class="case-card squish" id="work-squish">
     <p class="kicker">Squishmallows</p>
     <h3>Everyone Needs A Squish.</h3>
     <p class="desc">Squishmallows already skews multi-generational, but marketing rarely says so out loud. This campaign turns the brand's existing squad system into a personality match for the person buying, normalizing a plush on a desk or dorm bed at any age.</p>
@@ -745,7 +787,7 @@
     </div>
   </div>
 
-  <div class="case-card mlc">
+  <div class="case-card mlc" id="work-mlc">
     <p class="kicker">Major League Cricket</p>
     <h3>Your First Six.</h3>
     <p class="desc">84% of MLC's ticket buyers last season had never seen a cricket match before. Instead of teaching newcomers the rules, this campaign sells the format's actual differentiator, T20's speed and spectacle, through a 30-second vertical video built for viewers who've never watched a single ball.</p>
@@ -768,7 +810,7 @@
     </div>
   </div>
 
-  <div class="case-card spotify">
+  <div class="case-card spotify" id="work-spotify">
     <p class="kicker">Spotify · Prompted Playlist</p>
     <h3>Say The Vibe.</h3>
     <p class="desc">Prompted Playlist turns your own words into a playlist, but most users don't know it exists yet. This campaign puts real, oddly specific prompts front and center as the creative, letting the specificity of people's own language do the selling instead of a written tagline.</p>
@@ -792,7 +834,7 @@
     </div>
   </div>
 
-  <div class="case-card tiktok">
+  <div class="case-card tiktok" id="work-tiktok">
     <p class="kicker">TikTok · Local Feeds</p>
     <h3>Right Here.</h3>
     <p class="desc">TikTok's Local Feeds already surfaces what's nearby, but neither everyday users nor local businesses know it exists yet. This campaign sells the feeling of finding out the best plan tonight was three blocks away, and gives small businesses a practical toolkit to actually get featured.</p>
@@ -895,6 +937,19 @@
   }, { threshold: 0.15 });
   const workSection = document.getElementById('work');
   if(workSection) cardObs.observe(workSection);
+
+  document.querySelectorAll('.jump-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const target = document.getElementById(chip.dataset.target);
+      if(!target) return;
+      target.classList.add('card-in');
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.classList.remove('pulse');
+      void target.offsetWidth;
+      target.classList.add('pulse');
+      setTimeout(() => target.classList.remove('pulse'), 950);
+    });
+  });
 
   const roles = ["Marketing Specialist", "Brand Strategist", "Campaign Builder", "Storyteller (with a spreadsheet)"];
   const rotateEl = document.getElementById('rotateText');
