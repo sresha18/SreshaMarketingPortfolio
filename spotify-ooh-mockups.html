@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Say The Vibe — OOH Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black: #121212;
+    --green: #1ED760;
+    --white: #FFFFFF;
+    --gray: #B3B3B3;
+    --page-bg: #0A0A0A;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background: var(--page-bg); font-family:'Inter', sans-serif; color: var(--white); padding: 44px 20px 70px; }
+  .header{ text-align:center; max-width: 640px; margin: 0 auto 46px; }
+  .header .eyebrow{ font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green); font-weight: 700; margin: 0 0 10px; }
+  .header h1{ font-family:'Poppins', sans-serif; font-weight: 800; font-size: 32px; margin: 0 0 10px; }
+  .header p{ color: var(--gray); font-size: 14.5px; line-height: 1.6; margin: 0; }
+
+  .grid{ display:flex; flex-direction:column; gap: 26px; max-width: 720px; margin: 0 auto; }
+
+  .billboard{
+    background: var(--black); border-radius: 18px; overflow:hidden; border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 24px 60px -30px rgba(30,215,96,0.15);
+  }
+  .billboard .scene{
+    aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center; padding: 40px;
+    text-align:center; position:relative;
+  }
+  .billboard .prompt-text{
+    font-family:'Poppins', sans-serif; font-weight: 700; font-size: clamp(22px, 4vw, 34px);
+    line-height: 1.25; color: var(--white); max-width: 560px;
+  }
+  .billboard .prompt-text .quote-mark{ color: var(--green); }
+  .billboard .wordmark{
+    position:absolute; bottom: 20px; right: 24px;
+    font-family:'Poppins', sans-serif; font-weight: 800; font-size: 13px; color: var(--green);
+  }
+  .billboard .placement{
+    padding: 14px 20px; font-size: 12.5px; color: var(--gray); border-top: 1px solid rgba(255,255,255,0.08);
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .billboard .placement b{ color: var(--white); font-weight: 600; }
+
+  .bg-1{ background: radial-gradient(circle at 20% 20%, #143824, var(--black) 65%); }
+  .bg-2{ background: radial-gradient(circle at 80% 30%, #1A1240, var(--black) 65%); }
+  .bg-3{ background: radial-gradient(circle at 30% 80%, #3A0A1A, var(--black) 65%); }
+  .bg-4{ background: radial-gradient(circle at 70% 70%, #0A2A40, var(--black) 65%); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="eyebrow">Say The Vibe · OOH Mockups</p>
+  <h1>The Prompt Is The Ad</h1>
+  <p>Real-feeling, oddly specific prompts blown up huge across transit and outdoor placements. No tagline required, the specificity of the words does the selling.</p>
+</div>
+
+<div class="grid">
+
+  <div class="billboard">
+    <div class="scene bg-1">
+      <p class="prompt-text"><span class="quote-mark">"</span>songs that sound like a Sunday I'm avoiding<span class="quote-mark">"</span></p>
+      <div class="wordmark">Spotify</div>
+    </div>
+    <div class="placement">
+      <span>Digital billboard, Times Square</span>
+      <span><b>Prompted Playlist</b></span>
+    </div>
+  </div>
+
+  <div class="billboard">
+    <div class="scene bg-2">
+      <p class="prompt-text"><span class="quote-mark">"</span>main character energy before 9am<span class="quote-mark">"</span></p>
+      <div class="wordmark">Spotify</div>
+    </div>
+    <div class="placement">
+      <span>Subway car card, NYC transit</span>
+      <span><b>Prompted Playlist</b></span>
+    </div>
+  </div>
+
+  <div class="billboard">
+    <div class="scene bg-3">
+      <p class="prompt-text"><span class="quote-mark">"</span>walking home in the rain but it's kind of nice<span class="quote-mark">"</span></p>
+      <div class="wordmark">Spotify</div>
+    </div>
+    <div class="placement">
+      <span>Bus shelter poster, Chicago</span>
+      <span><b>Prompted Playlist</b></span>
+    </div>
+  </div>
+
+  <div class="billboard">
+    <div class="scene bg-4">
+      <p class="prompt-text"><span class="quote-mark">"</span>pretending I have my life together<span class="quote-mark">"</span></p>
+      <div class="wordmark">Spotify</div>
+    </div>
+    <div class="placement">
+      <span>Airport terminal board, LAX</span>
+      <span><b>Prompted Playlist</b></span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
