@@ -24,11 +24,11 @@
   ::selection{ background: var(--rose-deep); color: #fff; }
 
   .scroll-progress{
-    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    position: fixed; top: 0; left: 0; height: 3px; width: 100%;
     background: linear-gradient(90deg, var(--sage), var(--rose-deep));
-    background-size: 100vw 100%;
-    background-repeat: no-repeat;
-    z-index: 999; transition: width 80ms linear;
+    z-index: 999;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 80ms linear;
   }
   html{ scroll-behavior:smooth; }
   body{
@@ -1088,7 +1088,7 @@
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      scrollProgress.style.width = pct + '%';
+      scrollProgress.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
     };
     window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
