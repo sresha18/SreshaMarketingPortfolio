@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honey, You're Covered — Retail Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FFF8EC;
+    --ink: #2A2420;
+    --ink-soft: #6B6355;
+    --day: #F7941D;
+    --night: #1B3A6B;
+    --honey: #C9971C;
+    --honey-light: #F3D98B;
+    --line: rgba(42,36,32,0.14);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background: #EDE4CC; font-family:'Inter', sans-serif; color: var(--ink);
+    padding: 44px 20px 70px;
+  }
+  .header{ text-align:center; max-width: 640px; margin: 0 auto 40px; }
+  .header .eyebrow{
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--honey); font-weight: 700; margin: 0 0 10px;
+  }
+  .header h1{
+    font-family:'Quicksand', sans-serif; font-weight: 700; font-size: 30px; margin: 0 0 10px;
+  }
+  .header p{ color: var(--ink-soft); font-size: 14px; line-height: 1.6; margin: 0; }
+
+  .endcap{
+    max-width: 620px; margin: 0 auto;
+    background: linear-gradient(180deg, #fff, #FBF5E4);
+    border-radius: 20px; border: 1px solid var(--line);
+    box-shadow: 0 30px 60px -30px rgba(42,36,32,0.35);
+    padding: 28px;
+  }
+
+  .talker{
+    background: var(--honey);
+    border-radius: 14px;
+    padding: 18px 20px;
+    text-align:center;
+    margin-bottom: 22px;
+    position: relative;
+  }
+  .talker .new-badge{
+    position:absolute; top: -10px; right: 16px;
+    background: var(--day); color: #fff;
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.04em;
+    padding: 5px 10px; border-radius: 999px;
+    transform: rotate(4deg);
+  }
+  .talker h2{
+    font-family:'Quicksand', sans-serif; font-weight: 800; font-size: 22px;
+    color: #fff; margin: 0 0 4px;
+  }
+  .talker p{ color: #FFF3D6; font-size: 12.5px; margin: 0; font-weight: 600; }
+
+  .shelf-row{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-bottom: 18px;
+  }
+  @media (max-width: 520px){ .shelf-row{ grid-template-columns: repeat(2, 1fr); } }
+
+  .bottle{
+    background: #fff; border-radius: 12px; border: 1px solid var(--line);
+    padding: 14px 10px; text-align:center;
+    box-shadow: 0 8px 18px -14px rgba(42,36,32,0.3);
+  }
+  .bottle .cap{
+    width: 34px; height: 34px; border-radius: 8px 8px 4px 4px; margin: 0 auto 8px;
+  }
+  .bottle .name{ font-size: 11px; font-weight: 700; margin-bottom: 2px; }
+  .bottle .sub{ font-size: 9.5px; color: var(--ink-soft); }
+
+  .cap-day{ background: var(--day); }
+  .cap-night{ background: var(--night); }
+  .cap-day-honey{ background: linear-gradient(135deg, var(--day), var(--honey)); }
+  .cap-night-honey{ background: linear-gradient(135deg, var(--night), var(--honey)); }
+
+  .shelf-strip{
+    height: 10px; background: linear-gradient(90deg, var(--day), var(--honey), var(--night));
+    border-radius: 6px; margin-bottom: 14px;
+  }
+
+  .price-row{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size: 12px; color: var(--ink-soft);
+  }
+  .price-row .tag{
+    background: var(--ink); color: #fff; font-weight: 700;
+    padding: 6px 12px; border-radius: 8px; font-size: 12.5px;
+  }
+
+  .caption{
+    text-align:center; margin-top: 26px; font-size: 12.5px; color: var(--ink-soft);
+    max-width: 500px; margin-left:auto; margin-right:auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="eyebrow">Honey, You're Covered · Retail Mockup</p>
+  <h1>Pharmacy End-Cap Concept</h1>
+  <p>Honey variants placed directly beside the core DayQuil/NyQuil line, not as a separate display shoppers have to search for.</p>
+</div>
+
+<div class="endcap">
+
+  <div class="talker">
+    <span class="new-badge">NEW</span>
+    <h2>Honey, You're Covered.</h2>
+    <p>Cold & flu relief that finally tastes like comfort.</p>
+  </div>
+
+  <div class="shelf-strip"></div>
+
+  <div class="shelf-row">
+    <div class="bottle">
+      <div class="cap cap-day"></div>
+      <div class="name">DayQuil</div>
+      <div class="sub">Original</div>
+    </div>
+    <div class="bottle">
+      <div class="cap cap-day-honey"></div>
+      <div class="name">DayQuil</div>
+      <div class="sub">+ Honey</div>
+    </div>
+    <div class="bottle">
+      <div class="cap cap-night"></div>
+      <div class="name">NyQuil</div>
+      <div class="sub">Original</div>
+    </div>
+    <div class="bottle">
+      <div class="cap cap-night-honey"></div>
+      <div class="name">NyQuil</div>
+      <div class="sub">+ Honey</div>
+    </div>
+  </div>
+
+  <div class="shelf-strip"></div>
+
+  <div class="price-row">
+    <span>Vicks · Cold & Flu Aisle</span>
+    <span class="tag">Buy the Day/Night Duo</span>
+  </div>
+
+</div>
+
+<p class="caption">Shelf-talker sits above the existing product row rather than a standalone kiosk, keeping Honey in the shopper's existing decision path instead of asking them to find a new section.</p>
+
+</body>
+</html>

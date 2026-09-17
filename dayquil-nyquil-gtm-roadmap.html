@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honey, You're Covered — GTM Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FFF8EC;
+    --cream-deep: #F5EAD1;
+    --ink: #2A2420;
+    --ink-soft: #6B6355;
+    --day: #F7941D;
+    --night: #1B3A6B;
+    --honey: #C9971C;
+    --honey-light: #F3D98B;
+    --line: rgba(42,36,32,0.14);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background: var(--cream); font-family:'Inter', sans-serif; color: var(--ink);
+    padding: 44px 20px 70px;
+  }
+  .header{ text-align:center; max-width: 680px; margin: 0 auto 50px; }
+  .header .eyebrow{
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--honey); font-weight: 700; margin: 0 0 10px;
+  }
+  .header h1{
+    font-family:'Quicksand', sans-serif; font-weight: 700;
+    font-size: clamp(28px, 4vw, 38px); margin: 0 0 12px; color: var(--ink);
+  }
+  .header p{ color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; margin: 0; }
+
+  .timeline{ max-width: 900px; margin: 0 auto; display:flex; flex-direction:column; gap: 0; }
+
+  .phase{
+    display:grid; grid-template-columns: 160px 1fr; gap: 24px;
+    position: relative; padding-bottom: 46px;
+  }
+  @media (max-width: 640px){ .phase{ grid-template-columns: 1fr; gap: 10px; } }
+  .phase:last-child{ padding-bottom: 0; }
+  .phase::before{
+    content:''; position:absolute; left: 79px; top: 46px; bottom: -4px; width: 2px;
+    background: var(--line);
+  }
+  @media (max-width: 640px){ .phase::before{ display:none; } }
+  .phase:last-child::before{ display:none; }
+
+  .phase-label{ text-align:right; padding-top: 4px; }
+  @media (max-width: 640px){ .phase-label{ text-align:left; } }
+  .phase-label .when{
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 4px;
+  }
+  .phase-label .name{
+    font-family:'Quicksand', sans-serif; font-weight: 700; font-size: 19px;
+  }
+  .phase-dot{
+    position:absolute; left: 73px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 3px solid var(--cream); box-shadow: 0 0 0 2px var(--honey);
+  }
+  @media (max-width: 640px){ .phase-dot{ display:none; } }
+
+  .phase-card{
+    background: #fff; border-radius: 18px; padding: 22px 24px;
+    border: 1px solid var(--line);
+    box-shadow: 0 16px 36px -26px rgba(42,36,32,0.25);
+  }
+  .phase-card .tactic{
+    display:flex; gap: 12px; padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .phase-card .tactic:last-child{ border-bottom: none; }
+  .phase-card .tactic .chip{
+    flex-shrink:0; font-size: 10.5px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 5px 10px; border-radius: 999px; height: fit-content;
+    text-transform: uppercase;
+  }
+  .chip-retail{ background: rgba(199,151,28,0.15); color: var(--honey); }
+  .chip-trade{ background: rgba(27,58,107,0.1); color: var(--night); }
+  .chip-consumer{ background: rgba(247,148,29,0.15); color: var(--day); }
+  .phase-card .tactic .desc{ font-size: 13.5px; line-height: 1.5; color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="eyebrow">Vicks DayQuil / NyQuil Honey · GTM Roadmap</p>
+  <h1>Honey, You're Covered.</h1>
+  <p>A three-phase go-to-market plan for the Honey line extension, sequencing trade, retail, and consumer touchpoints around the shelf-decision moment.</p>
+</div>
+
+<div class="timeline">
+
+  <div class="phase">
+    <div class="phase-dot"></div>
+    <div class="phase-label">
+      <div class="when">Weeks 1–3</div>
+      <div class="name">Pre-Launch</div>
+    </div>
+    <div class="phase-card">
+      <div class="tactic">
+        <span class="chip chip-trade">Trade</span>
+        <span class="desc">Sell-in to pharmacy and grocery buyers with shelf-share data on the "tastes medicinal" objection, securing end-cap commitments ahead of cold season.</span>
+      </div>
+      <div class="tactic">
+        <span class="chip chip-retail">Retail</span>
+        <span class="desc">Finalize shelf-talker and end-cap creative production; confirm placement adjacent to existing DayQuil/NyQuil core line, not as a separate SKU shoppers have to hunt for.</span>
+      </div>
+      <div class="tactic">
+        <span class="chip chip-consumer">Consumer</span>
+        <span class="desc">Seed sampling through pharmacist partnerships and cold-and-flu season checklists distributed via retail partners.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-dot"></div>
+    <div class="phase-label">
+      <div class="when">Weeks 4–6</div>
+      <div class="name">Launch Week</div>
+    </div>
+    <div class="phase-card">
+      <div class="tactic">
+        <span class="chip chip-retail">Retail</span>
+        <span class="desc">End-cap and shelf-talker go live nationally, timed to the start of peak cold-and-flu season for maximum category traffic.</span>
+      </div>
+      <div class="tactic">
+        <span class="chip chip-consumer">Consumer</span>
+        <span class="desc">Paid social and search targeting people actively searching "cold medicine that doesn't taste bad" and related taste-objection queries.</span>
+      </div>
+      <div class="tactic">
+        <span class="chip chip-consumer">Consumer</span>
+        <span class="desc">Sampling continues in pharmacies with a small honey-drizzle visual cue on packaging to differentiate from the core line at a glance.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-dot"></div>
+    <div class="phase-label">
+      <div class="when">Weeks 7–12</div>
+      <div class="name">Sustain</div>
+    </div>
+    <div class="phase-card">
+      <div class="tactic">
+        <span class="chip chip-trade">Trade</span>
+        <span class="desc">Share early sell-through data with retail partners to defend and expand shelf space for the remainder of the season.</span>
+      </div>
+      <div class="tactic">
+        <span class="chip chip-consumer">Consumer</span>
+        <span class="desc">Shift paid media toward retargeting past core-line buyers with a "you haven't tried Honey yet" message.</span>
+      </div>
+      <div class="tactic">
+        <span class="chip chip-retail">Retail</span>
+        <span class="desc">Rotate shelf-talker messaging seasonally (flu peak vs. tail-end) to keep the display feeling current through the full season.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
