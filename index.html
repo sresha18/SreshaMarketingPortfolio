@@ -21,41 +21,6 @@
     --gold: #7A5A24;
   }
   *{ box-sizing:border-box; margin:0; padding:0; }
-
-  @media (hover: hover) and (pointer: fine){
-    body.custom-cursor-on, body.custom-cursor-on *{ cursor: none !important; }
-  }
-
-  .cursor-dot, .cursor-ring{
-    position: fixed; top: 0; left: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-    transition: opacity 200ms ease, width 220ms ease, height 220ms ease, background 220ms ease, border-color 220ms ease;
-  }
-  .cursor-dot{
-    width: 7px; height: 7px;
-    background: var(--rose-deep);
-    transform: translate(-50%, -50%);
-  }
-  .cursor-ring{
-    width: 34px; height: 34px;
-    border: 1.5px solid var(--sage);
-    display:flex; align-items:center; justify-content:center;
-    transform: translate(-50%, -50%);
-    font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
-    color: var(--sage);
-  }
-  .cursor-dot.active, .cursor-ring.active{ opacity: 1; }
-  .cursor-ring.hover{
-    width: 64px; height: 64px;
-    background: rgba(156,74,87,0.08);
-    border-color: var(--rose-deep);
-  }
-  .cursor-dot.hover{ opacity: 0; }
-  .cursor-ring.hover span{ opacity: 1; }
-  .cursor-ring span{ opacity: 0; transition: opacity 150ms ease; color: var(--rose-deep); }
   ::selection{ background: var(--rose-deep); color: #fff; }
 
   .scroll-progress{
@@ -743,9 +708,6 @@
 </head>
 <body>
 
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"><span id="cursorText"></span></div>
-
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <nav>
@@ -834,7 +796,7 @@
     <span class="jump-chip" data-target="work-vicks">Vicks</span>
   </div>
 
-  <div class="case-card" id="work-rarebeauty" data-cursor="View">
+  <div class="case-card" id="work-rarebeauty">
     <p class="kicker">Rare Beauty · Soft Pinch Blush</p>
     <h3>Wear Your Truth</h3>
     <p class="desc">Instead of picking a blush shade for skin tone, you pick it for how you want to feel. The campaign turns shade names like Joy, Grateful, and Truth into a daily self-love ritual, deepening a brand identity Rare Beauty already owns.</p>
@@ -859,7 +821,7 @@
     </div>
   </div>
 
-  <div class="case-card nike" id="work-nike" data-cursor="View">
+  <div class="case-card nike" id="work-nike">
     <p class="kicker">Nike · Pegasus 42, Women's</p>
     <h3>More Return.</h3>
     <p class="desc">The Pegasus 42's real upgrade is energy return, 15% more than the Pegasus 41. This campaign turns that engineering fact into an emotional one: every mile gives back more than it costs, matching runners to a real colorway based on what they need from today's run.</p>
@@ -884,7 +846,7 @@
     </div>
   </div>
 
-  <div class="case-card slip" id="work-slip" data-cursor="View">
+  <div class="case-card slip" id="work-slip">
     <p class="kicker">Slip · Silk Pillowcases</p>
     <h3>Sleep On It.</h3>
     <p class="desc">Slip already claims its silk fights sleep creases and bedhead. This campaign treats sleep itself as the easiest step in any beauty routine, matching people to a real Slip colorway based on how they want to wake up, not just what matches their sheets.</p>
@@ -909,7 +871,7 @@
     </div>
   </div>
 
-  <div class="case-card squish" id="work-squish" data-cursor="View">
+  <div class="case-card squish" id="work-squish">
     <p class="kicker">Squishmallows</p>
     <h3>Everyone Needs A Squish.</h3>
     <p class="desc">Squishmallows already skews multi-generational, but marketing rarely says so out loud. This campaign turns the brand's existing squad system into a personality match for the person buying, normalizing a plush on a desk or dorm bed at any age.</p>
@@ -934,7 +896,7 @@
     </div>
   </div>
 
-  <div class="case-card mlc" id="work-mlc" data-cursor="View">
+  <div class="case-card mlc" id="work-mlc">
     <p class="kicker">Major League Cricket</p>
     <h3>Your First Six.</h3>
     <p class="desc">84% of MLC's ticket buyers last season had never seen a cricket match before. Instead of teaching newcomers the rules, this campaign sells the format's actual differentiator, T20's speed and spectacle, through a 30-second vertical video built for viewers who've never watched a single ball.</p>
@@ -957,7 +919,7 @@
     </div>
   </div>
 
-  <div class="case-card spotify" id="work-spotify" data-cursor="View">
+  <div class="case-card spotify" id="work-spotify">
     <p class="kicker">Spotify · Prompted Playlist</p>
     <h3>Say The Vibe.</h3>
     <p class="desc">Prompted Playlist turns your own words into a playlist, but most users don't know it exists yet. This campaign puts real, oddly specific prompts front and center as the creative, letting the specificity of people's own language do the selling instead of a written tagline.</p>
@@ -981,7 +943,7 @@
     </div>
   </div>
 
-  <div class="case-card tiktok" id="work-tiktok" data-cursor="View">
+  <div class="case-card tiktok" id="work-tiktok">
     <p class="kicker">TikTok · Local Feeds</p>
     <h3>Right Here.</h3>
     <p class="desc">TikTok's Local Feeds already surfaces what's nearby, but neither everyday users nor local businesses know it exists yet. This campaign sells the feeling of finding out the best plan tonight was three blocks away, and gives small businesses a practical toolkit to actually get featured.</p>
@@ -1005,7 +967,7 @@
     </div>
   </div>
 
-  <div class="case-card vicks" id="work-vicks" data-cursor="View">
+  <div class="case-card vicks" id="work-vicks">
     <p class="kicker">Vicks DayQuil / NyQuil · Honey</p>
     <h3>Honey, You're Covered.</h3>
     <p class="desc">DayQuil and NyQuil already own the category's strongest structural asset: the orange/blue day-night pairing. This GTM campaign launches the Honey line extension, tackling the real reason people skip cold medicine, taste, using an ingredient people already trust.</p>
@@ -1133,51 +1095,6 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
   caseCards.forEach(card => cardObs.observe(card));
-
-  const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  if(isFinePointer){
-    document.body.classList.add('custom-cursor-on');
-    const cursorDot = document.getElementById('cursorDot');
-    const cursorRing = document.getElementById('cursorRing');
-    const cursorText = document.getElementById('cursorText');
-
-    let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
-    let started = false;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX; mouseY = e.clientY;
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
-      if(!started){
-        started = true;
-        ringX = mouseX; ringY = mouseY;
-        cursorDot.classList.add('active');
-        cursorRing.classList.add('active');
-      }
-    });
-
-    function animateRing(){
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
-      cursorRing.style.left = ringX + 'px';
-      cursorRing.style.top = ringY + 'px';
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
-
-    const hoverTargets = document.querySelectorAll('a, button, .jump-chip, .skill-card, .opt, [data-cursor]');
-    hoverTargets.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursorRing.classList.add('hover');
-        cursorText.textContent = el.dataset.cursor || '';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursorRing.classList.remove('hover');
-        cursorText.textContent = '';
-      });
-    });
-  }
 
   const backToTop = document.getElementById('backToTop');
   if(backToTop){
