@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everything Opens Up — Launch Film Storyboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAFAFA;
+    --ink: #1D1D1F;
+    --ink-soft: #6E6E73;
+    --blue: #0071E3;
+    --line: rgba(0,0,0,0.08);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background: var(--bg); font-family:'Inter', sans-serif; color: var(--ink);
+    padding: 48px 20px 80px;
+  }
+  .header{ text-align:center; max-width: 640px; margin: 0 auto 56px; }
+  .header .mark{ font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .header h1{
+    font-weight: 700; letter-spacing: -0.02em;
+    font-size: clamp(28px, 4vw, 38px); margin: 0 0 14px;
+  }
+  .header p{ color: var(--ink-soft); font-size: 15px; line-height: 1.6; margin: 0 0 14px; }
+  .header .runtime{
+    display:inline-block; font-size: 12.5px; font-weight: 600;
+    color: var(--ink-soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 16px;
+  }
+
+  .storyboard{ max-width: 720px; margin: 0 auto; display:flex; flex-direction:column; gap: 2px; }
+
+  .frame{
+    background: #fff; border: 1px solid var(--line);
+    display:grid; grid-template-columns: 90px 1fr;
+  }
+  @media (max-width: 560px){ .frame{ grid-template-columns: 1fr; } }
+
+  .frame .meta{
+    background: #F5F5F7; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding: 16px 8px; border-right: 1px solid var(--line);
+  }
+  @media (max-width: 560px){ .frame .meta{ flex-direction:row; justify-content:space-between; border-right:none; border-bottom: 1px solid var(--line); padding: 10px 16px; } }
+  .frame .meta .num{ font-weight: 700; font-size: 20px; }
+  .frame .meta .time{ font-size: 10.5px; color: var(--ink-soft); margin-top: 4px; font-weight: 600; }
+
+  .frame .content{ padding: 24px 28px; }
+
+  .visual{
+    aspect-ratio: 21/9; border-radius: 10px; margin-bottom: 16px;
+    display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+  }
+  .visual .onscreen{
+    font-weight: 700; font-size: 15px; letter-spacing: -0.01em;
+  }
+
+  .bg-black{ background: #000; color: #fff; }
+  .bg-white{ background: #fff; border: 1px solid var(--line); color: var(--ink); }
+  .bg-blue{ background: linear-gradient(135deg, #0071E3, #4FA0F0); color: #fff; }
+  .bg-grey{ background: #F0F0F2; color: var(--ink); }
+
+  .frame .vo-label{
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 4px;
+  }
+  .frame .vo{ font-size: 14.5px; line-height: 1.55; margin-bottom: 10px; }
+  .frame .direction{ font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="mark">iPhone Duo</p>
+  <h1>Everything Opens Up.</h1>
+  <p>A 30-second launch film built around a single act: the fold itself. No voiceover explaining features, no side-by-side spec chart, just the moment the screen becomes twice the screen.</p>
+  <span class="runtime">Runtime: 0:30 · 16:9</span>
+</div>
+
+<div class="storyboard">
+
+  <div class="frame">
+    <div class="meta"><div class="num">01</div><div class="time">0:00–0:05</div></div>
+    <div class="content">
+      <div class="visual bg-black"><span class="onscreen">[Black screen, silent]</span></div>
+      <p class="vo-label">Sound</p>
+      <p class="vo">Total silence for the first second, then a single soft mechanical click.</p>
+      <p class="direction">Cold open on black. No logo yet. Let the silence do work before anything appears.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="meta"><div class="num">02</div><div class="time">0:05–0:10</div></div>
+    <div class="content">
+      <div class="visual bg-white"><span class="onscreen">[Closed device, held in one hand]</span></div>
+      <p class="vo-label">Visual</p>
+      <p class="vo">No voiceover.</p>
+      <p class="direction">Macro shot of the closed iPhone Duo in a hand, outer screen lit with the lock screen. Completely still, ordinary, like any phone.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="meta"><div class="num">03</div><div class="time">0:10–0:16</div></div>
+    <div class="content">
+      <div class="visual bg-blue"><span class="onscreen">[The unfold, in extreme slow motion]</span></div>
+      <p class="vo-label">Visual</p>
+      <p class="vo">No voiceover. Just the hinge, in extreme slow motion, catching light across the crease.</p>
+      <p class="direction">This is the hero shot. One continuous slow-motion take of the unfold, no cuts. Sound design: the same mechanical click from frame 1, stretched and pitched down.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="meta"><div class="num">04</div><div class="time">0:16–0:22</div></div>
+    <div class="content">
+      <div class="visual bg-grey"><span class="onscreen">[Full inner display, content filling the frame]</span></div>
+      <p class="vo-label">Visual</p>
+      <p class="vo">A single line of on-screen text fades in: "7.6 inches. Fully open."</p>
+      <p class="direction">Cut to the unfolded screen filling nearly the entire frame. Whatever's on screen (a photo, a video, a map) should feel like it was always meant to be this big.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="meta"><div class="num">05</div><div class="time">0:22–0:26</div></div>
+    <div class="content">
+      <div class="visual bg-black"><span class="onscreen">[Crease, nearly invisible, catching light]</span></div>
+      <p class="vo-label">Visual</p>
+      <p class="vo">On-screen text: "Barely there."</p>
+      <p class="direction">Extreme close-up on the hinge line itself, demonstrating how little the crease interrupts the display. This is the one moment allowed to feel technical.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="meta"><div class="num">06</div><div class="time">0:26–0:30</div></div>
+    <div class="content">
+      <div class="visual bg-white"><span class="onscreen">iPhone Duo. Everything Opens Up.</span></div>
+      <p class="vo-label">Visual</p>
+      <p class="vo">Apple logo, product name, tagline. No pricing, no CTA button.</p>
+      <p class="direction">Standard Apple end-card treatment. Let the product and the line close the film; save pricing and availability for the follow-up cutdowns.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

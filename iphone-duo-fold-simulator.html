@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everything Opens Up — iPhone Duo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAFAFA;
+    --ink: #1D1D1F;
+    --ink-soft: #6E6E73;
+    --blue: #0071E3;
+    --line: rgba(0,0,0,0.08);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:'Inter', sans-serif; color: var(--ink);
+    background: var(--bg);
+    padding: 48px 20px;
+  }
+  .label{ text-align:center; margin-bottom: 40px; }
+  .label .mark{
+    font-weight: 700; font-size: 15px; letter-spacing: -0.01em;
+  }
+  .label .tag{
+    font-size: 13px; color: var(--ink-soft); margin-top: 6px; font-weight: 500;
+  }
+
+  .stage{
+    display:flex; align-items:center; justify-content:center;
+    height: 520px;
+    margin-bottom: 40px;
+    perspective: 1400px;
+  }
+
+  .device{
+    position: relative;
+    background: #000;
+    border-radius: 34px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.35);
+    transition: width 750ms cubic-bezier(0.65,0,0.35,1), height 750ms cubic-bezier(0.65,0,0.35,1);
+  }
+  .device.folded{ width: 220px; height: 460px; }
+  .device.unfolded{ width: 420px; height: 460px; }
+
+  .screen{
+    position: absolute; inset: 8px;
+    background: #fff;
+    border-radius: 26px;
+    overflow: hidden;
+  }
+
+  .crease{
+    position: absolute; top: 8px; bottom: 8px; left: 50%;
+    width: 1px;
+    background: rgba(0,0,0,0.06);
+    opacity: 0;
+    transition: opacity 500ms ease 300ms;
+  }
+  .device.unfolded .crease{ opacity: 1; }
+
+  .content{
+    position: absolute; inset: 0;
+    display:flex; flex-direction:column;
+    padding: 26px 18px 20px;
+    opacity: 0;
+    transition: opacity 350ms ease;
+    pointer-events: none;
+  }
+  .content.show{ opacity: 1; pointer-events: auto; }
+
+  .status{
+    font-size: 13px; font-weight: 600; margin-bottom: auto;
+    display:flex; justify-content: space-between;
+  }
+
+  .folded-body{
+    flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 6px;
+  }
+  .folded-body .time{ font-size: 52px; font-weight: 300; letter-spacing: -0.02em; }
+  .folded-body .date{ font-size: 13px; color: var(--ink-soft); font-weight: 500; margin-bottom: 24px; }
+  .dock{ display:flex; gap: 14px; margin-top: auto; }
+  .dock span{ width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(140deg, #EAEAEA, #D8D8D8); }
+
+  .unfolded-body{
+    flex:1; display:grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .pane{
+    background: #F5F5F7; border-radius: 16px; padding: 16px;
+    display:flex; flex-direction:column; gap: 10px;
+  }
+  .pane .bar{ height: 8px; border-radius: 4px; background: #DFDFE3; }
+  .pane .bar.w60{ width: 60%; }
+  .pane .bar.w80{ width: 80%; }
+  .pane .bar.w40{ width: 40%; }
+  .pane .big{ flex:1; border-radius: 12px; background: linear-gradient(140deg, #0071E3, #59A6F0); margin-top: 6px; }
+  .pane.right .big{ background: linear-gradient(140deg, #1D1D1F, #4A4A4E); }
+
+  .controls{ text-align:center; }
+  .toggle-btn{
+    padding: 14px 30px; border-radius: 999px; border: none;
+    background: var(--ink); color: #fff;
+    font-family:'Inter', sans-serif; font-weight: 600; font-size: 14.5px;
+    cursor: pointer; transition: transform 160ms ease, background 160ms ease;
+  }
+  .toggle-btn:hover{ background: var(--blue); transform: translateY(-1px); }
+  .hint{ margin-top: 14px; font-size: 12.5px; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<div class="label">
+  <div class="mark">iPhone Duo</div>
+  <div class="tag">Everything Opens Up.</div>
+</div>
+
+<div class="stage">
+  <div class="device folded" id="device">
+    <div class="screen">
+      <div class="crease"></div>
+
+      <div class="content show" id="foldedContent">
+        <div class="status"><span>9:41</span><span>100%</span></div>
+        <div class="folded-body">
+          <div class="time">9:41</div>
+          <div class="date">Wednesday, September 16</div>
+        </div>
+        <div class="dock">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="content" id="unfoldedContent">
+        <div class="status"><span>9:41</span><span>100%</span></div>
+        <div class="unfolded-body">
+          <div class="pane">
+            <div class="bar w60"></div>
+            <div class="bar w40"></div>
+            <div class="big"></div>
+          </div>
+          <div class="pane right">
+            <div class="bar w80"></div>
+            <div class="bar w60"></div>
+            <div class="big"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <button class="toggle-btn" id="toggleBtn">Unfold</button>
+  <p class="hint">5.4" outer display → 7.6" Super Retina XDR inner display</p>
+</div>
+
+<script>
+  const device = document.getElementById('device');
+  const toggleBtn = document.getElementById('toggleBtn');
+  const foldedContent = document.getElementById('foldedContent');
+  const unfoldedContent = document.getElementById('unfoldedContent');
+  let isFolded = true;
+
+  toggleBtn.addEventListener('click', () => {
+    isFolded = !isFolded;
+    device.classList.toggle('folded', isFolded);
+    device.classList.toggle('unfolded', !isFolded);
+
+    if(isFolded){
+      unfoldedContent.classList.remove('show');
+      setTimeout(() => foldedContent.classList.add('show'), 200);
+      toggleBtn.textContent = 'Unfold';
+    } else {
+      foldedContent.classList.remove('show');
+      setTimeout(() => unfoldedContent.classList.add('show'), 300);
+      toggleBtn.textContent = 'Fold';
+    }
+  });
+</script>
+
+</body>
+</html>
