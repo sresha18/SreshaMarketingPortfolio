@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sresha Rajesh — Marketing Specialist</title>
+<title>Sresha Rajesh — Aspiring Digital Marketer</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Baloo+2:wght@500;600;700;800&family=Oswald:wght@500;600;700&family=Poppins:wght@500;600;700;800&family=Sora:wght@500;600;700;800&family=Quicksand:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -370,6 +370,54 @@
     font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
     font-weight: 700; color: var(--rose-deep); margin-bottom: 14px;
   }
+  .spec-badge{
+    display:inline-flex; align-items:center; gap: 7px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(255,255,255,0.65);
+    border: 1px solid rgba(74,44,44,0.25);
+    color: #4A2C2C;
+    margin-bottom: 16px;
+  }
+  .spec-badge::before{ content: '✦'; font-size: 9px; opacity: 0.7; }
+  .case-card.nike .spec-badge{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #C9C9C4; }
+  .case-card.slip .spec-badge{ background: rgba(255,255,255,0.6); border-color: rgba(92,58,78,0.3); color: #5C3A4E; }
+  .case-card.squish .spec-badge{ background: rgba(255,255,255,0.6); border-color: rgba(122,95,199,0.3); color: #4A4356; }
+  .case-card.mlc .spec-badge{ background: rgba(255,255,255,0.6); border-color: rgba(15,44,76,0.3); color: #2A3542; }
+  .case-card.spotify .spec-badge{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #C9C9C9; }
+  .case-card.tiktok .spec-badge{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #C9C9C9; }
+  .case-card.vicks .spec-badge{ background: rgba(255,255,255,0.6); border-color: rgba(199,151,28,0.3); color: #4A4038; }
+  .case-card.apple .spec-badge{ background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.14); color: #4A4A4E; }
+
+  .digital-layer{
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(74,44,44,0.18);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 30px;
+  }
+  .digital-layer .dl-head{
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 700; color: var(--rose-deep); margin-bottom: 14px;
+    display:flex; align-items:center; gap: 8px;
+  }
+  .dl-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 16px 24px;
+  }
+  @media (max-width: 640px){ .dl-grid{ grid-template-columns: 1fr; } }
+  .dl-item .dl-label{
+    font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    color: #7A5A24; margin-bottom: 4px;
+  }
+  .dl-item .dl-value{ font-size: 13.5px; color: #4A2C2C; line-height: 1.5; }
+  .case-card.nike .digital-layer{ background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); }
+  .case-card.nike .dl-head{ color: #D7FE63; }
+  .case-card.nike .dl-item .dl-label{ color: #D7FE63; }
+  .case-card.nike .dl-item .dl-value{ color: #C9C9C4; }
+  .case-card.spotify .digital-layer{ background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); }
+  .case-card.spotify .dl-head{ color: #1ED760; }
+  .case-card.spotify .dl-item .dl-label{ color: #1ED760; }
+  .case-card.spotify .dl-item .dl-value{ color: #C9C9C9; }
   .case-card h3{
     font-family:'Fraunces', serif;
     font-style: italic;
@@ -642,6 +690,24 @@
   }
   .skill-card .d{ font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
 
+  /* TOOLS */
+  .tools-strip{
+    display:flex; flex-wrap: wrap; align-items:center; gap: 12px;
+    margin-top: 34px; padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .tools-strip .tools-label{
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-soft); margin-right: 4px;
+  }
+  .tool-chip{
+    display:inline-flex; align-items:center; gap: 7px;
+    font-size: 13px; font-weight: 600;
+    padding: 8px 16px; border-radius: 999px;
+    background: #fff; border: 1px solid var(--line);
+    color: var(--ink);
+  }
+
   /* STATEMENT DIVIDER */
   .statement{
     padding: 90px 24px;
@@ -753,7 +819,7 @@
 
   <div class="rotate-wrap">
     <span class="static">I am a</span>
-    <span class="rotate-text" id="rotateText">Marketing Specialist</span>
+    <span class="rotate-text" id="rotateText">Aspiring Digital Marketer</span>
   </div>
 
   <svg class="growth-line" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -807,8 +873,8 @@
 </section>
 
 <section id="work" class="work reveal">
-  <h2 class="section-title">Eight brands, eight different problems</h2>
-  <p class="section-sub">Campaign concepts across categories, each with a different set of deliverables.</p>
+  <h2 class="section-title">Nine brands, nine different problems</h2>
+  <p class="section-sub">Independent spec campaigns built to show how I think, not real client work, each with a different set of deliverables.</p>
 
   <div class="jump-nav" id="jumpNav">
     <span class="jump-chip" data-target="work-rarebeauty">Rare Beauty</span>
@@ -824,6 +890,7 @@
 
   <div class="case-card" id="work-rarebeauty">
     <p class="kicker">Rare Beauty · Soft Pinch Blush</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Rare Beauty</p>
     <h3>Wear Your Truth</h3>
     <p class="desc">Instead of picking a blush shade for skin tone, you pick it for how you want to feel. The campaign turns shade names like Joy, Grateful, and Truth into a daily self-love ritual, deepening a brand identity Rare Beauty already owns.</p>
 
@@ -835,20 +902,31 @@
     </div>
 
     <div class="case-stats">
-      <div class="stat"><div class="num">+30%</div><div class="label">Sales lift goal</div></div>
+      <div class="stat"><div class="num">CTR</div><div class="label">Primary KPI: quiz → PDP click-through</div></div>
       <div class="stat"><div class="num">8</div><div class="label">Shades mapped to moods</div></div>
       <div class="stat"><div class="num">3</div><div class="label">Deliverables prototyped</div></div>
+    </div>
+
+    <div class="digital-layer">
+      <p class="dl-head">Digital media plan</p>
+      <div class="dl-grid">
+        <div class="dl-item"><div class="dl-label">Audience</div><div class="dl-value">Women 18–34, beauty/self-care affinity, engaged with mental-health or "soft life" content in the last 30 days</div></div>
+        <div class="dl-item"><div class="dl-label">Ad formats</div><div class="dl-value">Instagram/TikTok Reels driving to the shade quiz, static carousel on Meta, UGC-style creator seeding</div></div>
+        <div class="dl-item"><div class="dl-label">Budget split</div><div class="dl-value">55% paid social (Meta + TikTok), 25% creator partnerships, 20% retargeting to quiz completers</div></div>
+        <div class="dl-item"><div class="dl-label">KPIs & test plan</div><div class="dl-value">Quiz completion rate, quiz → PDP CTR, cost per quiz completion; A/B test shade-name framing vs. shade-number framing in ad copy</div></div>
+      </div>
     </div>
 
     <div class="case-actions">
       <a class="case-btn" href="rare-beauty-shade-quiz.html" target="_blank">Try the live shade quiz</a>
       <a class="case-btn alt" href="rare-beauty-social-mockups.html" target="_blank">View social mockups</a>
-      <a class="case-btn alt" href="wear-your-truth-case-study.docx">Download full case study</a>
+      <a class="case-btn alt" href="wear-your-truth-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 
   <div class="case-card nike" id="work-nike">
     <p class="kicker">Nike · Pegasus 42, Women's</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Nike</p>
     <h3>More Return.</h3>
     <p class="desc">The Pegasus 42's real upgrade is energy return, 15% more than the Pegasus 41. This campaign turns that engineering fact into an emotional one: every mile gives back more than it costs, matching runners to a real colorway based on what they need from today's run.</p>
 
@@ -860,20 +938,31 @@
     </div>
 
     <div class="case-stats">
-      <div class="stat"><div class="num">15%</div><div class="label">More energy return</div></div>
+      <div class="stat"><div class="num">15%</div><div class="label">More energy return (Nike-reported spec)</div></div>
       <div class="stat"><div class="num">6</div><div class="label">Colorways mapped to moods</div></div>
       <div class="stat"><div class="num">3</div><div class="label">Deliverables prototyped</div></div>
+    </div>
+
+    <div class="digital-layer">
+      <p class="dl-head">Digital media plan</p>
+      <div class="dl-grid">
+        <div class="dl-item"><div class="dl-label">Audience</div><div class="dl-value">Recreational runners 22–40 training for a spring race, following run clubs, Strava-active, past Pegasus purchasers</div></div>
+        <div class="dl-item"><div class="dl-label">Ad formats</div><div class="dl-value">YouTube/Instagram pre-roll on the "More Return" film, Strava segment sponsorship, colorway quiz as a paid Meta lead-gen unit</div></div>
+        <div class="dl-item"><div class="dl-label">Budget split</div><div class="dl-value">50% video (YouTube + Meta Reels), 30% run-community partnerships (Strava, local run clubs), 20% search/retargeting at launch week</div></div>
+        <div class="dl-item"><div class="dl-label">KPIs & test plan</div><div class="dl-value">Quiz starts and completions, video view-through rate, sell-through by colorway; A/B test emotion-led vs. spec-led ad copy</div></div>
+      </div>
     </div>
 
     <div class="case-actions">
       <a class="case-btn" href="nike-pegasus-return-quiz.html" target="_blank">Try the live colorway quiz</a>
       <a class="case-btn alt" href="nike-pegasus-social-mockups.html" target="_blank">View social mockups</a>
-      <a class="case-btn alt" href="more-return-case-study.docx">Download full case study</a>
+      <a class="case-btn alt" href="more-return-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 
   <div class="case-card slip" id="work-slip">
     <p class="kicker">Slip · Silk Pillowcases</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Slip</p>
     <h3>Sleep On It.</h3>
     <p class="desc">Slip already claims its silk fights sleep creases and bedhead. This campaign treats sleep itself as the easiest step in any beauty routine, matching people to a real Slip colorway based on how they want to wake up, not just what matches their sheets.</p>
 
@@ -893,12 +982,13 @@
     <div class="case-actions">
       <a class="case-btn" href="slip-sleep-quiz.html" target="_blank">Try "Find Your Slip"</a>
       <a class="case-btn alt" href="slip-social-mockups.html" target="_blank">View social mockups</a>
-      <a class="case-btn alt" href="sleep-on-it-case-study.docx">Download full case study</a>
+      <a class="case-btn alt" href="sleep-on-it-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 
   <div class="case-card squish" id="work-squish">
     <p class="kicker">Squishmallows</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Squishmallows / Jazwares</p>
     <h3>Everyone Needs A Squish.</h3>
     <p class="desc">Squishmallows already skews multi-generational, but marketing rarely says so out loud. This campaign turns the brand's existing squad system into a personality match for the person buying, normalizing a plush on a desk or dorm bed at any age.</p>
 
@@ -918,12 +1008,13 @@
     <div class="case-actions">
       <a class="case-btn" href="squishmallows-quiz.html" target="_blank">Try "Find Your Squish"</a>
       <a class="case-btn alt" href="squishmallows-social-mockups.html" target="_blank">View social mockups</a>
-      <a class="case-btn alt" href="everyone-needs-a-squish-case-study.docx">Download full case study</a>
+      <a class="case-btn alt" href="everyone-needs-a-squish-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 
   <div class="case-card mlc" id="work-mlc">
     <p class="kicker">Major League Cricket</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by MLC</p>
     <h3>Your First Six.</h3>
     <p class="desc">84% of MLC's ticket buyers last season had never seen a cricket match before. Instead of teaching newcomers the rules, this campaign sells the format's actual differentiator, T20's speed and spectacle, through a 30-second vertical video built for viewers who've never watched a single ball.</p>
 
@@ -934,19 +1025,20 @@
     </div>
 
     <div class="case-stats">
-      <div class="stat"><div class="num">84%</div><div class="label">Ticket buyers were first-timers</div></div>
+      <div class="stat"><div class="num">84%</div><div class="label">Ticket buyers were first-timers (MLC 2025 season)</div></div>
       <div class="stat"><div class="num">30s</div><div class="label">Vertical spot, 7 frames</div></div>
       <div class="stat"><div class="num">2</div><div class="label">Deliverables prototyped</div></div>
     </div>
 
     <div class="case-actions">
       <a class="case-btn" href="mlc-storyboard.html" target="_blank">View the storyboard</a>
-      <a class="case-btn alt" href="your-first-six-case-study.docx">Download full case study</a>
+      <a class="case-btn alt" href="your-first-six-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 
   <div class="case-card spotify" id="work-spotify">
     <p class="kicker">Spotify · Prompted Playlist</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Spotify</p>
     <h3>Say The Vibe.</h3>
     <p class="desc">Prompted Playlist turns your own words into a playlist, but most users don't know it exists yet. This campaign puts real, oddly specific prompts front and center as the creative, letting the specificity of people's own language do the selling instead of a written tagline.</p>
 
@@ -957,20 +1049,31 @@
     </div>
 
     <div class="case-stats">
-      <div class="stat"><div class="num">620M+</div><div class="label">Wrapped shares in 2025</div></div>
+      <div class="stat"><div class="num">620M+</div><div class="label">Wrapped shares in 2025 (Spotify-reported)</div></div>
       <div class="stat"><div class="num">4</div><div class="label">OOH placements mocked up</div></div>
       <div class="stat"><div class="num">2</div><div class="label">Deliverables prototyped</div></div>
+    </div>
+
+    <div class="digital-layer">
+      <p class="dl-head">Digital media plan</p>
+      <div class="dl-grid">
+        <div class="dl-item"><div class="dl-label">Audience</div><div class="dl-value">Free-tier and Premium users 16–29, heavy playlist-savers, active on Spotify 5+ days a week</div></div>
+        <div class="dl-item"><div class="dl-label">Ad formats</div><div class="dl-value">In-app Spotify audio + video takeover pointing to the Prompted Playlist tool, transit/OOH with real user prompts, TikTok creator demos</div></div>
+        <div class="dl-item"><div class="dl-label">Budget split</div><div class="dl-value">45% in-app Spotify inventory, 30% OOH/transit in top-streaming metro areas, 25% TikTok creator seeding</div></div>
+        <div class="dl-item"><div class="dl-label">KPIs & test plan</div><div class="dl-value">Feature-activation rate, prompts submitted per user, playlist save/share rate; A/B test literal prompts vs. abstract/emotional prompts in creative</div></div>
+      </div>
     </div>
 
     <div class="case-actions">
       <a class="case-btn" href="spotify-vibe-tool.html" target="_blank">Try "Say The Vibe"</a>
       <a class="case-btn alt" href="spotify-ooh-mockups.html" target="_blank">View OOH mockups</a>
-      <a class="case-btn alt" href="say-the-vibe-case-study.docx">Download full case study</a>
+      <a class="case-btn alt" href="say-the-vibe-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 
   <div class="case-card tiktok" id="work-tiktok">
     <p class="kicker">TikTok · Local Feeds</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by TikTok</p>
     <h3>Right Here.</h3>
     <p class="desc">TikTok's Local Feeds already surfaces what's nearby, but neither everyday users nor local businesses know it exists yet. This campaign sells the feeling of finding out the best plan tonight was three blocks away, and gives small businesses a practical toolkit to actually get featured.</p>
 
@@ -988,13 +1091,14 @@
 
     <div class="case-actions">
       <a class="case-btn" href="tiktok-local-feeds-mockup.html" target="_blank">View the app mockup</a>
-      <a class="case-btn alt" href="get-found-nearby-toolkit.docx">Download business toolkit</a>
-      <a class="case-btn alt" href="right-here-case-study.docx">Download full case study</a>
+      <a class="case-btn alt" href="get-found-nearby-toolkit.pdf" target="_blank">Download business toolkit</a>
+      <a class="case-btn alt" href="right-here-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 
   <div class="case-card vicks" id="work-vicks">
     <p class="kicker">Vicks DayQuil / NyQuil · Honey</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Vicks / P&G</p>
     <h3>Honey, You're Covered.</h3>
     <p class="desc">DayQuil and NyQuil already own the category's strongest structural asset: the orange/blue day-night pairing. This GTM campaign launches the Honey line extension, tackling the real reason people skip cold medicine, taste, using an ingredient people already trust.</p>
 
@@ -1013,12 +1117,13 @@
     <div class="case-actions">
       <a class="case-btn" href="dayquil-nyquil-gtm-roadmap.html" target="_blank">View the GTM roadmap</a>
       <a class="case-btn alt" href="dayquil-nyquil-retail-mockup.html" target="_blank">View retail mockup</a>
-      <a class="case-btn alt" href="honey-youre-covered-case-study.docx">Download full case study</a>
+      <a class="case-btn alt" href="honey-youre-covered-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 
   <div class="case-card apple" id="work-apple">
     <p class="kicker">Apple · iPhone Duo</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Apple</p>
     <h3>Everything Opens Up.</h3>
     <p class="desc">Apple's first foldable doesn't need a spec sheet, it needs the fold itself shown as the hero moment. This launch campaign builds a 30-second film and an interactive simulator around a single act: watching the 5.4" screen become a 7.6" screen.</p>
 
@@ -1037,7 +1142,7 @@
     <div class="case-actions">
       <a class="case-btn" href="iphone-duo-fold-simulator.html" target="_blank">Try the fold simulator</a>
       <a class="case-btn alt" href="iphone-duo-launch-film-storyboard.html" target="_blank">View film storyboard</a>
-      <a class="case-btn alt" href="everything-opens-up-case-study.docx">Download full case study</a>
+      <a class="case-btn alt" href="everything-opens-up-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 </section>
@@ -1076,6 +1181,11 @@
       <div class="d">Mocking up interactive concepts quickly to pitch ideas before full production.</div>
     </div>
   </div>
+
+  <div class="tools-strip">
+    <span class="tools-label">Tools I use</span>
+    <span class="tool-chip">Canva</span>
+  </div>
 </section>
 
 <div class="statement reveal">
@@ -1085,7 +1195,7 @@
 
 <section id="contact" class="contact reveal">
   <h2>Let's talk.</h2>
-  <p>Open to Marketing Specialist roles. Reach out anytime.</p>
+  <p>Open to entry-level marketing and marketing internship roles. Reach out anytime.</p>
   <div class="contact-links">
     <a class="btn btn-primary" id="emailBtn" href="mailto:sresharajesh@gmail.com">Email me</a>
     <a class="btn btn-ghost" href="https://www.linkedin.com/in/sresha-rajesh-2825a1271/" target="_blank">LinkedIn</a>
@@ -1173,7 +1283,7 @@
     });
   });
 
-  const roles = ["Marketing Specialist", "Brand Strategist", "Campaign Builder", "Storyteller (with a spreadsheet)"];
+  const roles = ["Aspiring Digital Marketer", "Brand Strategist", "Campaign Builder", "Storyteller (with a spreadsheet)"];
   const rotateEl = document.getElementById('rotateText');
   let roleIndex = 0;
   let lastScrollY = window.scrollY;
