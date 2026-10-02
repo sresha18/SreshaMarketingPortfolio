@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share It Forward — App Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red: #E30613;
+    --red-deep: #B10510;
+    --cream: #FFF8F0;
+    --ink: #2A1210;
+    --ink-soft: #6B4A46;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    font-family:'Inter', sans-serif; color: var(--ink); background: #F3EAE4;
+    padding: 44px 20px 70px;
+  }
+  .wrap{ max-width: 1040px; margin: 0 auto; }
+  header{ text-align:center; margin-bottom: 40px; }
+  header .eyebrow{
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--red); font-weight: 700; margin-bottom: 10px;
+  }
+  header h1{ font-family:'Poppins', sans-serif; font-weight: 800; font-size: clamp(24px,3.6vw,34px); }
+
+  .phones{ display:flex; gap: 26px; flex-wrap: wrap; justify-content:center; }
+
+  .phone-unit{ text-align:center; width: 260px; }
+  .phone-unit .cap{ font-size: 12.5px; color: var(--ink-soft); margin-top: 12px; line-height: 1.4; }
+  .phone{
+    width: 260px; height: 540px; margin: 0 auto;
+    background: #fff; border-radius: 32px; border: 6px solid #241010;
+    box-shadow: 0 24px 50px -22px rgba(42,18,16,0.5);
+    overflow: hidden; position:relative; display:flex; flex-direction:column;
+  }
+  .notch{
+    position:absolute; top: 7px; left: 50%; transform: translateX(-50%);
+    width: 90px; height: 16px; background: #241010; border-radius: 10px; z-index: 5;
+  }
+  .bar{
+    background: var(--red); color: #fff; padding: 30px 16px 12px;
+    font-family:'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+    text-align:center;
+  }
+  .scr{ flex:1; padding: 16px; overflow-y:auto; }
+
+  /* Screen 1: referral send */
+  .s1 .bottle-mini{
+    width: 56px; height: 100px; margin: 0 auto 10px; border-radius: 8px 8px 16px 16px;
+    background: linear-gradient(180deg, #3A1010, #170505); position:relative;
+  }
+  .s1 .bottle-mini .lbl{ position:absolute; top:30px; left:4px; right:4px; background:#fff; border-radius:3px; padding:5px 3px; text-align:center; font-size:9px; font-weight:800; color: var(--red); }
+  .s1 .prompt{ text-align:center; font-size: 13px; color: var(--ink-soft); margin-bottom: 14px; }
+  .s1 .input-mock{ background: var(--cream); border-radius: 10px; padding: 10px 12px; font-size: 13px; color: var(--ink-soft); margin-bottom: 10px; }
+  .s1 .send-btn{ background: var(--red); color:#fff; text-align:center; padding: 11px; border-radius: 999px; font-weight:700; font-size:13px; }
+
+  /* Screen 2: loop status */
+  .s2 .k-card{ background: var(--cream); border-radius: 14px; padding: 16px; text-align:center; margin-bottom: 14px; }
+  .s2 .k-card .n{ font-family:'Poppins', sans-serif; font-weight: 800; font-size: 30px; color: var(--red); }
+  .s2 .k-card .l{ font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
+  .s2 .row{ display:flex; justify-content:space-between; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 12.5px; }
+  .s2 .row b{ color: var(--red); }
+
+  /* Screen 3: reward wallet */
+  .s3 .reward{ background: var(--cream); border-radius: 12px; padding: 14px; margin-bottom: 10px; display:flex; justify-content:space-between; align-items:center; }
+  .s3 .reward .t{ font-weight: 700; font-size: 13px; }
+  .s3 .reward .d{ font-size: 11px; color: var(--ink-soft); }
+  .s3 .reward .code{ background: var(--red); color:#fff; font-size: 10px; font-weight:700; padding: 5px 9px; border-radius: 999px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Coca-Cola · Share It Forward</p>
+    <h1>App Mockups — the referral loop, screen by screen</h1>
+  </header>
+
+  <div class="phones">
+    <div class="phone-unit">
+      <div class="phone s1">
+        <div class="notch"></div>
+        <div class="bar">Send a Share</div>
+        <div class="scr">
+          <div class="bottle-mini"><div class="lbl">Josh</div></div>
+          <p class="prompt">Personalize a bottle and send it — they unlock a reward, so do you.</p>
+          <div class="input-mock">Your name: Maya</div>
+          <div class="input-mock">Their name: Josh</div>
+          <div class="send-btn">Send it forward →</div>
+        </div>
+      </div>
+      <p class="cap">Screen 1 — the send moment. Two names, one tap, no purchase required to start the loop.</p>
+    </div>
+
+    <div class="phone-unit">
+      <div class="phone s2">
+        <div class="notch"></div>
+        <div class="bar">Your Loop</div>
+        <div class="scr">
+          <div class="k-card"><div class="n">0.47</div><div class="l">Avg. referrals sent per person</div></div>
+          <div class="row"><span>Bottles you've sent</span><b>3</b></div>
+          <div class="row"><span>Friends who opened theirs</span><b>2</b></div>
+          <div class="row"><span>Rewards unlocked</span><b>2</b></div>
+          <div class="row"><span>Your next reward at</span><b>5 sends</b></div>
+        </div>
+      </div>
+      <p class="cap">Screen 2 — the loop dashboard. Makes the referral mechanic visible instead of invisible, which is the whole growth-marketing bet.</p>
+    </div>
+
+    <div class="phone-unit">
+      <div class="phone s3">
+        <div class="notch"></div>
+        <div class="bar">Reward Wallet</div>
+        <div class="scr">
+          <div class="reward"><div><div class="t">Buy One Get One</div><div class="d">Participating retailers</div></div><div class="code">GIVE1GET1</div></div>
+          <div class="reward"><div><div class="t">$1 off your next 6-pack</div><div class="d">Expires in 14 days</div></div><div class="code">SAVE1NOW</div></div>
+          <div class="reward"><div><div class="t">Early access drop</div><div class="d">Coca-Cola Creations</div></div><div class="code">LOCKED</div></div>
+        </div>
+      </div>
+      <p class="cap">Screen 3 — reward redemption, routed through Coca-Cola.com/offers and the Coca-Cola App, where real redemption already lives.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
