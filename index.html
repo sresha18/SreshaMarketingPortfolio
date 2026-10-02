@@ -658,6 +658,35 @@
   .case-card.apple .case-btn.alt{ background: rgba(0,0,0,0.05); color: #1D1D1F; }
   .case-card.apple .case-btn.alt:hover{ background: rgba(0,0,0,0.09); }
 
+  /* LEGO Architecture case card variant */
+  .case-card.lego{
+    background:
+      repeating-linear-gradient(0deg, rgba(27,27,24,0.05) 0px, rgba(27,27,24,0.05) 1px, transparent 1px, transparent 26px),
+      repeating-linear-gradient(90deg, rgba(27,27,24,0.05) 0px, rgba(27,27,24,0.05) 1px, transparent 1px, transparent 26px),
+      linear-gradient(155deg, #F6F4EC, #EBE8DC);
+    border: 1.5px solid rgba(27,27,24,0.7);
+    box-shadow: 10px 10px 0 rgba(27,27,24,0.9);
+    margin-top: 32px;
+  }
+  .case-card.lego:hover{ box-shadow: 12px 12px 0 rgba(27,27,24,0.9); transform: translateY(-6px) scale(1.005); }
+  .case-card.lego .kicker{ color: #D4111C; }
+  .case-card.lego h3{
+    font-family: 'Space Grotesk', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #1B1B18;
+  }
+  .case-card.lego p.desc{ color: #4A4940; }
+  .case-card.lego .case-tags span{ background: rgba(255,255,255,0.75); color: #D4111C; border-radius: 3px; }
+  .case-card.lego .case-stats .stat{ background: rgba(255,255,255,0.7); border-radius: 3px; }
+  .case-card.lego .case-stats .stat .num{ font-family:'Space Grotesk', sans-serif; font-weight: 700; color: #D4111C; }
+  .case-card.lego .case-stats .stat .label{ color: #4A4940; }
+  .case-card.lego .case-btn{ background: #D4111C; color: #fff; border-radius: 3px; }
+  .case-card.lego .case-btn:hover{ background: #A50D15; }
+  .case-card.lego .case-btn.alt{ background: rgba(255,255,255,0.8); color: #D4111C; border-radius: 3px; }
+  .case-card.lego .case-btn.alt:hover{ background: #fff; }
+  .case-card.lego .spec-badge{ background: rgba(255,255,255,0.75); border-color: rgba(27,27,24,0.3); color: #4A4940; }
+
   /* SKILLS */
   .skills-grid{
     display:grid; grid-template-columns: repeat(3,1fr); gap: 20px;
@@ -873,7 +902,7 @@
 </section>
 
 <section id="work" class="work reveal">
-  <h2 class="section-title">Nine brands, nine different problems</h2>
+  <h2 class="section-title">Ten brands, ten different problems</h2>
   <p class="section-sub">Independent spec campaigns built to show how I think, not real client work, each with a different set of deliverables.</p>
 
   <div class="jump-nav" id="jumpNav">
@@ -886,6 +915,7 @@
     <span class="jump-chip" data-target="work-tiktok">TikTok</span>
     <span class="jump-chip" data-target="work-vicks">Vicks</span>
     <span class="jump-chip" data-target="work-apple">Apple</span>
+    <span class="jump-chip" data-target="work-lego">LEGO Architecture</span>
   </div>
 
   <div class="case-card" id="work-rarebeauty">
@@ -1145,6 +1175,32 @@
       <a class="case-btn alt" href="everything-opens-up-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
+
+  <div class="case-card lego" id="work-lego">
+    <p class="kicker">LEGO Architecture · Skyline Series</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by LEGO</p>
+    <h3>Build What You've Seen.</h3>
+    <p class="desc">The Skyline series already lets people build a stylized version of a specific city. This campaign turns that into a personal shelf, not a single hero set, letting people pick the cities that actually mean something to them and build a lineup instead of buying one box.</p>
+
+    <div class="case-tags">
+      <span>Gifting Campaign</span>
+      <span>Interactive Prototype</span>
+      <span>Social Content</span>
+      <span>UGC</span>
+    </div>
+
+    <div class="case-stats">
+      <div class="stat"><div class="num">12,060</div><div class="label">Pieces in LEGO's largest-ever set (Sagrada Família, 2026)</div></div>
+      <div class="stat"><div class="num">2016</div><div class="label">Year the Skyline series launched</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">Deliverables prototyped</div></div>
+    </div>
+
+    <div class="case-actions">
+      <a class="case-btn" href="lego-architecture-skyline-tool.html" target="_blank">Try "Build Your Skyline"</a>
+      <a class="case-btn alt" href="lego-architecture-social-mockups.html" target="_blank">View social mockups</a>
+      <a class="case-btn alt" href="build-what-youve-seen-case-study.pdf" target="_blank">Download full case study</a>
+    </div>
+  </div>
 </section>
 
 <section id="skills" class="reveal">
@@ -1364,6 +1420,11 @@
     updateProgress();
   }
 </script>
+
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 
 </body>
 </html>
