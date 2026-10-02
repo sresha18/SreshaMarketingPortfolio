@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build What You've Seen — Social Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F3F1EA;
+    --ink: #1B1B18;
+    --ink-soft: #5B5A52;
+    --red: #D4111C;
+    --line: rgba(27,27,24,0.16);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    font-family:'Inter', sans-serif; color: var(--ink); background: var(--paper);
+    padding: 48px 20px 80px;
+  }
+  .wrap{ max-width: 980px; margin: 0 auto; }
+  header{ text-align:center; margin-bottom: 44px; }
+  header .eyebrow{
+    font-family:'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--red); font-weight: 700; margin-bottom: 10px;
+  }
+  header h1{ font-family:'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(26px,4vw,38px); }
+
+  .grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 760px){ .grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px){ .grid{ grid-template-columns: 1fr; } }
+
+  .post{
+    background: #fff; border: 1.5px solid var(--ink); border-radius: 6px; overflow:hidden;
+    box-shadow: 6px 6px 0 rgba(27,27,24,0.9);
+  }
+  .post-img{
+    aspect-ratio: 1/1; display:flex; align-items:center; justify-content:center; position:relative;
+    font-family:'Space Grotesk', sans-serif; font-weight: 700; text-align:center; padding: 18px;
+  }
+  .post-img .blueprint{
+    position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(0deg, rgba(27,27,24,0.07) 0px, rgba(27,27,24,0.07) 1px, transparent 1px, transparent 22px),
+      repeating-linear-gradient(90deg, rgba(27,27,24,0.07) 0px, rgba(27,27,24,0.07) 1px, transparent 1px, transparent 22px);
+  }
+  .post-img span{ position:relative; z-index:1; font-size: 15px; line-height: 1.3; }
+  .post-caption{ padding: 14px 16px 16px; }
+  .post-caption .cap{ font-size: 13px; line-height: 1.5; margin-bottom: 8px; }
+  .post-caption .tags{ font-family:'Space Mono', monospace; font-size: 10.5px; color: var(--red); }
+
+  .p1 .post-img{ background: #FFF4E8; }
+  .p1 .post-img span{ color: #A5541C; }
+  .p2 .post-img{ background: #EDEBE2; }
+  .p2 .post-img span{ color: var(--ink); }
+  .p3 .post-img{ background: #FBE9E9; }
+  .p3 .post-img span{ color: var(--red); }
+  .p4 .post-img{ background: #E9EFEC; }
+  .p4 .post-img span{ color: #1E5C43; }
+  .p5 .post-img{ background: #F0ECF7; }
+  .p5 .post-img span{ color: #5339A8; }
+  .p6 .post-img{ background: var(--ink); }
+  .p6 .post-img span{ color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">LEGO Architecture · Skyline Series</p>
+    <h1>Build What You've Seen. — Social Mockups</h1>
+  </header>
+
+  <div class="grid">
+    <div class="post p1">
+      <div class="post-img"><div class="blueprint"></div><span>"empty bookshelf"<br>→ "the shelf you'll actually use"</span></div>
+      <div class="post-caption">
+        <p class="cap">Before/after carousel: a bare shelf becomes a three-city skyline. First slide is deliberately boring.</p>
+        <p class="tags">#BuildWhatYouveSeen</p>
+      </div>
+    </div>
+
+    <div class="post p2">
+      <div class="post-img"><div class="blueprint"></div><span>POV: unboxing the city<br>you moved away from</span></div>
+      <div class="post-caption">
+        <p class="cap">UGC-style unboxing format — creators build the skyline of a city they used to live in, on camera, no script.</p>
+        <p class="tags">#BuildWhatYouveSeen</p>
+      </div>
+    </div>
+
+    <div class="post p3">
+      <div class="post-img"><div class="blueprint"></div><span>"Which 3 cities<br>make your shelf?"</span></div>
+      <div class="post-caption">
+        <p class="cap">Instagram Story poll stack driving to the Build Your Skyline tool — three taps, one personalized result.</p>
+        <p class="tags">#BuildWhatYouveSeen</p>
+      </div>
+    </div>
+
+    <div class="post p4">
+      <div class="post-img"><div class="blueprint"></div><span>Gift card insert:<br>"for the apartment<br>that needs one thing"</span></div>
+      <div class="post-caption">
+        <p class="cap">Housewarming/anniversary gifting angle — paired copy for product pages and email around registry season.</p>
+        <p class="tags">#BuildWhatYouveSeen</p>
+      </div>
+    </div>
+
+    <div class="post p5">
+      <div class="post-img"><div class="blueprint"></div><span>Time-lapse:<br>Singapore, 827 pieces,<br>1 Sunday afternoon</span></div>
+      <div class="post-caption">
+        <p class="cap">Build time-lapse reel of the Singapore Skyline set — slow, ASMR-adjacent pacing, positioned against doom-scrolling as a different kind of wind-down.</p>
+        <p class="tags">#BuildWhatYouveSeen</p>
+      </div>
+    </div>
+
+    <div class="post p6">
+      <div class="post-img"><div class="blueprint"></div><span>Sagrada Família<br>12,060 pcs<br>largest LEGO set ever</span></div>
+      <div class="post-caption">
+        <p class="cap">Launch-moment post for the 2026 Sagrada Família set, positioned as the aspirational "someday build" at the top of the line.</p>
+        <p class="tags">#BuildWhatYouveSeen</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

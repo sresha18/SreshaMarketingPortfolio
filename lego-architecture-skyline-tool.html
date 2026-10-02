@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your Skyline — LEGO Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F3F1EA;
+    --ink: #1B1B18;
+    --ink-soft: #5B5A52;
+    --red: #D4111C;
+    --red-deep: #A50D15;
+    --line: rgba(27,27,24,0.16);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:'Inter', sans-serif; color: var(--ink);
+    background:
+      repeating-linear-gradient(0deg, rgba(27,27,24,0.05) 0px, rgba(27,27,24,0.05) 1px, transparent 1px, transparent 28px),
+      repeating-linear-gradient(90deg, rgba(27,27,24,0.05) 0px, rgba(27,27,24,0.05) 1px, transparent 1px, transparent 28px),
+      var(--paper);
+    padding: 32px 16px;
+  }
+  .stage{ width:100%; max-width: 480px; }
+  .brand{ text-align:center; margin-bottom: 22px; }
+  .brand .mark{
+    font-family:'Space Grotesk', sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.01em;
+  }
+  .brand .tag{
+    font-family:'Space Mono', monospace;
+    font-size: 11px; color: var(--red); margin-top: 6px;
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+  }
+  .card{
+    background: #fff; border: 1.5px solid var(--ink); border-radius: 4px;
+    padding: 30px 26px;
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+  .step-label{
+    font-family:'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-soft); font-weight: 700; margin: 0 0 14px;
+  }
+  .city-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;
+  }
+  .city-opt{
+    border: 1.5px solid var(--line); border-radius: 4px; padding: 13px 14px;
+    cursor:pointer; transition: all 140ms ease; background: var(--paper);
+  }
+  .city-opt .c-name{ font-family:'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; }
+  .city-opt .c-pcs{ font-family:'Space Mono', monospace; font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
+  .city-opt:hover{ border-color: var(--red); }
+  .city-opt.selected{ border-color: var(--red); background: #fff; box-shadow: 3px 3px 0 var(--red); }
+  .hint{ font-size: 12.5px; color: var(--ink-soft); margin-bottom: 18px; }
+  .hint b{ color: var(--red); }
+
+  .generate-btn{
+    display:block; width: 100%; padding: 14px 18px; border-radius: 4px; border: none;
+    background: var(--red); color: #fff; font-family:'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: 14.5px; cursor: pointer; transition: background 160ms ease, transform 160ms ease;
+  }
+  .generate-btn:disabled{ background: #C9C7BC; cursor: not-allowed; }
+  .generate-btn:not(:disabled):hover{ background: var(--red-deep); transform: translateY(-1px); }
+
+  .result{ display:none; margin-top: 22px; animation: rise 450ms ease; }
+  .result.show{ display:block; }
+  @keyframes rise{ from{ opacity:0; transform: translateY(12px); } to{ opacity:1; transform: translateY(0); } }
+
+  .shelf{
+    border: 1.5px solid var(--ink); border-radius: 4px; padding: 20px 18px 16px;
+    background: linear-gradient(180deg, #fff, #F7F5EE);
+    margin-bottom: 16px;
+  }
+  .shelf-row{ display:flex; align-items:flex-end; gap: 10px; height: 92px; margin-bottom: 10px; justify-content:center; }
+  .shelf-bar{
+    width: 46px; background: var(--red); border-radius: 2px 2px 0 0;
+    display:flex; align-items:flex-start; justify-content:center; padding-top: 6px;
+    font-family:'Space Mono', monospace; font-size: 9px; color:#fff; font-weight:700;
+  }
+  .shelf-line{ border-top: 2px solid var(--ink); margin-bottom: 10px; }
+  .shelf-caption{ font-family:'Space Mono', monospace; font-size: 11px; color: var(--ink-soft); text-align:center; }
+
+  .totals{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+  .total-box{ border: 1px solid var(--line); border-radius: 4px; padding: 12px; text-align:center; }
+  .total-box .num{ font-family:'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; color: var(--red); }
+  .total-box .lbl{ font-family:'Space Mono', monospace; font-size: 10px; color: var(--ink-soft); margin-top: 2px; text-transform: uppercase; }
+
+  .cta{
+    display:block; width: 100%; padding: 13px 18px; border-radius: 4px; border: 1.5px solid var(--ink);
+    background: #fff; color: var(--ink); font-family:'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: 13.5px; cursor: pointer; transition: all 160ms ease;
+  }
+  .cta:hover{ background: var(--ink); color: #fff; }
+  .share-hint{ margin-top: 14px; font-size: 11.5px; color: var(--ink-soft); text-align:center; }
+  .share-hint b{ color: var(--red); }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="brand">
+    <div class="mark">LEGO® Architecture</div>
+    <div class="tag">Build What You've Seen · Skyline Series</div>
+  </div>
+
+  <div class="card">
+    <p class="step-label">Pick up to 3 cities</p>
+    <div class="hint">Places you've lived, visited, or still want to. <b id="countHint">0 / 3 selected</b></div>
+
+    <div class="city-grid" id="cityGrid">
+      <div class="city-opt" data-city="Venice" data-pcs="212">
+        <div class="c-name">Venice</div>
+        <div class="c-pcs">212 pcs</div>
+      </div>
+      <div class="city-opt" data-city="Tokyo" data-pcs="547">
+        <div class="c-name">Tokyo</div>
+        <div class="c-pcs">547 pcs</div>
+      </div>
+      <div class="city-opt" data-city="New York City" data-pcs="598">
+        <div class="c-name">New York City</div>
+        <div class="c-pcs">598 pcs</div>
+      </div>
+      <div class="city-opt" data-city="Paris" data-pcs="649">
+        <div class="c-name">Paris</div>
+        <div class="c-pcs">649 pcs</div>
+      </div>
+      <div class="city-opt" data-city="Singapore" data-pcs="827">
+        <div class="c-name">Singapore</div>
+        <div class="c-pcs">827 pcs</div>
+      </div>
+    </div>
+
+    <button class="generate-btn" id="generateBtn" disabled>Build my skyline</button>
+
+    <div class="result" id="result">
+      <div class="shelf">
+        <div class="shelf-row" id="shelfRow"></div>
+        <div class="shelf-line"></div>
+        <div class="shelf-caption" id="shelfCaption">YOUR SHELF, LEFT TO RIGHT</div>
+      </div>
+
+      <div class="totals">
+        <div class="total-box"><div class="num" id="totalPieces">0</div><div class="lbl">Total pieces</div></div>
+        <div class="total-box"><div class="num" id="totalSets">0</div><div class="lbl">Sets on your shelf</div></div>
+      </div>
+
+      <button class="cta" id="regenBtn">Save this combination</button>
+      <p class="share-hint">Tag your shelf with <b>#BuildWhatYouveSeen</b></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const MAX = 3;
+  let selected = [];
+
+  const grid = document.getElementById('cityGrid');
+  const countHint = document.getElementById('countHint');
+  const generateBtn = document.getElementById('generateBtn');
+  const result = document.getElementById('result');
+  const shelfRow = document.getElementById('shelfRow');
+  const shelfCaption = document.getElementById('shelfCaption');
+  const totalPieces = document.getElementById('totalPieces');
+  const totalSets = document.getElementById('totalSets');
+
+  grid.querySelectorAll('.city-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const city = opt.dataset.city;
+      const idx = selected.findIndex(s => s.city === city);
+      if(idx > -1){
+        selected.splice(idx, 1);
+        opt.classList.remove('selected');
+      } else {
+        if(selected.length >= MAX) return;
+        selected.push({ city, pcs: parseInt(opt.dataset.pcs, 10) });
+        opt.classList.add('selected');
+      }
+      countHint.textContent = `${selected.length} / ${MAX} selected`;
+      generateBtn.disabled = selected.length === 0;
+      result.classList.remove('show');
+    });
+  });
+
+  function build(){
+    if(selected.length === 0) return;
+    shelfRow.innerHTML = '';
+    let sumPieces = 0;
+    selected.forEach(s => {
+      sumPieces += s.pcs;
+      const h = 36 + Math.min(56, Math.round(s.pcs / 15));
+      const bar = document.createElement('div');
+      bar.className = 'shelf-bar';
+      bar.style.height = h + 'px';
+      bar.textContent = s.city.length > 10 ? s.city.slice(0,3).toUpperCase() : s.city.toUpperCase();
+      shelfRow.appendChild(bar);
+    });
+    shelfCaption.textContent = selected.map(s => s.city).join(' · ').toUpperCase();
+    totalPieces.textContent = sumPieces.toLocaleString();
+    totalSets.textContent = selected.length;
+    result.classList.add('show');
+  }
+
+  generateBtn.addEventListener('click', build);
+  document.getElementById('regenBtn').addEventListener('click', build);
+</script>
+
+</body>
+</html>
