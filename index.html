@@ -445,6 +445,34 @@
   .case-card.lego .dl-head{ color: #D4111C; }
   .case-card.lego .dl-item .dl-label{ color: #D4111C; }
   .case-card.lego .dl-item .dl-value{ color: #4A4940; }
+
+  /* Coca-Cola case card variant */
+  .case-card.coke{
+    background: linear-gradient(155deg, #FFF8F0, #FCE8E4);
+    border: 1px solid rgba(227,6,19,0.22);
+    box-shadow: 0 30px 70px -40px rgba(227,6,19,0.35);
+    margin-top: 32px;
+  }
+  .case-card.coke .kicker{ color: #E30613; }
+  .case-card.coke h3{
+    font-family: 'Fraunces', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #2A1210;
+  }
+  .case-card.coke p.desc{ color: #5A3330; }
+  .case-card.coke .case-tags span{ background: rgba(255,255,255,0.65); color: #E30613; }
+  .case-card.coke .case-stats .stat{ background: rgba(255,255,255,0.6); }
+  .case-card.coke .case-stats .stat .num{ font-family:'Inter', sans-serif; font-weight: 800; color: #E30613; }
+  .case-card.coke .case-stats .stat .label{ color: #5A3330; }
+  .case-card.coke .case-btn{ background: #E30613; color: #fff; }
+  .case-card.coke .case-btn:hover{ background: #B10510; }
+  .case-card.coke .case-btn.alt{ background: rgba(255,255,255,0.75); color: #E30613; }
+  .case-card.coke .case-btn.alt:hover{ background: #fff; }
+  .case-card.coke .spec-badge{ background: rgba(255,255,255,0.65); border-color: rgba(42,18,16,0.25); color: #5A3330; }
+  .case-card.coke .dl-head{ color: #E30613; }
+  .case-card.coke .dl-item .dl-label{ color: #E30613; }
+  .case-card.coke .dl-item .dl-value{ color: #5A3330; }
   .case-card h3{
     font-family:'Fraunces', serif;
     font-style: italic;
@@ -929,7 +957,7 @@
 </section>
 
 <section id="work" class="work reveal">
-  <h2 class="section-title">Ten brands, ten different problems</h2>
+  <h2 class="section-title">Eleven brands, eleven different problems</h2>
   <p class="section-sub">Independent spec campaigns built to show how I think, not real client work, each with a different set of deliverables.</p>
 
   <div class="jump-nav" id="jumpNav">
@@ -943,10 +971,11 @@
     <span class="jump-chip" data-target="work-vicks">Vicks</span>
     <span class="jump-chip" data-target="work-apple">Apple</span>
     <span class="jump-chip" data-target="work-lego">LEGO Architecture</span>
+    <span class="jump-chip" data-target="work-coke">Coca-Cola</span>
   </div>
 
   <div class="case-card" id="work-rarebeauty">
-    <p class="kicker">Rare Beauty · Soft Pinch Blush</p>
+    <p class="kicker">Rare Beauty · Soft Pinch Blush · Brand Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Rare Beauty</p>
     <h3>Wear Your Truth</h3>
     <p class="desc">Instead of picking a blush shade for skin tone, you pick it for how you want to feel. The campaign turns shade names like Joy, Grateful, and Truth into a daily self-love ritual, deepening a brand identity Rare Beauty already owns.</p>
@@ -982,7 +1011,7 @@
   </div>
 
   <div class="case-card nike" id="work-nike">
-    <p class="kicker">Nike · Pegasus 42, Women's</p>
+    <p class="kicker">Nike · Pegasus 42, Women's · Product Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Nike</p>
     <h3>More Return.</h3>
     <p class="desc">The Pegasus 42's real upgrade is energy return, 15% more than the Pegasus 41. This campaign turns that engineering fact into an emotional one: every mile gives back more than it costs, matching runners to a real colorway based on what they need from today's run.</p>
@@ -1018,7 +1047,7 @@
   </div>
 
   <div class="case-card slip" id="work-slip">
-    <p class="kicker">Slip · Silk Pillowcases</p>
+    <p class="kicker">Slip · Silk Pillowcases · Brand Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Slip</p>
     <h3>Sleep On It.</h3>
     <p class="desc">Slip already claims its silk fights sleep creases and bedhead. This campaign treats sleep itself as the easiest step in any beauty routine, matching people to a real Slip colorway based on how they want to wake up, not just what matches their sheets.</p>
@@ -1054,7 +1083,7 @@
   </div>
 
   <div class="case-card squish" id="work-squish">
-    <p class="kicker">Squishmallows</p>
+    <p class="kicker">Squishmallows · Brand Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Squishmallows / Jazwares</p>
     <h3>Everyone Needs A Squish.</h3>
     <p class="desc">Squishmallows already skews multi-generational, but marketing rarely says so out loud. This campaign turns the brand's existing squad system into a personality match for the person buying, normalizing a plush on a desk or dorm bed at any age.</p>
@@ -1090,7 +1119,7 @@
   </div>
 
   <div class="case-card mlc" id="work-mlc">
-    <p class="kicker">Major League Cricket</p>
+    <p class="kicker">Major League Cricket · Performance Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by MLC</p>
     <h3>Your First Six.</h3>
     <p class="desc">84% of MLC's ticket buyers last season had never seen a cricket match before. Instead of teaching newcomers the rules, this campaign sells the format's actual differentiator, T20's speed and spectacle, through a 30-second vertical video built for viewers who've never watched a single ball.</p>
@@ -1124,7 +1153,7 @@
   </div>
 
   <div class="case-card spotify" id="work-spotify">
-    <p class="kicker">Spotify · Prompted Playlist</p>
+    <p class="kicker">Spotify · Prompted Playlist · Product Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Spotify</p>
     <h3>Say The Vibe.</h3>
     <p class="desc">Prompted Playlist turns your own words into a playlist, but most users don't know it exists yet. This campaign puts real, oddly specific prompts front and center as the creative, letting the specificity of people's own language do the selling instead of a written tagline.</p>
@@ -1159,7 +1188,7 @@
   </div>
 
   <div class="case-card tiktok" id="work-tiktok">
-    <p class="kicker">TikTok · Local Feeds</p>
+    <p class="kicker">TikTok · Local Feeds · Product Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by TikTok</p>
     <h3>Right Here.</h3>
     <p class="desc">TikTok's Local Feeds already surfaces what's nearby, but neither everyday users nor local businesses know it exists yet. This campaign sells the feeling of finding out the best plan tonight was three blocks away, and gives small businesses a practical toolkit to actually get featured.</p>
@@ -1194,7 +1223,7 @@
   </div>
 
   <div class="case-card vicks" id="work-vicks">
-    <p class="kicker">Vicks DayQuil / NyQuil · Honey</p>
+    <p class="kicker">Vicks DayQuil / NyQuil · Honey · GTM Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Vicks / P&G</p>
     <h3>Honey, You're Covered.</h3>
     <p class="desc">DayQuil and NyQuil already own the category's strongest structural asset: the orange/blue day-night pairing. This GTM campaign launches the Honey line extension, tackling the real reason people skip cold medicine, taste, using an ingredient people already trust.</p>
@@ -1229,7 +1258,7 @@
   </div>
 
   <div class="case-card apple" id="work-apple">
-    <p class="kicker">Apple · iPhone Duo</p>
+    <p class="kicker">Apple · iPhone Duo · Product Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Apple</p>
     <h3>Everything Opens Up.</h3>
     <p class="desc">Apple's first foldable doesn't need a spec sheet, it needs the fold itself shown as the hero moment. This launch campaign builds a 30-second film and an interactive simulator around a single act: watching the 5.4" screen become a 7.6" screen.</p>
@@ -1264,7 +1293,7 @@
   </div>
 
   <div class="case-card lego" id="work-lego">
-    <p class="kicker">LEGO Architecture · Skyline Series</p>
+    <p class="kicker">LEGO Architecture · Skyline Series · Brand Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by LEGO</p>
     <h3>Build What You've Seen.</h3>
     <p class="desc">The Skyline series already lets people build a stylized version of a specific city. This campaign turns that into a personal shelf, not a single hero set, letting people pick the cities that actually mean something to them and build a lineup instead of buying one box.</p>
@@ -1296,6 +1325,42 @@
       <a class="case-btn" href="lego-architecture-skyline-tool.html" target="_blank">Try "Build Your Skyline"</a>
       <a class="case-btn alt" href="lego-architecture-social-mockups.html" target="_blank">View social mockups</a>
       <a class="case-btn alt" href="build-what-youve-seen-case-study.pdf" target="_blank">Download full case study</a>
+    </div>
+  </div>
+
+  <div class="case-card coke" id="work-coke">
+    <p class="kicker">Coca-Cola · Growth Marketing</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by The Coca-Cola Company</p>
+    <h3>Share It Forward.</h3>
+    <p class="desc">Share a Coke proved personalization sells. This campaign rebuilds that same insight as an actual growth loop, a give-one-get-one referral mechanic routed through Coca-Cola's own app and rewards flow, measured the way a growth team measures things, not just a brand team.</p>
+
+    <div class="case-tags">
+      <span>Growth Marketing</span>
+      <span>Referral Loop</span>
+      <span>Interactive Prototype</span>
+      <span>App UI</span>
+    </div>
+
+    <div class="case-stats">
+      <div class="stat"><div class="num">4%</div><div class="label">Category share lift — original Share a Coke, Australia 2011 (Ogilvy est.)</div></div>
+      <div class="stat"><div class="num">+2%</div><div class="label">US sales lift at launch, reversing a 10-year decline</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">Deliverables prototyped</div></div>
+    </div>
+
+    <div class="digital-layer">
+      <p class="dl-head">Digital media plan</p>
+      <div class="dl-grid">
+        <div class="dl-item"><div class="dl-label">Audience</div><div class="dl-value">Existing Coca-Cola App users and CPG shoppers 18–34, skews social-active and likely to share personalized content with friends</div></div>
+        <div class="dl-item"><div class="dl-label">Ad formats</div><div class="dl-value">In-app referral flow as the primary surface, QR codes on-pack linking straight into the bottle personalizer, light paid social retargeting for incomplete loops</div></div>
+        <div class="dl-item"><div class="dl-label">Budget split</div><div class="dl-value">50% lifecycle/CRM (in-app + push, since the loop is largely self-propagating), 30% on-pack QR/production tie-in, 20% paid retargeting</div></div>
+        <div class="dl-item"><div class="dl-label">KPIs & test plan</div><div class="dl-value">K-factor (referrals sent per participant), loop completion rate, blended CAC vs. paid acquisition; A/B test reward size/type to find where incremental spend stops driving incremental referrals</div></div>
+      </div>
+    </div>
+
+    <div class="case-actions">
+      <a class="case-btn" href="share-it-forward-referral-tool.html" target="_blank">Try "Share It Forward"</a>
+      <a class="case-btn alt" href="share-it-forward-app-mockups.html" target="_blank">View app mockups</a>
+      <a class="case-btn alt" href="share-it-forward-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 </section>
