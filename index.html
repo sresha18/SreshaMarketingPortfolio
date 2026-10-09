@@ -473,6 +473,59 @@
   .case-card.coke .dl-head{ color: #E30613; }
   .case-card.coke .dl-item .dl-label{ color: #E30613; }
   .case-card.coke .dl-item .dl-value{ color: #5A3330; }
+
+  /* Starbucks case card variant */
+  .case-card.sbux{
+    background: linear-gradient(155deg, #12624A, #0B3B2C);
+    border: 1px solid rgba(217,184,106,0.35);
+    box-shadow: 0 30px 70px -40px rgba(11,59,44,0.8);
+    margin-top: 32px;
+  }
+  .case-card.sbux .kicker{ color: #D9B86A; }
+  .case-card.sbux h3{
+    font-family: 'Fraunces', serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #F6EFE0;
+  }
+  .case-card.sbux p.desc{ color: #CFE0D6; }
+  .case-card.sbux .case-tags span{ background: rgba(246,239,224,0.1); color: #F6EFE0; }
+  .case-card.sbux .case-stats .stat{ background: rgba(246,239,224,0.09); }
+  .case-card.sbux .case-stats .stat .num{ font-family:'Fraunces', serif; font-weight: 700; color: #D9B86A; }
+  .case-card.sbux .case-stats .stat .label{ color: #CFE0D6; }
+  .case-card.sbux .case-btn{ background: #F6EFE0; color: #0B3B2C; }
+  .case-card.sbux .case-btn:hover{ background: #D9B86A; }
+  .case-card.sbux .case-btn.alt{ background: rgba(246,239,224,0.12); color: #F6EFE0; }
+  .case-card.sbux .case-btn.alt:hover{ background: rgba(246,239,224,0.22); }
+  .case-card.sbux .spec-badge{ background: rgba(246,239,224,0.1); border-color: rgba(246,239,224,0.3); color: #E8E1CF; }
+  .case-card.sbux .digital-layer{ background: rgba(246,239,224,0.07); border-color: rgba(246,239,224,0.22); }
+  .case-card.sbux .dl-head{ color: #D9B86A; }
+  .case-card.sbux .dl-item .dl-label{ color: #D9B86A; }
+  .case-card.sbux .dl-item .dl-value{ color: #CFE0D6; }
+
+  /* Owala Diwali case card variant */
+  .case-card.owala{
+    background: linear-gradient(155deg, #2B1F8F, #0F0A3C);
+    border: 1px solid rgba(245,166,35,0.4);
+    box-shadow: 0 30px 70px -40px rgba(15,10,60,0.85);
+    margin-top: 32px;
+  }
+  .case-card.owala .kicker{ color: #F5A623; }
+  .case-card.owala h3{ font-family:'Fraunces', serif; font-style: normal; font-weight: 700; color: #FFF6E6; }
+  .case-card.owala p.desc{ color: #D6D3F2; }
+  .case-card.owala .case-tags span{ background: rgba(255,246,230,0.1); color: #FFF6E6; }
+  .case-card.owala .case-stats .stat{ background: rgba(255,246,230,0.09); }
+  .case-card.owala .case-stats .stat .num{ font-family:'Fraunces', serif; font-weight: 700; color: #F5A623; }
+  .case-card.owala .case-stats .stat .label{ color: #D6D3F2; }
+  .case-card.owala .case-btn{ background: #F5A623; color: #0F0A3C; }
+  .case-card.owala .case-btn:hover{ background: #FFC85A; }
+  .case-card.owala .case-btn.alt{ background: rgba(255,246,230,0.12); color: #FFF6E6; }
+  .case-card.owala .case-btn.alt:hover{ background: rgba(255,246,230,0.22); }
+  .case-card.owala .spec-badge{ background: rgba(255,246,230,0.1); border-color: rgba(255,246,230,0.3); color: #E6E3F7; }
+  .case-card.owala .digital-layer{ background: rgba(255,246,230,0.07); border-color: rgba(255,246,230,0.22); }
+  .case-card.owala .dl-head{ color: #F5A623; }
+  .case-card.owala .dl-item .dl-label{ color: #F5A623; }
+  .case-card.owala .dl-item .dl-value{ color: #D6D3F2; }
   .case-card h3{
     font-family:'Fraunces', serif;
     font-style: italic;
@@ -957,7 +1010,7 @@
 </section>
 
 <section id="work" class="work reveal">
-  <h2 class="section-title">Eleven brands, eleven different problems</h2>
+  <h2 class="section-title">Thirteen brands, thirteen different problems</h2>
   <p class="section-sub">Independent spec campaigns built to show how I think, not real client work, each with a different set of deliverables.</p>
 
   <div class="jump-nav" id="jumpNav">
@@ -972,6 +1025,8 @@
     <span class="jump-chip" data-target="work-apple">Apple</span>
     <span class="jump-chip" data-target="work-lego">LEGO Architecture</span>
     <span class="jump-chip" data-target="work-coke">Coca-Cola</span>
+    <span class="jump-chip" data-target="work-sbux">Starbucks</span>
+    <span class="jump-chip" data-target="work-owala">Owala</span>
   </div>
 
   <div class="case-card" id="work-rarebeauty">
@@ -1361,6 +1416,78 @@
       <a class="case-btn" href="share-it-forward-referral-tool.html" target="_blank">Try "Share It Forward"</a>
       <a class="case-btn alt" href="share-it-forward-app-mockups.html" target="_blank">View app mockups</a>
       <a class="case-btn alt" href="share-it-forward-case-study.pdf" target="_blank">Download full case study</a>
+    </div>
+  </div>
+
+  <div class="case-card sbux" id="work-sbux">
+    <p class="kicker">Starbucks · Holiday Menu 2026 · Product Marketing</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Starbucks</p>
+    <h3>Order One New Thing.</h3>
+    <p class="desc">The holiday menu doesn't have an awareness problem, it has a trial problem. Loyal customers already have a holiday order. This launch keeps their favorite in the message and gives them a low-risk reason to add one new item, tiered across positioning, segments, messaging, and barista enablement.</p>
+
+    <div class="case-tags">
+      <span>Positioning</span>
+      <span>Messaging House</span>
+      <span>Launch Tiering</span>
+      <span>Sales Enablement</span>
+    </div>
+
+    <div class="case-stats">
+      <div class="stat"><div class="num">7</div><div class="label">New items in the 2026 lineup (4 drinks, 3 food), launching Nov. 5</div></div>
+      <div class="stat"><div class="num">2002</div><div class="label">Peppermint Mocha debuts, Starbucks' most popular holiday beverage ever</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">Deliverables prototyped</div></div>
+    </div>
+
+    <div class="digital-layer">
+      <p class="dl-head">Digital media plan</p>
+      <div class="dl-grid">
+        <div class="dl-item"><div class="dl-label">Audience</div><div class="dl-value">Starbucks Rewards members who ordered a returning holiday favorite last season, plus lapsed members, split into Ritualist, Afternoon Seeker, and Lunch Stopper segments</div></div>
+        <div class="dl-item"><div class="dl-label">Ad formats</div><div class="dl-value">In-app home-screen and push prompts for the "one new thing" pairing, short-form video drink reveals on TikTok and Instagram Reels, in-store menu boards and register scripts</div></div>
+        <div class="dl-item"><div class="dl-label">Budget split</div><div class="dl-value">40% owned and CRM (app, push, email), 35% paid social and video, 25% in-store enablement and materials</div></div>
+        <div class="dl-item"><div class="dl-label">KPIs & test plan</div><div class="dl-value">New-item trial rate among returning-favorite buyers, food attach rate, in-app order share; A/B test pairing-led vs. new-flavor-led creative</div></div>
+      </div>
+    </div>
+
+    <div class="case-actions">
+      <a class="case-btn" href="starbucks-order-one-new-thing.html" target="_blank">Try "Order One New Thing"</a>
+      <a class="case-btn alt" href="starbucks-launch-brief.html" target="_blank">Read the launch brief</a>
+      <a class="case-btn alt" href="order-one-new-thing-case-study.pdf" target="_blank">Download full case study</a>
+    </div>
+  </div>
+
+  <div class="case-card owala" id="work-owala">
+    <p class="kicker">Owala · Diwali 2026 · Cultural Marketing</p>
+    <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Owala</p>
+    <h3>Gift the Glow.</h3>
+    <p class="desc">Diwali isn't one sale day, it's five gifting moments: a new kitchen item for Dhanteras, a present for parents on Lakshmi Puja, and a sibling swap on Bhai Dooj. This concept matches a limited colorway, a message and a date to each moment, built on Owala's existing Color Drop model and designed to avoid using religious imagery as decoration.</p>
+
+    <div class="case-tags">
+      <span>Moment Mapping</span>
+      <span>Limited Drop</span>
+      <span>Gift-led Creative</span>
+      <span>Community-safe Execution</span>
+    </div>
+
+    <div class="case-stats">
+      <div class="stat"><div class="num">5</div><div class="label">Days of Diwali, Nov. 6-10, 2026, each mapped to a gifting moment</div></div>
+      <div class="stat"><div class="num">2020</div><div class="label">FreeSip launches under the Owala name after a weaker BlenderBottle-branded debut</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">Deliverables prototyped</div></div>
+    </div>
+
+    <div class="digital-layer">
+      <p class="dl-head">Digital media plan</p>
+      <div class="dl-grid">
+        <div class="dl-item"><div class="dl-label">Audience</div><div class="dl-value">South Asian families celebrating Diwali, plus the friends and coworkers who give gifts around it, split by gifting moment: self, parents, siblings, colleagues</div></div>
+        <div class="dl-item"><div class="dl-label">Ad formats</div><div class="dl-value">Instagram Story day-by-day tap-through, paid feed carousel, interactive Bhai Dooj sticker story, email and SMS to existing customers, creator seeding</div></div>
+        <div class="dl-item"><div class="dl-label">Budget split</div><div class="dl-value">35% owned and CRM, 40% paid social and creators, 25% Color Drop production and packaging</div></div>
+        <div class="dl-item"><div class="dl-label">KPIs & test plan</div><div class="dl-value">Gift-builder completion and checkout conversion, gifting share of orders; A/B test moment-led vs. color-led creative</div></div>
+      </div>
+    </div>
+
+    <div class="case-actions">
+      <a class="case-btn" href="owala-gift-the-glow.html" target="_blank">Try "Gift the Glow"</a>
+      <a class="case-btn alt" href="owala-diwali-social-mockups.html" target="_blank">View social mockups</a>
+      <a class="case-btn alt" href="gift-the-glow-case-study.pdf" target="_blank">Download full case study</a>
     </div>
   </div>
 </section>
