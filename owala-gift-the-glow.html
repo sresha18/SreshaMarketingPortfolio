@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift the Glow — Owala Diwali 2026 (spec)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#1B1464; --indigo-deep:#0F0A3C; --marigold:#F5A623; --magenta:#C2185B;
+    --teal:#00897B; --cream:#FFF6E6; --ink:#1B1440; --ink-soft:#5E5A7C;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:'Inter',sans-serif; color:var(--ink); padding:32px 16px;
+    background: radial-gradient(120% 90% at 50% 0%, #2B1F8F, var(--indigo-deep) 70%);
+  }
+  .stage{ width:100%; max-width:480px; }
+  .brand{ text-align:center; margin-bottom:20px; color:var(--cream); }
+  .brand .mark{ font-family:'Fraunces',serif; font-weight:700; font-size:24px; }
+  .brand .tag{ font-size:11px; color:var(--marigold); margin-top:6px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; }
+  .card{ background:var(--cream); border-radius:22px; padding:28px 24px; box-shadow:0 26px 60px -26px rgba(0,0,0,.65); }
+  .step-label{ font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; margin:0 0 12px; }
+  .grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
+  .opt{
+    border:1.5px solid rgba(27,20,64,.16); border-radius:12px; padding:13px 14px; background:#fff; cursor:pointer;
+    font-weight:700; font-size:14px; text-align:left; font-family:'Inter',sans-serif; color:var(--ink); transition:all 150ms ease;
+  }
+  .opt small{ display:block; font-weight:500; color:var(--ink-soft); font-size:11px; margin-top:3px; }
+  .opt:hover{ border-color:var(--indigo); }
+  .opt.selected{ border-color:var(--magenta); box-shadow:0 0 0 3px rgba(194,24,91,.15); }
+  .go{
+    display:block; width:100%; padding:14px; border:none; border-radius:999px; background:var(--indigo); color:var(--cream);
+    font-weight:700; font-size:14px; font-family:'Inter',sans-serif; cursor:pointer; transition:background 160ms ease, transform 160ms ease;
+  }
+  .go:disabled{ background:#B3B1C9; cursor:not-allowed; }
+  .go:not(:disabled):hover{ background:#2B1F8F; transform:translateY(-1px); }
+
+  .result{ display:none; margin-top:22px; animation:rise 450ms ease; }
+  .result.show{ display:block; }
+  @keyframes rise{ from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:translateY(0);} }
+
+  .showcase{
+    display:flex; align-items:center; gap:18px; background:var(--indigo); border-radius:16px; padding:18px; margin-bottom:12px; color:var(--cream);
+  }
+  .bottle{ position:relative; width:84px; height:190px; flex:0 0 84px; }
+  .bottle .loop{ position:absolute; top:0; left:50%; width:50px; height:34px; margin-left:-25px; border:7px solid var(--c2); border-bottom:none; border-radius:28px 28px 0 0; }
+  .bottle .lid{ position:absolute; top:22px; left:9px; width:66px; height:34px; border-radius:12px 12px 5px 5px; background:var(--c2); }
+  .bottle .lid::after{ content:""; position:absolute; right:-9px; top:8px; width:14px; height:12px; border-radius:4px; background:var(--c2); }
+  .bottle .body{
+    position:absolute; bottom:0; left:0; width:84px; height:140px; border-radius:16px 16px 24px 24px; background:var(--c1);
+    background-image: radial-gradient(circle at 50% 50%, rgba(255,246,230,.55) 0 2.5px, transparent 3px);
+    background-size: 14px 14px; background-position: 0 100%;
+    background-repeat: repeat-x;
+  }
+  .bottle .body::before{ content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(90deg, rgba(255,255,255,.22), transparent 35%, rgba(0,0,0,.12)); }
+  .showcase .label{ font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--marigold); font-weight:700; margin-bottom:6px; }
+  .showcase .name{ font-family:'Fraunces',serif; font-weight:700; font-size:22px; margin-bottom:6px; }
+  .showcase .why{ font-size:13px; line-height:1.5; color:#D6D3F2; }
+  .moment{ border:1.5px dashed rgba(27,20,64,.3); border-radius:14px; padding:13px 16px; margin-bottom:12px; font-size:13px; line-height:1.45; }
+  .moment b{ color:var(--magenta); }
+  .noteBox{ background:#fff; border-radius:14px; padding:14px 16px; margin-bottom:14px; font-size:13px; line-height:1.55; border-left:4px solid var(--marigold); }
+  .noteBox .nl{ font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; margin-bottom:6px; }
+  .note{ font-size:11px; color:var(--ink-soft); text-align:center; line-height:1.5; }
+  .note b{ color:var(--magenta); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="brand">
+    <div class="mark">Gift the Glow</div>
+    <div class="tag">Diwali 2026 · Gift Builder Prototype</div>
+  </div>
+
+  <div class="card">
+    <p class="step-label">Who are you gifting?</p>
+    <div class="grid" id="grid">
+      <button class="opt" data-k="sib">A brother or sister<small>Bhai Dooj</small></button>
+      <button class="opt" data-k="par">A parent or elder<small>Diwali night</small></button>
+      <button class="opt" data-k="fri">A friend or coworker<small>Diwali week</small></button>
+      <button class="opt" data-k="me">Myself or my home<small>Dhanteras</small></button>
+    </div>
+    <button class="go" id="go" disabled>Build the gift</button>
+
+    <div class="result" id="result">
+      <div class="showcase">
+        <div class="bottle" id="bottle"><div class="loop"></div><div class="lid"></div><div class="body"></div></div>
+        <div>
+          <div class="label" id="rl">Concept colorway</div>
+          <div class="name" id="rn"></div>
+          <div class="why" id="rw"></div>
+        </div>
+      </div>
+      <div class="moment" id="rm"></div>
+      <div class="noteBox"><div class="nl">Gift note you can edit</div><div id="rnote"></div></div>
+      <p class="note">Colorway names and pairings are original concept work, not real Owala products. Share yours with <b>#GiftTheGlow</b></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const MAP = {
+    sib:{ c1:'#00897B', c2:'#F5A623', label:'Concept colorway · Sibling gift', name:'Peacock Night',
+          why:'Deep teal with a marigold lid. Bold enough for a brother who never carries anything, bright enough for a sister who always does.',
+          moment:'<b>Bhai Dooj</b> falls on <b>Nov. 10, 2026</b>, two days after Lakshmi Puja. Siblings traditionally exchange gifts, so this is the moment the pairing is built for.',
+          note:'Happy Bhai Dooj. Whatever else gets lost this year, this one has your name on it. Drink more water.' },
+    par:{ c1:'#C2185B', c2:'#F5A623', label:'Concept colorway · Family gift', name:'Rangoli Pink',
+          why:'A warm magenta with a marigold lid, the colors of a doorway rangoli. A practical gift that still feels like part of the celebration.',
+          moment:'<b>Lakshmi Puja</b> is <b>Nov. 8, 2026</b>. Families clean, decorate and gather that evening, which makes it the natural night to hand over a gift.',
+          note:'Happy Diwali. For the chai breaks, the long drives and the early mornings. Light up the year ahead.' },
+    fri:{ c1:'#F5A623', c2:'#1B1464', label:'Concept colorway · Friend or coworker', name:'Marigold Hour',
+          why:'Marigold body, indigo lid. Cheerful on a desk, easy to say yes to, and not tied to any one tradition so it works for a mixed team.',
+          moment:'Gift anytime across <b>Nov. 6-10, 2026</b>. Sharing sweets and gifts with friends and colleagues is a common Diwali custom, so the whole week works.',
+          note:'Happy Diwali. A small bright thing for your desk. Thanks for making this year better.' },
+    me:{ c1:'#1B1464', c2:'#F5A623', label:'Concept colorway · For you', name:'Diya Glow',
+          why:'Deep indigo with a marigold lid, like a diya against a dark evening. A stainless steel bottle is a new piece of kitchenware, which fits the day.',
+          moment:'<b>Dhanteras</b> is <b>Nov. 6, 2026</b>. Buying something new for the home, especially kitchenware, is a traditional part of the day.',
+          note:'New season, new bottle. Fill it before you leave the house.' }
+  };
+  const grid=document.getElementById('grid'), go=document.getElementById('go'), res=document.getElementById('result');
+  let k=null;
+  grid.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
+    grid.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));
+    b.classList.add('selected'); k=b.dataset.k; go.disabled=false; res.classList.remove('show');
+  }));
+  go.addEventListener('click',()=>{
+    if(!k) return; const m=MAP[k];
+    const bt=document.getElementById('bottle'); bt.style.setProperty('--c1',m.c1); bt.style.setProperty('--c2',m.c2);
+    document.getElementById('rl').textContent=m.label;
+    document.getElementById('rn').textContent=m.name;
+    document.getElementById('rw').textContent=m.why;
+    document.getElementById('rm').innerHTML=m.moment;
+    document.getElementById('rnote').textContent=m.note;
+    res.classList.add('show');
+  });
+</script>
+</body>
+</html>

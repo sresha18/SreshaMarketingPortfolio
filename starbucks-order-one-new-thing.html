@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order One New Thing — Starbucks Holiday 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green: #0B3B2C;
+    --green-mid: #12624A;
+    --cream: #F6EFE0;
+    --berry: #C8102E;
+    --gold: #D9B86A;
+    --ink: #1E2B25;
+    --ink-soft: #5B6A62;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:'Inter', sans-serif; color: var(--ink);
+    background: radial-gradient(120% 90% at 50% 0%, var(--green-mid), var(--green) 70%);
+    padding: 32px 16px;
+  }
+  .stage{ width:100%; max-width: 480px; }
+  .brand{ text-align:center; margin-bottom: 20px; color: var(--cream); }
+  .brand .mark{ font-family:'Fraunces', serif; font-weight: 700; font-size: 22px; }
+  .brand .tag{
+    font-size: 11px; color: var(--gold); margin-top: 6px;
+    letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+  }
+  .card{
+    background: var(--cream); border-radius: 22px; padding: 28px 24px;
+    box-shadow: 0 26px 60px -26px rgba(0,0,0,0.6);
+  }
+  .step-label{
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-soft); font-weight: 700; margin: 0 0 12px;
+  }
+  .usual-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+  .usual{
+    border: 1.5px solid rgba(30,43,37,0.16); border-radius: 12px; padding: 13px 14px;
+    background: #fff; cursor:pointer; transition: all 150ms ease;
+    font-weight: 700; font-size: 14px; text-align:left; font-family:'Inter', sans-serif; color: var(--ink);
+  }
+  .usual small{ display:block; font-weight: 500; color: var(--ink-soft); font-size: 11px; margin-top: 3px; }
+  .usual:hover{ border-color: var(--green-mid); }
+  .usual.selected{ border-color: var(--berry); box-shadow: 0 0 0 3px rgba(200,16,46,0.14); }
+
+  .go{
+    display:block; width:100%; padding: 14px; border: none; border-radius: 999px;
+    background: var(--green); color: var(--cream); font-weight: 700; font-size: 14px;
+    font-family:'Inter', sans-serif; cursor:pointer; transition: background 160ms ease, transform 160ms ease;
+  }
+  .go:disabled{ background: #AAB5AE; cursor: not-allowed; }
+  .go:not(:disabled):hover{ background: var(--green-mid); transform: translateY(-1px); }
+
+  .result{ display:none; margin-top: 22px; animation: rise 450ms ease; }
+  .result.show{ display:block; }
+  @keyframes rise{ from{ opacity:0; transform: translateY(12px); } to{ opacity:1; transform: translateY(0); } }
+
+  .swap{
+    display:flex; align-items:center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap;
+    font-size: 12.5px; color: var(--ink-soft); font-weight: 600;
+  }
+  .swap .from{ text-decoration: line-through; opacity: 0.7; }
+  .swap .arrow{ color: var(--berry); }
+  .pick{
+    background: var(--green); color: var(--cream); border-radius: 16px; padding: 18px 18px 16px;
+    margin-bottom: 12px;
+  }
+  .pick .label{ font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  .pick .name{ font-family:'Fraunces', serif; font-weight: 700; font-size: 22px; margin-bottom: 6px; }
+  .pick .why{ font-size: 13px; line-height: 1.5; color: #D5E3DA; }
+  .add{
+    border: 1.5px dashed rgba(30,43,37,0.3); border-radius: 14px; padding: 13px 16px; margin-bottom: 14px;
+    font-size: 13px; line-height: 1.45;
+  }
+  .add b{ color: var(--berry); }
+  .note{ font-size: 11px; color: var(--ink-soft); text-align:center; line-height: 1.5; }
+  .note b{ color: var(--berry); }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="brand">
+    <div class="mark">Holiday Menu 2026</div>
+    <div class="tag">Order One New Thing · Pairing Prototype</div>
+  </div>
+
+  <div class="card">
+    <p class="step-label">What's your holiday usual?</p>
+    <div class="usual-grid" id="usualGrid">
+      <button class="usual" data-k="pm">Peppermint Mocha<small>returning favorite</small></button>
+      <button class="usual" data-k="cb">Caramel Brulée Latte<small>returning favorite</small></button>
+      <button class="usual" data-k="sc">Sugar Cookie Latte<small>returning favorite</small></button>
+      <button class="usual" data-k="gc">Gingerbread Chai<small>returning favorite</small></button>
+    </div>
+    <button class="go" id="goBtn" disabled>Find my one new thing</button>
+
+    <div class="result" id="result">
+      <div class="swap"><span class="from" id="fromName"></span><span class="arrow">keep it, then add</span></div>
+      <div class="pick">
+        <div class="label" id="pickLabel">New for 2026</div>
+        <div class="name" id="pickName"></div>
+        <div class="why" id="pickWhy"></div>
+      </div>
+      <div class="add" id="addBox"></div>
+      <p class="note">Pairing logic is an illustrative product-marketing concept, not a Starbucks recommendation. Share yours with <b>#OrderOneNewThing</b></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const MAP = {
+    pm: { usual: 'Peppermint Mocha',
+          pick: 'Tiramisu Velvet Latte', label: 'New for 2026 · Hero launch drink',
+          why: 'If you love chocolate-and-mint, the cocoa and coffee dusting on velvet mascarpone cold foam is the nearest new flavor to your usual.',
+          food: 'Bearista Cake Pop', foodWhy: 'a sweet, shareable add-on in the same chocolatey lane' },
+    cb: { usual: 'Caramel Brulée Latte',
+          pick: 'Tiramisu Velvet Cold Brew', label: 'New for 2026 · Hero launch drink',
+          why: 'Brûlée fans already like a dessert-style drink. Same mascarpone foam, but over cold brew, so it reads as a different drink for a different moment.',
+          food: 'Braised Short Rib Grilled Cheese', foodWhy: 'savory next to a sweet latte makes a full meal out of the order' },
+    sc: { usual: 'Sugar Cookie Latte',
+          pick: 'Snowy Apple', label: 'New for 2026 · Creamy non-coffee-forward option',
+          why: 'Creamy and sweet like your usual, but built on the Apple Pomegranate Refresher with coconut milk, so it feels like a treat without repeating yourself.',
+          food: 'Bearista Cake Pop', foodWhy: 'a limited-time item tied to the Bearista collection' },
+    gc: { usual: 'Gingerbread Chai',
+          pick: 'Apple Pomegranate Refresher', label: 'New for 2026 · Afternoon option',
+          why: 'Keep the warm spice for the morning, and add something bright and cold with pomegranate-flavored pearls for the afternoon.',
+          food: 'Turkey & Stuffing Sandwich', foodWhy: 'a savory, holiday-flavored lunch to anchor the spice' }
+  };
+
+  const grid = document.getElementById('usualGrid');
+  const goBtn = document.getElementById('goBtn');
+  let chosen = null;
+
+  grid.querySelectorAll('.usual').forEach(b => {
+    b.addEventListener('click', () => {
+      grid.querySelectorAll('.usual').forEach(x => x.classList.remove('selected'));
+      b.classList.add('selected');
+      chosen = b.dataset.k;
+      goBtn.disabled = false;
+      document.getElementById('result').classList.remove('show');
+    });
+  });
+
+  goBtn.addEventListener('click', () => {
+    if(!chosen) return;
+    const m = MAP[chosen];
+    document.getElementById('fromName').textContent = m.usual;
+    document.getElementById('pickLabel').textContent = m.label;
+    document.getElementById('pickName').textContent = m.pick;
+    document.getElementById('pickWhy').textContent = m.why;
+    document.getElementById('addBox').innerHTML = '<b>Add food:</b> ' + m.food + ' — ' + m.foodWhy + '.';
+    document.getElementById('result').classList.add('show');
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order One New Thing — Product Marketing Launch Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green: #0B3B2C;
+    --green-mid: #12624A;
+    --cream: #F6EFE0;
+    --paper: #FBF7EE;
+    --berry: #C8102E;
+    --gold: #B58B2A;
+    --ink: #1E2B25;
+    --ink-soft: #5B6A62;
+    --line: rgba(30,43,37,0.16);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Inter', sans-serif; color: var(--ink); background: var(--paper); line-height: 1.55; }
+  .hero{ background: var(--green); color: var(--cream); padding: 56px 24px 48px; }
+  .wrap{ max-width: 920px; margin: 0 auto; }
+  .eyebrow{ font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: #D9B86A; margin-bottom: 12px; }
+  h1{ font-family:'Fraunces', serif; font-weight: 700; font-size: clamp(30px, 5vw, 48px); line-height: 1.08; margin-bottom: 12px; }
+  .hero p{ max-width: 620px; color: #CFE0D6; font-size: 15px; }
+  .spec{ display:inline-block; margin-top: 18px; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(246,239,224,0.35); color: #E8E1CF; }
+
+  section{ padding: 44px 24px 6px; }
+  h2{ font-family:'Fraunces', serif; font-weight: 700; font-size: 26px; margin-bottom: 6px; }
+  .sub{ color: var(--ink-soft); font-size: 14px; margin-bottom: 20px; max-width: 640px; }
+
+  .positioning{
+    background: #fff; border-left: 5px solid var(--berry); border-radius: 6px; padding: 20px 22px;
+    font-size: 15.5px; box-shadow: 0 10px 30px -22px rgba(30,43,37,0.5);
+  }
+  .positioning b{ color: var(--green-mid); }
+
+  .grid3{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 760px){ .grid3{ grid-template-columns: 1fr; } }
+  .card{ background:#fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .card .k{ font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--berry); margin-bottom: 8px; }
+  .card h3{ font-family:'Fraunces', serif; font-size: 18px; margin-bottom: 8px; }
+  .card p{ font-size: 13.5px; color: var(--ink-soft); }
+  .card p + p{ margin-top: 8px; }
+
+  .house{ background: var(--green); color: var(--cream); border-radius: 16px; padding: 26px 24px; }
+  .house .umbrella{ font-family:'Fraunces', serif; font-size: 22px; font-weight: 700; margin-bottom: 18px; text-align:center; }
+  .pillars{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 760px){ .pillars{ grid-template-columns: 1fr; } }
+  .pillar{ background: rgba(246,239,224,0.08); border: 1px solid rgba(246,239,224,0.18); border-radius: 12px; padding: 16px; }
+  .pillar .p-t{ font-weight: 700; font-size: 14px; margin-bottom: 6px; color: #D9B86A; }
+  .pillar .p-b{ font-size: 13px; color: #D5E3DA; margin-bottom: 8px; }
+  .pillar .p-proof{ font-size: 11.5px; color: #A9C4B5; border-top: 1px solid rgba(246,239,224,0.18); padding-top: 8px; }
+
+  table{ width:100%; border-collapse: collapse; background:#fff; border: 1px solid var(--line); border-radius: 12px; overflow:hidden; font-size: 13.5px; }
+  th, td{ text-align:left; padding: 13px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th{ background: var(--cream); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+  tr:last-child td{ border-bottom: none; }
+  .tier{ font-weight: 700; color: var(--berry); white-space: nowrap; }
+  .scroll{ overflow-x:auto; }
+
+  .barista{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 760px){ .barista{ grid-template-columns: 1fr; } }
+  .line{ background:#fff; border: 1px dashed rgba(30,43,37,0.35); border-radius: 12px; padding: 16px 18px; font-size: 14px; }
+  .line small{ display:block; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--berry); margin-bottom: 6px; }
+
+  .timeline{ border-left: 2px solid var(--green-mid); margin-left: 6px; padding-left: 22px; }
+  .tl{ position: relative; margin-bottom: 18px; }
+  .tl::before{ content:''; position:absolute; left: -29px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--berry); }
+  .tl .d{ font-weight: 700; font-size: 13px; color: var(--green-mid); }
+  .tl .t{ font-size: 14px; }
+  .tl .s{ font-size: 12.5px; color: var(--ink-soft); }
+
+  footer{ padding: 40px 24px 60px; }
+  footer p{ font-size: 12px; color: var(--ink-soft); max-width: 700px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Starbucks · Holiday Menu 2026 · Product Marketing</p>
+    <h1>Order One New Thing.</h1>
+    <p>A launch brief for a menu where the biggest risk isn't awareness. Everyone knows the holiday menu is coming. The risk is that loyal customers order their usual and never meet what's new.</p>
+    <span class="spec">Spec work, not affiliated with or endorsed by Starbucks</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2>1. The launch problem</h2>
+    <p class="sub">The 2026 menu launches Nov. 5 with four new drinks and three new food items alongside returning favorites. Starbucks calls the Peppermint Mocha, introduced in 2002, its most popular holiday beverage in company history. That is the asset and the obstacle.</p>
+    <div class="positioning">
+      <b>Positioning statement.</b> For Starbucks Rewards members who already have a holiday ritual, the 2026 holiday menu is the season's reason to <b>add one new thing to the order they already love</b>. Unlike a menu that asks customers to switch, it keeps the favorite and gives them a low-risk way to try something new.
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Who we're talking to</h2>
+    <p class="sub">Three segments, defined by what they do at the counter, not by demographics. These are working hypotheses to validate with Rewards purchase data.</p>
+    <div class="grid3">
+      <div class="card"><div class="k">Segment A</div><h3>The Ritualist</h3><p>Orders the same returning favorite every holiday season (Peppermint Mocha, Caramel Brulée, Sugar Cookie, Gingerbread Chai).</p><p><b>Job to be done:</b> a safe way to try something new without losing the usual.</p></div>
+      <div class="card"><div class="k">Segment B</div><h3>The Afternoon Seeker</h3><p>Not a coffee-first customer, or already had coffee. Looks for a second drink later in the day.</p><p><b>Job to be done:</b> something festive that isn't another espresso drink.</p></div>
+      <div class="card"><div class="k">Segment C</div><h3>The Lunch Stopper</h3><p>Visits for food or a midday meal and may not order a seasonal drink at all.</p><p><b>Job to be done:</b> a holiday moment that works as a real meal.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Messaging house</h2>
+    <p class="sub">One umbrella message, three pillars. Every proof point comes from Starbucks' own announcement or history, not invented claims.</p>
+    <div class="house">
+      <div class="umbrella">Keep your favorite. Order one new thing.</div>
+      <div class="pillars">
+        <div class="pillar"><div class="p-t">New flavor, familiar format</div><div class="p-b">Tiramisu Velvet arrives as a latte or a cold brew, so it fits how people already order.</div><div class="p-proof">Proof: Tiramisu Velvet Latte (hot or iced) and Tiramisu Velvet Cold Brew, both with velvet mascarpone cold foam and a cocoa and coffee dusting.</div></div>
+        <div class="pillar"><div class="p-t">A holiday drink for any hour</div><div class="p-b">Bright and non-espresso for the afternoon, creamy for the cozy moment.</div><div class="p-proof">Proof: Apple Pomegranate Refresher with pomegranate-flavored pearls; Snowy Apple made with coconut milk.</div></div>
+        <div class="pillar"><div class="p-t">The menu is a meal now</div><div class="p-b">Savory options mean the holiday menu isn't only dessert.</div><div class="p-proof">Proof: Braised Short Rib Grilled Cheese and Turkey & Stuffing Sandwich (new recipe), alongside the Bearista Cake Pop.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Launch tiers</h2>
+    <p class="sub">Not every item gets the same budget or the same message. Tiering is how a 10+ item menu avoids a flat, forgettable launch.</p>
+    <div class="scroll">
+    <table>
+      <tr><th>Tier</th><th>Items</th><th>Role</th><th>Primary message</th></tr>
+      <tr><td class="tier">Tier 1 · Hero</td><td>Tiramisu Velvet Latte, Tiramisu Velvet Cold Brew</td><td>The new-news story. Gets the most paid and owned media.</td><td>"A new holiday flavor, on a drink you already order."</td></tr>
+      <tr><td class="tier">Tier 2 · Reach</td><td>Apple Pomegranate Refresher, Snowy Apple</td><td>Expands who the menu is for (non-espresso, afternoon).</td><td>"Holiday, but make it bright."</td></tr>
+      <tr><td class="tier">Tier 3 · Anchor</td><td>Peppermint Mocha, Caramel Brulée, Sugar Cookie, Gingerbread Chai; returning and new food; merch</td><td>Drives baseline traffic and carries the pairing prompt. Low incremental media.</td><td>"Your usual is here. Add one new thing."</td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Barista enablement</h2>
+    <p class="sub">Product marketing doesn't stop at the ad. The counter is the last and most persuasive channel. Two 10-second lines baristas can use at the register.</p>
+    <div class="barista">
+      <div class="line"><small>When someone orders their usual</small>"Want to add the new Tiramisu Velvet foam to that, or try it on its own next time?"</div>
+      <div class="line"><small>When someone orders just a drink</small>"The new short rib grilled cheese is a good match if you're staying a while."</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>6. Launch timeline</h2>
+    <p class="sub">Launch and merch dates are from Starbucks' announcement (the Oct. 6 reveal date is per press coverage). Red Cup Day is announced for "later this season" with no date.</p>
+    <div class="timeline">
+      <div class="tl"><div class="d">Oct. 6</div><div class="t">Menu reveal</div><div class="s">Pre-launch window: build anticipation for the new items with the pairing prompt.</div></div>
+      <div class="tl"><div class="d">Nov. 5</div><div class="t">Menu launch and first merch collections</div><div class="s">Hero tier goes live in-store and in-app; Holiday Bearista, Holiday Village, and Peppermint Mocha collections arrive.</div></div>
+      <div class="tl"><div class="d">Nov. 17</div><div class="t">Winter Wonderland collection</div><div class="s">A second news beat to re-engage customers who already visited once.</div></div>
+      <div class="tl"><div class="d">Date TBD</div><div class="t">Red Cup Day</div><div class="s">Plan creative that works with or without a date, so nothing is blocked on it.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>7. Risks and mitigations</h2>
+    <div class="grid3">
+      <div class="card"><div class="k">Risk</div><h3>New items get overshadowed</h3><p>The Peppermint Mocha pulls attention.</p><p><b>Mitigation:</b> pair rather than compete. The campaign keeps the favorite in the message.</p></div>
+      <div class="card"><div class="k">Risk</div><h3>Pairing feels pushy</h3><p>Customers may tune out an upsell.</p><p><b>Mitigation:</b> frame it as a low-stakes "one new thing", and test the barista line before rolling out.</p></div>
+      <div class="card"><div class="k">Risk</div><h3>Red Cup Day has no date</h3><p>Creative that depends on it could stall.</p><p><b>Mitigation:</b> hold it as a late-season beat, not a launch dependency.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Menu facts (Nov. 5, 2026 launch; new and returning drinks, food and merchandise; Peppermint Mocha introduced in 2002 and described as the most popular holiday beverage in Starbucks history) are from Starbucks' own announcement and newsroom stories. Segments, tiers, messaging, and barista lines are original spec work and are not Starbucks strategy.</p>
+  </div>
+</footer>
+
+</body>
+</html>
