@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Your Three Weeks — OPI Gel (spec)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#1C1017; --plum:#2A1020; --rose:#E0245E; --blush:#FFE4E8; --cream:#FFF5F3; --soft:#7A5C66; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:32px 16px;
+    font-family:'Inter',sans-serif; color:var(--ink);
+    background:radial-gradient(120% 90% at 50% 0%, #4A1A33, #160910 70%); }
+  .stage{ width:100%; max-width:480px; }
+  .brand{ text-align:center; margin-bottom:20px; color:var(--cream); }
+  .brand .mark{ font-family:'Fraunces',serif; font-weight:700; font-size:24px; }
+  .brand .tag{ font-size:11px; color:#FF8FAE; margin-top:6px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; }
+  .card{ background:var(--cream); border-radius:22px; padding:28px 24px; box-shadow:0 26px 60px -26px rgba(0,0,0,.7); }
+  .lbl{ font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--soft); font-weight:700; margin:0 0 12px; }
+  .grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
+  .opt{ border:1.5px solid rgba(28,16,23,.16); border-radius:12px; padding:13px 14px; background:#fff; cursor:pointer; font-weight:700; font-size:14px;
+    text-align:left; font-family:'Inter',sans-serif; color:var(--ink); transition:all 150ms ease; }
+  .opt small{ display:block; font-weight:500; color:var(--soft); font-size:11px; margin-top:3px; }
+  .opt:hover{ border-color:var(--plum); }
+  .opt.selected{ border-color:var(--rose); box-shadow:0 0 0 3px rgba(224,36,94,.15); }
+  .fin{ display:flex; gap:10px; margin-bottom:18px; }
+  .fin .opt{ flex:1; text-align:center; }
+  .go{ display:block; width:100%; padding:14px; border:none; border-radius:999px; background:var(--plum); color:var(--cream); font-weight:700;
+    font-size:14px; font-family:'Inter',sans-serif; cursor:pointer; transition:background 160ms ease, transform 160ms ease; }
+  .go:disabled{ background:#BDA9B2; cursor:not-allowed; }
+  .go:not(:disabled):hover{ background:#43182F; transform:translateY(-1px); }
+  .result{ display:none; margin-top:22px; animation:rise 450ms ease; }
+  .result.show{ display:block; }
+  @keyframes rise{ from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:translateY(0);} }
+  .look{ background:var(--plum); border-radius:16px; padding:18px; color:var(--cream); margin-bottom:12px; }
+  .nails{ display:flex; gap:9px; justify-content:center; align-items:flex-end; margin-bottom:16px; }
+  .nail{ width:34px; height:52px; border-radius:17px 17px 8px 8px; background:var(--nc); position:relative; overflow:hidden; box-shadow:inset -4px -6px 8px rgba(0,0,0,.18); }
+  .nail:nth-child(1){ height:44px; } .nail:nth-child(2){ height:54px; } .nail:nth-child(3){ height:58px; } .nail:nth-child(4){ height:54px; } .nail:nth-child(5){ height:46px; }
+  .nail::after{ content:""; position:absolute; top:6px; left:6px; width:8px; height:62%; border-radius:6px; background:rgba(255,255,255,.55); opacity:var(--gloss); }
+  .look .l{ font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#FF8FAE; font-weight:700; margin-bottom:6px; }
+  .look .n{ font-family:'Fraunces',serif; font-weight:700; font-size:22px; margin-bottom:6px; }
+  .look .w{ font-size:13px; line-height:1.5; color:#EBD5DC; }
+  .tl{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
+  .wk{ background:#fff; border-radius:12px; padding:11px 10px; font-size:11.5px; line-height:1.4; border-top:4px solid var(--rose); }
+  .wk b{ display:block; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--rose); margin-bottom:4px; }
+  .tell{ border:1.5px dashed rgba(28,16,23,.3); border-radius:14px; padding:13px 16px; margin-bottom:14px; font-size:13px; line-height:1.5; }
+  .tell b{ color:var(--rose); }
+  .note{ font-size:11px; color:var(--soft); text-align:center; line-height:1.5; }
+  .note b{ color:var(--rose); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="brand">
+    <div class="mark">Plan Your Three Weeks</div>
+    <div class="tag">Gel Manicure Planner · Prototype</div>
+  </div>
+  <div class="card">
+    <p class="lbl">What's the big moment in the next three weeks?</p>
+    <div class="grid" id="grid">
+      <button class="opt" data-k="int">A job interview<small>polished, quiet</small></button>
+      <button class="opt" data-k="wed">A wedding<small>dressed up</small></button>
+      <button class="opt" data-k="trip">A trip<small>sun, travel, no touch-ups</small></button>
+      <button class="opt" data-k="new">A new job or semester<small>everyday, on repeat</small></button>
+    </div>
+    <p class="lbl">Finish</p>
+    <div class="fin" id="fin">
+      <button class="opt selected" data-f="gloss">Glossy</button>
+      <button class="opt" data-f="matte">Matte</button>
+    </div>
+    <button class="go" id="go" disabled>Plan my gel look</button>
+
+    <div class="result" id="result">
+      <div class="look">
+        <div class="nails" id="nails"><div class="nail"></div><div class="nail"></div><div class="nail"></div><div class="nail"></div><div class="nail"></div></div>
+        <div class="l" id="rl"></div>
+        <div class="n" id="rn"></div>
+        <div class="w" id="rw"></div>
+      </div>
+      <div class="tl" id="tl"></div>
+      <div class="tell" id="tell"></div>
+      <p class="note">Color families and plans are an illustrative concept. OPI says its Intelli-Gel system offers up to three weeks of professional wear; real wear varies. Share yours with <b>#MyThreeWeeks</b></p>
+    </div>
+  </div>
+</div>
+<script>
+  const MAP={
+    int:{ c:'#E8B4B0', name:'Soft rose nude', label:'Color family · Interview',
+      why:'A sheer, skin-flattering pink says put-together without drawing the eye away from you. It also hides growth better than a dark color in week three.',
+      w:['Prep week: interview. The nails should be the last thing you think about.','Mid-point: second rounds, coffee chats. Same color, no touch-ups.','Time to rebook before the next big thing.'],
+      tell:'Ask your tech for a <b>sheer rosy nude with a short, rounded shape</b>. Say you need it to look clean for three weeks without chipping.' },
+    wed:{ c:'#A3203F', name:'Berry crème', label:'Color family · Wedding guest',
+      why:'A deep berry works with most dresses, photographs well, and feels dressed up without being a statement you will tire of by week two.',
+      w:['Wedding weekend. Book the appointment 1-2 days before.','Post-wedding brunch and photos. Color still full.','Rebook, or switch to a lighter shade for a reset.'],
+      tell:'Ask your tech for a <b>rich berry crème</b>. Tell them the date of the wedding so they can time your appointment.' },
+    trip:{ c:'#FF6F61', name:'Warm coral crème', label:'Color family · Trip',
+      why:'Coral is bright in sun, forgiving on a tan, and a gel manicure means no packing polish and no touch-ups on vacation.',
+      w:['Book 1-2 days before you fly. Pack nothing for your nails.','On the trip. Pool, sand and luggage, no chips to fix.','Back home. Rebook while the color still looks good.'],
+      tell:'Ask your tech for a <b>bright coral crème</b>. Mention beach or pool time so they can prep and seal the edges.' },
+    new:{ c:'#B3122C', name:'Classic red', label:'Color family · New job or semester',
+      why:'A true red is the one color that looks intentional every day, and a hard-wearing gel means it still looks that way on day twenty.',
+      w:['First week. A strong first impression and a color you do not think about.','Routine week. Typing, notebooks, and the dishwasher test it.','Rebook before the next stretch of busy.'],
+      tell:'Ask your tech for a <b>classic red crème</b>. Say you want one color to carry you through the first three weeks.' }
+  };
+  let k=null,f='gloss';
+  const grid=document.getElementById('grid'),fin=document.getElementById('fin'),go=document.getElementById('go'),res=document.getElementById('result');
+  grid.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{grid.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');k=b.dataset.k;go.disabled=false;res.classList.remove('show');}));
+  fin.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{fin.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');f=b.dataset.f;res.classList.remove('show');}));
+  go.addEventListener('click',()=>{
+    if(!k) return; const m=MAP[k];
+    const nails=document.getElementById('nails'); nails.style.setProperty('--nc',m.c); nails.style.setProperty('--gloss', f==='gloss'?1:0);
+    document.getElementById('rl').textContent=m.label+' · '+(f==='gloss'?'Glossy finish':'Matte finish');
+    document.getElementById('rn').textContent=m.name;
+    document.getElementById('rw').textContent=m.why;
+    document.getElementById('tl').innerHTML=m.w.map((t,i)=>'<div class="wk"><b>Week '+(i+1)+'</b>'+t+'</div>').join('');
+    document.getElementById('tell').innerHTML='<b>Tell your tech:</b> '+m.tell+' Ask for the '+(f==='gloss'?'glossy':'matte')+' top coat finish.';
+    res.classList.add('show');
+  });
+</script>
+</body>
+</html>
