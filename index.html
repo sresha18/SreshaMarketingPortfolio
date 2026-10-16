@@ -6,7 +6,7 @@
 <title>Sresha Rajesh — Aspiring Digital Marketer</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Anton&family=Baloo+2:wght@500;600;700;800&family=Oswald:wght@500;600;700&family=Poppins:wght@500;600;700;800&family=Sora:wght@500;600;700;800&family=Quicksand:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&family=Pacifico&family=Teko:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Anton&family=Baloo+2:wght@500;600;700;800&family=Oswald:wght@500;600;700&family=Poppins:wght@500;600;700;800&family=Sora:wght@500;600;700;800&family=Quicksand:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper: #EEEBE0;
@@ -286,31 +286,30 @@
   /* HOME v2 */
   .hero.hero-v2{ padding-top: 56px; padding-bottom: 36px; }
   .hero-v2 .hero-title{
-    --face: 'Bricolage Grotesque', 'Arial Black', system-ui, sans-serif;
-    font-family: var(--face); font-weight: 800;
-    font-size: clamp(58px, 12.5vw, 138px); line-height: .92; letter-spacing: -0.035em;
+    --face: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-family: var(--face); font-weight: 600;
+    font-size: clamp(52px, 10.5vw, 112px); line-height: 1.02; letter-spacing: -0.02em;
     max-width: 11ch; margin: 0 0 22px; color: var(--ink);
-    font-variation-settings: 'opsz' 96;
     animation: heroIn 900ms cubic-bezier(.2,.8,.2,1) both;
     transition: font-size 200ms ease;
   }
   .hero-v2 .hero-lede{
-    font-family:'Instrument Serif', Georgia, serif; font-size: clamp(28px, 4.4vw, 46px); line-height: 1.12;
-    color: var(--sage); max-width: 17em; margin: 0 0 22px;
+    font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 500; font-size: clamp(28px, 4.4vw, 48px); line-height: 1.15;
+    color: var(--sage); max-width: 20em; margin: 0 0 22px;
     animation: heroIn 900ms 140ms cubic-bezier(.2,.8,.2,1) both;
   }
   @keyframes heroIn{ from{ opacity:0; transform: translateY(26px); } to{ opacity:1; transform:none; } }
   .hero-v2 .rotate-wrap{ font-size: 15px; margin-bottom: 30px; }
   .hero-v2 .bio{ font-size: 18px; line-height: 1.65; max-width: 56ch; color: var(--ink); margin-bottom: 20px; }
-  .open-note{ display:flex; align-items:center; gap:10px; font-weight:600; font-size:15px; margin-bottom: 26px; max-width: 46ch; }
+  .open-note{ display:flex; align-items:center; gap:10px; font-weight:600; font-size:15px; margin-bottom: 26px; max-width: 60ch; }
   .open-dot{ flex:0 0 10px; width:10px; height:10px; border-radius:50%; background:#2F9E6B; box-shadow:0 0 0 0 rgba(47,158,107,.5); animation: openPulse 2.4s ease-out infinite; }
   @keyframes openPulse{ 0%{ box-shadow:0 0 0 0 rgba(47,158,107,.5);} 70%,100%{ box-shadow:0 0 0 10px rgba(47,158,107,0);} }
   .doors{ padding-top: 28px; padding-bottom: 56px; }
-  .doors-title{ font-family:'Bricolage Grotesque', sans-serif; font-weight:700; font-size: clamp(26px, 4vw, 36px); letter-spacing:-0.02em; margin-bottom: 14px; }
+  .doors-title{ font-family:'Playfair Display', Georgia, serif; font-weight:600; font-size: clamp(26px, 4vw, 36px); letter-spacing:-0.01em; margin-bottom: 14px; }
   .door-list{ list-style:none; border-top: 2px solid var(--ink); }
   .door-list a{ display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1.2fr); gap: 8px 32px; align-items:baseline; padding: 22px 4px; border-bottom: 1px solid var(--line); transition: padding-left 200ms ease, background 200ms ease; }
   .door-list a:hover, .door-list a:focus-visible{ padding-left: 14px; background: rgba(46,62,140,.06); }
-  .door-name{ font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size: clamp(28px, 4.6vw, 44px); letter-spacing:-0.03em; line-height:1.05; }
+  .door-name{ font-family:'Playfair Display', Georgia, serif; font-weight:600; font-size: clamp(26px, 4.2vw, 40px); letter-spacing:-0.01em; line-height:1.05; }
   .door-list a:hover .door-name{ color: var(--sage); }
   .door-desc{ color: var(--ink-soft); font-size: 16px; line-height: 1.5; max-width: 44ch; }
   @media (max-width: 640px){
@@ -351,6 +350,108 @@
   .tile-cta{ margin-top:auto; padding-top:10px; font-weight:700; font-size:14px; text-decoration: underline; text-underline-offset: 4px; }
   @media (max-width: 640px){ .tile-grid{ grid-template-columns: 1fr; } .tile{ min-height: 0; } .detail-nav a{ flex:1; justify-content:center; font-size:14px; padding: 12px 10px; } }
   @media (prefers-reduced-motion: reduce){ .tile{ transition:none; } .tile:hover{ transform:none; } }
+
+
+  /* HOME: luxury treatment */
+  :root{ --lux-bg:#0F0E0C; --lux-ivory:#F4EEE0; --lux-soft:#B9B0A0; --lux-gold:#C9A96A; --lux-gold-line: rgba(201,169,106,.35); }
+  .hero.hero-v2, .doors{ background: var(--lux-bg); color: var(--lux-ivory); box-shadow: 0 0 0 100vmax var(--lux-bg); clip-path: inset(0 -100vmax); }
+  .hero.hero-v2{ padding-top: 84px; padding-bottom: 40px; }
+  .hero-v2 .hero-blob-1{ background: radial-gradient(circle, rgba(201,169,106,.22), transparent 65%); filter: blur(30px); }
+  .hero-v2 .hero-blob-2{ background: radial-gradient(circle, rgba(201,169,106,.12), transparent 65%); filter: blur(30px); }
+  .hero.hero-v2 .hero-title{ color: var(--lux-ivory); font-weight: 500; letter-spacing: -0.015em; line-height: 1.04; }
+  .hero.hero-v2 .hero-lede{ color: var(--lux-gold); }
+  .hero.hero-v2 .rotate-wrap{ border-bottom: 1px solid var(--lux-gold-line); padding-bottom: 22px; max-width: 560px; }
+  .hero.hero-v2 .rotate-wrap .static{ color: var(--lux-soft); }
+  .hero.hero-v2 .rotate-text{ color: var(--lux-ivory); }
+  .hero.hero-v2 .bio{ color: #E4DCCB; }
+  .hero.hero-v2 .open-note{ color: var(--lux-ivory); }
+  .hero.hero-v2 .open-dot{ background: var(--lux-gold); animation: none; box-shadow: 0 0 0 4px rgba(201,169,106,.2); }
+  .hero.hero-v2 .btn-primary{ background: var(--lux-gold); color: #17130B; }
+  .hero.hero-v2 .btn-primary:hover{ background: #E0C487; }
+  .hero.hero-v2 .btn-ghost{ border: 1px solid var(--lux-gold-line); color: var(--lux-ivory); }
+  .hero.hero-v2 .btn-ghost:hover{ border-color: var(--lux-gold); color: var(--lux-gold); }
+  .doors{ padding-top: 40px; padding-bottom: 80px; }
+  .doors .doors-title{ color: var(--lux-ivory); font-style: italic; font-weight: 500; }
+  .doors .door-list{ border-top: 1px solid var(--lux-gold); }
+  .doors .door-list a{ border-bottom: 1px solid var(--lux-gold-line); }
+  .doors .door-list a:hover, .doors .door-list a:focus-visible{ background: rgba(201,169,106,.08); }
+  .doors .door-name{ color: var(--lux-ivory); font-weight: 500; }
+  .doors .door-list a:hover .door-name{ color: var(--lux-gold); }
+  .doors .door-desc{ color: var(--lux-soft); }
+  .hero.hero-v2 a:focus-visible, .hero.hero-v2 button:focus-visible, .doors a:focus-visible{ outline-color: var(--lux-gold); }
+  body[data-page="home"] nav{ background: rgba(15,14,12,.9); border-bottom: 1px solid var(--lux-gold-line); }
+  body[data-page="about"] nav{ background: rgba(15,14,12,.9); border-bottom: 1px solid var(--lux-gold-line); }
+  body[data-page="home"] nav .name{ color: var(--lux-ivory); font-family:'Playfair Display', Georgia, serif; font-weight:600; letter-spacing:.01em; }
+  body[data-page="about"] nav .name{ color: var(--lux-ivory); font-family:'Playfair Display', Georgia, serif; font-weight:600; letter-spacing:.01em; }
+  body[data-page="home"] nav ul a{ color: var(--lux-soft); }
+  body[data-page="about"] nav ul a{ color: var(--lux-soft); }
+  body[data-page="home"] nav ul a:hover, body[data-page="home"] nav ul a[aria-current="page"]{ color: var(--lux-gold); }
+  body[data-page="about"] nav ul a:hover, body[data-page="about"] nav ul a[aria-current="page"]{ color: var(--lux-gold); }
+  body[data-page="home"] nav ul a::after{ background: var(--lux-gold); }
+  body[data-page="about"] nav ul a::after{ background: var(--lux-gold); }
+  body[data-page="home"] .marquee{ background: var(--lux-bg); border-top: 1px solid var(--lux-gold-line); }
+  body[data-page="home"] .marquee-track span{ color: var(--lux-gold); }
+
+
+  /* HEADERS: Pacifico everywhere */
+  h1, h2, h3, h4, .section-title, .hero-title, .doors-title, .door-name, .tile-title, .contact h2{
+    font-family: 'Pacifico', 'Brush Script MT', cursive !important;
+    font-weight: 400 !important; font-style: normal !important;
+    text-transform: none !important; letter-spacing: 0 !important;
+  }
+  .hero.hero-v2 .hero-title{ font-size: clamp(30px, 8.5vw, 96px); line-height: 1.25; max-width: none; white-space: nowrap; }
+  .section-title{ line-height: 1.3; }
+  .case-card h3{ line-height: 1.3; }
+  .tile-title{ line-height: 1.25; font-size: 26px; }
+  .door-name{ line-height: 1.25; font-size: clamp(24px, 3.8vw, 36px); }
+  .doors-title{ line-height: 1.3; }
+
+  .doors .doors-title{ font-family:'Teko', 'Arial Narrow', Impact, sans-serif !important; font-weight:500 !important; font-size: clamp(36px, 5.2vw, 56px); line-height:1.1 !important; letter-spacing:0.02em !important; }
+
+  .doors .door-list a{ position: relative; padding-right: 56px; cursor: pointer; }
+  .doors .door-list a::after{ content: '\2192'; position:absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 30px; line-height:1; color: var(--lux-gold); transition: transform 200ms ease; }
+  .doors .door-list a:hover::after, .doors .door-list a:focus-visible::after{ transform: translate(6px,-50%); }
+  @media (prefers-reduced-motion: reduce){ .doors .door-list a::after{ transition:none; } }
+
+  /* ABOUT: match the dark luxury Home */
+  #about{ background: var(--lux-bg); color: var(--lux-ivory); box-shadow: 0 0 0 100vmax var(--lux-bg); clip-path: inset(0 -100vmax); padding-top: 72px; padding-bottom: 88px; }
+  #about .section-title{ color: var(--lux-ivory); }
+  #about .about-grid p{ color: #E4DCCB; font-size: 17px; line-height: 1.7; }
+  #about .about-grid p[style]{ color: var(--lux-gold); font-family:'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 26px; font-weight:500; margin-bottom: 10px; }
+  #about .tag-list{ border-top: 1px solid var(--lux-gold); }
+  #about .tag{ border-bottom: 1px solid var(--lux-gold-line); background: transparent; }
+  #about .tag .label{ color: var(--lux-ivory); }
+  #about .tag .badge, #about .tag:nth-child(3n+2) .badge, #about .tag:nth-child(3n+3) .badge{ background: var(--lux-gold); }
+
+  #about .section-title{ margin-bottom: 26px; }
+  body[data-page="home"] footer{ background: var(--lux-bg); color: var(--lux-soft); border-top: 1px solid var(--lux-gold-line); box-shadow: 0 0 0 100vmax var(--lux-bg); clip-path: inset(0 -100vmax); }
+  body[data-page="about"] footer{ background: var(--lux-bg); color: var(--lux-soft); border-top: 1px solid var(--lux-gold-line); box-shadow: 0 0 0 100vmax var(--lux-bg); clip-path: inset(0 -100vmax); }
+
+  .page[data-page="about"]{ min-height: 70vh; background: var(--lux-bg); box-shadow: 0 0 0 100vmax var(--lux-bg); clip-path: inset(0 -100vmax); }
+  #about{ padding-top: 80px; padding-bottom: 40px; }
+  #about .about-grid{ gap: 56px; }
+  .page[data-page="about"] .page-next .btn-primary{ background: var(--lux-gold); color:#17130B; }
+  .page[data-page="about"] .page-next{ padding-bottom: 80px; }
+  @media (max-width: 380px){
+    nav{ padding: 12px 10px; }
+    nav .name{ font-size: 12px; }
+    nav ul{ gap: 7px; font-size: 10.5px; }
+    nav ul a{ padding: 12px 1px 10px; }
+  }
+
+  .hero.hero-v2 .bio{ font-family: 'EB Garamond', Garamond, 'Cormorant Garamond', Georgia, serif; font-size: clamp(20px, 2.2vw, 23px); line-height: 1.6; font-weight: 400; max-width: 54ch; }
+
+  .hero.hero-v2 .rotate-wrap{ font-family:'Playfair Display', Georgia, serif; font-size: clamp(22px, 3.4vw, 34px); line-height: 1.3; margin-bottom: 30px; padding-bottom: 24px; max-width: 760px; display:flex; flex-wrap:wrap; gap: 4px 12px; align-items: baseline; }
+  .hero.hero-v2 .rotate-wrap .static{ color: var(--lux-ivory); font-weight: 600; }
+  .hero.hero-v2 .rotate-wrap .rotate-text{ color: var(--lux-gold); font-weight: 600; font-style: italic; }
+
+  .hero.hero-v2 .hero-title{ text-align: center; }
+
+  .hero.hero-v2 .hero-lede{ white-space: nowrap; max-width: none; font-size: clamp(18px, 4.4vw, 48px); }
+
+  .hero.hero-v2 .hero-title{ font-family: 'Pinyon Script', 'Snell Roundhand', 'Brush Script MT', cursive !important; font-weight: 400 !important; font-size: clamp(44px, 11vw, 128px); line-height: 1.2; }
+
+  .hero.hero-v2 .hero-title{ font-family: 'Cookie', 'Brush Script MT', cursive !important; font-size: clamp(44px, 11vw, 128px); line-height: 1.1; }
 
   /* USABILITY */
   .skip-link{ position:absolute; left:12px; top:-60px; z-index:100; background:#2E3E8C; color:#fff; padding:10px 16px; border-radius:10px; font-weight:700; font-size:14px; transition: top 160ms ease; }
@@ -1089,6 +1190,7 @@
   <a class="name" href="#home" aria-label="Sresha Rajesh, home">Sresha Rajesh</a>
   <ul>
     <li><a href="#home" data-nav="home">Home</a></li>
+    <li><a href="#about" data-nav="about">About</a></li>
     <li><a href="#work" data-nav="work">Work</a></li>
     <li><a href="#skills" data-nav="skills">Skills</a></li>
     <li><a href="#contact" data-nav="contact">Contact</a></li>
@@ -1123,6 +1225,7 @@
   <h2 class="doors-title" id="doorsTitle">Where would you like to start?</h2>
   <ul class="door-list">
     <li><a href="#work"><span class="door-name">The campaigns</span><span class="door-desc">14 spec campaigns for brands like Nike, Spotify and Starbucks, each with a working prototype.</span></a></li>
+    <li><a href="#about"><span class="door-name">Why I do this</span><span class="door-desc">What pulls me into marketing, and the focus areas I care about most.</span></a></li>
     <li><a href="#skills"><span class="door-name">How I work</span><span class="door-desc">Strategy, content and measurement, plus the planning and teamwork skills behind them.</span></a></li>
     <li><a href="#contact"><span class="door-name">Say hello</span><span class="door-desc">Email or LinkedIn, whichever is easier for you.</span></a></li>
   </ul>
@@ -1138,12 +1241,17 @@
   </div>
 </div>
 
+
+
+</div>
+
+<div class="page" data-page="about">
 <section id="about" class="reveal">
   <h2 class="section-title">Why I do this</h2>
   <div class="about-grid">
     <div>
       <p>Honestly, what pulls me into marketing is the psychology of it. Why does one shade name make you reach for the blush and not another? Why does a stat about a shoe's energy return make you think about your own? I like poking at the small, half-conscious reasons people buy things, then building the real campaign around it instead of a made-up one.</p>
-      <p>This site walks through campaigns across beauty, footwear, sleep, toys, sports, music streaming, social platforms, consumer health, and consumer tech, each with different deliverables depending on what the idea actually needed: an interactive quiz, a social series, a video storyboard, an OOH concept, a working UI mockup, a GTM launch roadmap. Same instinct every time: start with something the brand already had and hadn't said out loud yet.</p>
+      <p>This site walks through 14 campaigns across beauty, footwear, sleep, toys, sports, music, social platforms, health and tech. Each has deliverables matched to what the idea needed: a quiz, a social series, a storyboard, a UI mockup, a launch roadmap. Same instinct every time: start with something the brand already had and hadn't said out loud yet.</p>
     </div>
     <div>
       <p style="font-weight:700; margin-bottom:12px;">Focus areas</p>
@@ -1157,7 +1265,7 @@
     </div>
   </div>
 </section>
-
+<div class="page-next"><a class="btn btn-primary" href="#work">See the campaigns →</a></div>
 </div>
 
 <div class="page" data-page="work">
@@ -1882,18 +1990,38 @@
 
 
 
+
+  // Keep the home headline on one line at any width and font
+  (function(){
+    const els = [document.getElementById('heroTitle'), document.querySelector('.hero-v2 .hero-lede')].filter(Boolean);
+    if(!els.length) return;
+    function fit(){
+      els.forEach(el => {
+        el.style.fontSize = '';
+        let size = parseFloat(getComputedStyle(el).fontSize);
+        const cs = getComputedStyle(el.parentElement);
+        const max = el.parentElement.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        while(el.scrollWidth > max && size > 12){ size -= 1; el.style.fontSize = size + 'px'; }
+      });
+    }
+    fit(); window.addEventListener('resize', fit);
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    window.addEventListener('hashchange', () => setTimeout(fit, 0));
+  })();
+
   // Single-file page router (hash based)
   (function(){
     const pages = [...document.querySelectorAll('.page')];
     const names = pages.map(p => p.dataset.page);
     const navLinks = [...document.querySelectorAll('nav [data-nav]')];
-    const titles = { home:'Sresha Rajesh — Aspiring Digital Marketer', work:'Work — Sresha Rajesh', skills:'Skills — Sresha Rajesh', contact:'Contact — Sresha Rajesh' };
+    const titles = { about:'About — Sresha Rajesh', home:'Sresha Rajesh — Aspiring Digital Marketer', work:'Work — Sresha Rajesh', skills:'Skills — Sresha Rajesh', contact:'Contact — Sresha Rajesh' };
     let current = null;
     function show(name){
       if(name === current) return false;
       pages.forEach(p => p.classList.toggle('active', p.dataset.page === name));
       navLinks.forEach(a => { if(a.dataset.nav === name) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
       document.title = titles[name] || document.title;
+      document.body.dataset.page = name;
       current = name; return true;
     }
     function route(){
