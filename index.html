@@ -1258,6 +1258,25 @@
   #work-sbux h3{ font-family:'Fraunces', Georgia, serif !important; font-style:normal !important; font-weight:600 !important; text-transform:none !important; letter-spacing:-0.01em !important; line-height:1.15 !important; }
   #work-owala h3{ font-family:'Yatra One', Georgia, serif !important; font-style:normal !important; font-weight:400 !important; text-transform:none !important; letter-spacing:0 !important; line-height:1.15 !important; }
   #work-opi h3{ font-family:'Playfair Display', Georgia, serif !important; font-style:italic !important; font-weight:600 !important; text-transform:none !important; letter-spacing:0 !important; line-height:1.15 !important; }
+
+  /* CONTACT: fun */
+  .contact{ position: relative; overflow: hidden; }
+  .contact > *:not(.spark){ position: relative; z-index: 1; }
+  .spark{ position:absolute; color: var(--lux-gold); opacity:.55; pointer-events:none; z-index:0; animation: floaty 7s ease-in-out infinite; }
+  .spark.s1{ left: 12%; top: 22%; font-size: 26px; }
+  .spark.s2{ right: 14%; top: 16%; font-size: 40px; animation-delay: -2s; }
+  .spark.s3{ right: 24%; top: 58%; font-size: 20px; animation-delay: -4s; }
+  @keyframes floaty{ 0%,100%{ transform: translateY(0) rotate(0deg); } 50%{ transform: translateY(-14px) rotate(20deg); } }
+  .topic{ margin: 0 auto 34px; max-width: 760px; }
+  .contact .topic-q{ font-family:'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 26px; color: var(--lux-gold); margin: 0 auto 14px; max-width:none; }
+  .topic-row{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .topic-chip{ font: inherit; font-size: 15px; font-weight:600; min-height:46px; padding: 10px 20px; border-radius:999px; border:1px solid var(--lux-gold-line); background: rgba(201,169,106,.06); color: var(--lux-ivory); cursor:pointer; transition: transform 180ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease; }
+  .topic-chip:hover{ border-color: var(--lux-gold); transform: translateY(-3px) rotate(-1.5deg); }
+  .topic-chip:nth-child(even):hover{ transform: translateY(-3px) rotate(1.5deg); }
+  .topic-chip.active{ background: var(--lux-gold); border-color: var(--lux-gold); color:#17130B; }
+  .contact .topic-reply{ font-family:'EB Garamond', Georgia, serif; font-size: 21px; color: #E4DCCB; margin: 16px auto 0; min-height: 1.5em; max-width:none; }
+  @media (prefers-reduced-motion: reduce){ .spark{ animation:none; } .topic-chip, .topic-chip:hover{ transition:none; transform:none; } }
+  @media (max-width: 640px){ .spark.s3{ display:none; } .spark.s2{ right: 6%; top: 8%; font-size: 28px; } .spark.s1{ left: 5%; top: 30%; } }
 </style>
 </head>
 <body>
@@ -1979,8 +1998,19 @@
 
 <div class="page" data-page="contact">
 <section id="contact" class="contact reveal">
+  <span class="spark s1" aria-hidden="true">✦</span><span class="spark s2" aria-hidden="true">✦</span><span class="spark s3" aria-hidden="true">✦</span>
   <h2>Let's talk.</h2>
   <p>Open to entry-level marketing and project management roles. Reach out anytime.</p>
+  <div class="topic" role="group" aria-label="What would you like to talk about?">
+    <p class="topic-q">What brings you here?</p>
+    <div class="topic-row">
+      <button type="button" class="topic-chip" data-t="role">I have a role for you</button>
+      <button type="button" class="topic-chip" data-t="campaign">Let's build a campaign</button>
+      <button type="button" class="topic-chip" data-t="coffee">Coffee chat?</button>
+      <button type="button" class="topic-chip" data-t="hi">Just saying hi</button>
+    </div>
+    <p class="topic-reply" id="topicReply" aria-live="polite">Pick one and I'll start the email for you.</p>
+  </div>
   <div class="contact-links">
     <a class="btn btn-primary" id="emailBtn" href="mailto:sresharajesh@gmail.com">Email me</a>
     <a class="btn btn-ghost" href="https://www.linkedin.com/in/sresha-rajesh-2825a1271/" target="_blank">LinkedIn</a>
@@ -2136,6 +2166,28 @@
     }
     window.addEventListener('hashchange', route);
     window.__route = route;
+  })();
+
+
+  // Contact: topic chips write the email for you
+  (function(){
+    const chips = document.querySelectorAll('.topic-chip');
+    const reply = document.getElementById('topicReply');
+    const btn = document.getElementById('emailBtn');
+    if(!chips.length || !btn) return;
+    const base = 'mailto:sresharajesh@gmail.com';
+    const T = {
+      role: { reply: "Love to hear it. Tell me about the team and the role.", subject: "A role I'd like to talk about", body: "Hi Sresha,\n\nI came across your portfolio and would like to talk with you about a role.\n\n" },
+      campaign: { reply: "Bring the brand. I'll bring the spreadsheet.", subject: "A campaign idea", body: "Hi Sresha,\n\nI have a brand and a campaign idea I'd like to talk through with you.\n\n" },
+      coffee: { reply: "Always. I'll bring the questions.", subject: "Coffee chat?", body: "Hi Sresha,\n\nI'd love to set up a short chat about your work and what you're looking for.\n\n" },
+      hi: { reply: "Hi! Always happy to hear from a fellow brand nerd.", subject: "Hi from your portfolio", body: "Hi Sresha,\n\nI saw your portfolio and wanted to say hi.\n\n" }
+    };
+    chips.forEach(c => c.addEventListener('click', () => {
+      const t = T[c.dataset.t];
+      chips.forEach(x => { x.classList.toggle('active', x === c); x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+      reply.textContent = t.reply;
+      btn.href = base + '?subject=' + encodeURIComponent(t.subject) + '&body=' + encodeURIComponent(t.body);
+    }));
   })();
 
   // Keep the sticky filter bar flush under the nav
