@@ -1179,6 +1179,69 @@
     .case-card{ opacity:1; transform:none; transition:none; }
     .case-card::before{ display:none; }
   }
+
+  /* ===== SHARED SYSTEM (all pages) ===== */
+  :root{ --paper:#F2ECDF; }
+  nav{ background: rgba(15,14,12,.92); border-bottom: 1px solid var(--lux-gold-line); }
+  nav .name{ color: var(--lux-ivory); font-family:'Playfair Display', Georgia, serif; font-weight:600; letter-spacing:.01em; }
+  nav ul a{ color: var(--lux-soft); }
+  nav ul a:hover, nav ul a[aria-current="page"]{ color: var(--lux-gold); }
+  nav ul a::after{ background: var(--lux-gold); }
+  footer{ background: var(--lux-bg); color: var(--lux-soft); border-top: 1px solid var(--lux-gold-line); box-shadow: 0 0 0 100vmax var(--lux-bg); clip-path: inset(0 -100vmax); }
+  .scroll-progress{ background: linear-gradient(90deg, #8C7440, var(--lux-gold)); }
+  .back-to-top{ background: var(--lux-bg); color: var(--lux-gold); border: 1px solid var(--lux-gold-line); }
+  .btn-primary{ background: var(--lux-bg); color: var(--lux-ivory); }
+  .btn-primary:hover{ background: var(--lux-gold); color: #17130B; }
+  .btn-ghost:hover{ border-color: #8C7440; color: #8C7440; }
+
+  /* Masthead band: every light page opens with the same dark header */
+  .masthead{ background: var(--lux-bg); box-shadow: 0 0 0 100vmax var(--lux-bg); clip-path: inset(0 -100vmax); padding: 72px 0 56px; margin-bottom: 44px; }
+  .masthead .section-title{ color: var(--lux-ivory); font-size: clamp(30px, 5vw, 52px); line-height: 1.3; margin-bottom: 14px; }
+  .masthead .section-sub{ font-family:'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(21px, 2.8vw, 28px); line-height: 1.3; color: var(--lux-gold); max-width: 36em; margin: 0; }
+  #work, #skills{ padding-top: 0; }
+  .work.mode-detail .masthead{ display:none; }
+
+  /* WORK: gallery on ivory */
+  .filter-bar{ background: rgba(242,236,223,.94); border-bottom: 1px solid rgba(15,14,12,.12); }
+  .filter-btn{ border-color: rgba(15,14,12,.18); }
+  .filter-btn:hover{ border-color: #8C7440; color: #8C7440; }
+  .filter-btn.active{ background: var(--lux-bg); border-color: var(--lux-bg); color: var(--lux-gold); }
+  .detail-bar{ background: rgba(242,236,223,.94); }
+  .back-link:hover, .detail-nav a:hover{ border-color: #8C7440; color: #8C7440; }
+  .tile:hover, .tile:focus-visible{ box-shadow: 0 26px 50px -28px rgba(15,14,12,.6); }
+
+  /* SKILLS: ivory cards with gold edge, dark quote band */
+  .skill-card{ background:#FBF7EE; border: 1px solid rgba(15,14,12,.1); border-top: 3px solid var(--lux-gold); border-radius: 14px; }
+  .skill-card:hover{ transform: translateY(-4px); }
+  .skill-card .icon-badge, .skill-card.c-sage .icon-badge, .skill-card.c-rose .icon-badge, .skill-card.c-gold .icon-badge{ background: rgba(201,169,106,.22); }
+  .skill-card .t{ font-family:'Playfair Display', Georgia, serif; font-weight:600; font-size: 18px; }
+  .skill-card .d{ font-family:'EB Garamond', Georgia, serif; font-size: 16.5px; line-height: 1.45; color: #4A463B; }
+  .tools-strip{ border-top: 1px solid rgba(15,14,12,.15); }
+  .tools-strip .tools-label{ font-family:'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 22px; font-weight:600; letter-spacing:0; text-transform:none; color: var(--ink); }
+  .tool-chip{ background:#FBF7EE; border-color: rgba(15,14,12,.18); }
+  .statement{ max-width:none; background: var(--lux-bg); border-top: 0; padding: 96px 24px; text-align:center; box-shadow: 0 0 0 100vmax var(--lux-bg); clip-path: inset(0 -100vmax); margin-top: 24px; }
+  .statement blockquote{ font-family:'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight:500; color: var(--lux-gold); font-size: clamp(32px, 5.4vw, 60px); line-height:1.15; letter-spacing:0; max-width: 18em; margin: 0 auto 18px; }
+  .statement cite{ color: var(--lux-ivory); font-family:'Playfair Display', Georgia, serif; font-size: 16px; }
+  .page[data-page="skills"] .page-next{ background: var(--lux-bg); box-shadow: 0 0 0 100vmax var(--lux-bg); clip-path: inset(0 -100vmax); padding: 0 20px 72px; }
+  .page[data-page="skills"] .page-next .btn-primary{ background: var(--lux-gold); color:#17130B; }
+
+  /* CONTACT: dark, centered, Cookie headline echoing the hero */
+  .page[data-page="contact"]{ min-height: 72vh; background: var(--lux-bg); box-shadow: 0 0 0 100vmax var(--lux-bg); clip-path: inset(0 -100vmax); }
+  .contact{ text-align:center; border-top: 0; padding-top: 110px; padding-bottom: 120px; color: var(--lux-ivory); }
+  .contact h2{ font-family:'Cookie', 'Brush Script MT', cursive !important; font-size: clamp(64px, 15vw, 160px); line-height: 1; margin-bottom: 14px; color: var(--lux-ivory); }
+  .contact p{ font-family:'EB Garamond', Georgia, serif; font-size: clamp(20px, 2.4vw, 26px); line-height:1.5; color: #E4DCCB; max-width: 28em; margin: 0 auto 34px; }
+  .contact-links{ justify-content: center; }
+  .contact .btn-primary{ background: var(--lux-gold); color:#17130B; }
+  .contact .btn-primary:hover{ background:#E0C487; }
+  .contact .btn-ghost{ border: 1px solid var(--lux-gold-line); color: var(--lux-ivory); }
+  .contact .btn-ghost:hover{ border-color: var(--lux-gold); color: var(--lux-gold); }
+
+  nav a.name{ color: var(--lux-ivory); }
+  .work{ background: transparent; }
+  .page[data-page="work"] .page-next{ padding-top: 24px; }
+
+  body[data-page="home"], body[data-page="about"], body[data-page="contact"]{ background: var(--lux-bg); }
+  .statement{ padding-bottom: 44px; }
 </style>
 </head>
 <body>
@@ -1270,8 +1333,10 @@
 
 <div class="page" data-page="work">
 <section id="work" class="work reveal">
-  <h2 class="section-title">Fourteen brands, fourteen different problems</h2>
-  <p class="section-sub">Independent spec campaigns built to show how I think, not real client work, each with a different set of deliverables. Pick one to open the full campaign.</p>
+  <div class="masthead">
+    <h2 class="section-title">Fourteen brands, fourteen different problems</h2>
+    <p class="section-sub">Independent spec campaigns built to show how I think, not real client work, each with a different set of deliverables. Pick one to open the full campaign.</p>
+  </div>
 
   <div class="filter-bar" id="filterBar">
     <p class="filter-label"><span>Filter by marketing type</span><span class="filter-count" id="filterCount" aria-live="polite">Showing all 14</span></p>
@@ -1809,7 +1874,10 @@
 
 <div class="page" data-page="skills">
 <section id="skills" class="reveal">
-  <h2 class="section-title">What I bring to a marketing team</h2>
+  <div class="masthead">
+    <h2 class="section-title">What I bring to a marketing team</h2>
+    <p class="section-sub">Marketing craft, plus the planning and people skills that keep a project on track.</p>
+  </div>
   <div class="skills-grid">
     <div class="skill-card c-sage">
       <div class="icon-badge">🧭</div>
