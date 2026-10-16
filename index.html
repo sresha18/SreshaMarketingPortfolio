@@ -269,6 +269,58 @@
     margin-bottom: 32px;
   }
 
+
+
+  /* PAGES (single-file multi-page) */
+  .page{ display:none; }
+  .page.active{ display:block; animation: pageIn 380ms ease; }
+  @keyframes pageIn{ from{ opacity:0; transform: translateY(10px); } to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){ .page.active{ animation:none; } }
+  .page-next{ display:flex; justify-content:center; padding: 8px 20px 56px; }
+  nav a.name{ color: inherit; text-decoration:none; }
+  nav ul a[aria-current="page"]{ color: var(--sage); }
+  nav ul a[aria-current="page"]::after{ transform: scaleX(1); }
+  main:focus{ outline:none; }
+
+  /* USABILITY */
+  .skip-link{ position:absolute; left:12px; top:-60px; z-index:100; background:#2E3E8C; color:#fff; padding:10px 16px; border-radius:10px; font-weight:700; font-size:14px; transition: top 160ms ease; }
+  .skip-link:focus{ top:10px; }
+  a:focus-visible, button:focus-visible, .jump-chip:focus-visible, .filter-btn:focus-visible, [role="button"]:focus-visible{
+    outline: 3px solid #2E3E8C; outline-offset: 3px; border-radius: 8px;
+  }
+  nav ul a{ display:inline-block; padding: 12px 4px 10px; }
+  nav ul a::after{ bottom: 6px; }
+  .filter-bar{
+    position: sticky; top: var(--nav-h, 60px); z-index: 40;
+    margin: 0 -12px 18px; padding: 12px 12px 10px;
+    background: rgba(245,241,232,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .filter-label{ font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 8px; display:flex; justify-content:space-between; gap:12px; }
+  .filter-count{ letter-spacing: 0; text-transform:none; font-weight:600; }
+  .filter-row{ display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+  .filter-btn{
+    flex:0 0 auto; font: inherit; font-size: 13px; font-weight:700; min-height: 40px;
+    padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,0.7);
+    border: 1px solid var(--line); color: var(--ink-soft); cursor:pointer;
+    transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+  }
+  .filter-btn:hover{ border-color: #2E3E8C; color:#2E3E8C; }
+  .filter-btn.active{ background:#2E3E8C; border-color:#2E3E8C; color:#fff; }
+  .filter-btn .c{ opacity:.7; font-weight:600; margin-left:4px; }
+  .case-card[hidden], .jump-chip[hidden]{ display:none !important; }
+  .jump-nav-label{ font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 8px; }
+  @media (max-width: 640px){
+    .work .jump-nav, .jump-nav#jumpNav{ flex-wrap: nowrap !important; overflow-x:auto; padding-bottom: 8px; margin-bottom: 28px; scrollbar-width: thin; }
+    .jump-chip{ flex:0 0 auto; white-space: nowrap; }
+    .dl-head{ cursor:pointer; display:flex; justify-content:space-between; align-items:center; min-height:40px; }
+    .dl-head::after{ content:'+ Show'; font-size:11px; letter-spacing:.04em; opacity:.85; }
+    .digital-layer.open .dl-head::after{ content:'− Hide'; }
+    .digital-layer:not(.open) .dl-grid{ display:none; }
+    .filter-bar{ margin: 0 -22px 14px; padding: 10px 22px 8px; }
+  }
+  .no-results{ display:none; text-align:center; padding:40px 16px; color:var(--ink-soft); font-weight:600; }
+
   /* WORK JUMP NAV */
   .jump-nav{
     display:flex; flex-wrap: wrap; gap: 9px;
@@ -280,7 +332,7 @@
     background: rgba(255,255,255,0.6);
     border: 1px solid var(--line);
     color: var(--ink-soft);
-    cursor: pointer;
+    cursor: pointer; min-height: 40px; display:inline-flex; align-items:center;
     transition: transform 160ms ease, border-color 160ms ease, color 160ms ease, background 160ms ease;
   }
   .jump-chip:hover{
@@ -960,18 +1012,21 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<nav>
-  <div class="name">Sresha Rajesh</div>
+<nav aria-label="Main">
+  <a class="name" href="#home" aria-label="Sresha Rajesh, home">Sresha Rajesh</a>
   <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#home" data-nav="home">Home</a></li>
+    <li><a href="#work" data-nav="work">Work</a></li>
+    <li><a href="#skills" data-nav="skills">Skills</a></li>
+    <li><a href="#contact" data-nav="contact">Contact</a></li>
   </ul>
 </nav>
 
+<main id="main" tabindex="-1">
+<div class="page active" data-page="home">
 <section class="hero">
   <div class="hero-blob hero-blob-1"></div>
   <div class="hero-blob hero-blob-2"></div>
@@ -1033,28 +1088,47 @@
   </div>
 </section>
 
+<div class="page-next"><a class="btn btn-primary" href="#work">See the campaigns →</a></div>
+</div>
+
+<div class="page" data-page="work">
 <section id="work" class="work reveal">
   <h2 class="section-title">Fourteen brands, fourteen different problems</h2>
   <p class="section-sub">Independent spec campaigns built to show how I think, not real client work, each with a different set of deliverables.</p>
 
-  <div class="jump-nav" id="jumpNav">
-    <span class="jump-chip" data-target="work-rarebeauty">Rare Beauty</span>
-    <span class="jump-chip" data-target="work-nike">Nike</span>
-    <span class="jump-chip" data-target="work-slip">Slip</span>
-    <span class="jump-chip" data-target="work-squish">Squishmallows</span>
-    <span class="jump-chip" data-target="work-mlc">MLC</span>
-    <span class="jump-chip" data-target="work-spotify">Spotify</span>
-    <span class="jump-chip" data-target="work-tiktok">TikTok</span>
-    <span class="jump-chip" data-target="work-vicks">Vicks</span>
-    <span class="jump-chip" data-target="work-apple">Apple</span>
-    <span class="jump-chip" data-target="work-lego">LEGO Architecture</span>
-    <span class="jump-chip" data-target="work-coke">Coca-Cola</span>
-    <span class="jump-chip" data-target="work-sbux">Starbucks</span>
-    <span class="jump-chip" data-target="work-owala">Owala</span>
-    <span class="jump-chip" data-target="work-opi">OPI</span>
+  <div class="filter-bar" id="filterBar">
+    <p class="filter-label"><span>Filter by marketing type</span><span class="filter-count" id="filterCount" aria-live="polite">Showing all 14</span></p>
+    <div class="filter-row" id="filterRow" role="group" aria-label="Filter campaigns by marketing type">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All<span class="c"></span></button>
+      <button class="filter-btn" data-filter="Brand" aria-pressed="false">Brand<span class="c"></span></button>
+      <button class="filter-btn" data-filter="Product" aria-pressed="false">Product<span class="c"></span></button>
+      <button class="filter-btn" data-filter="Performance" aria-pressed="false">Performance<span class="c"></span></button>
+      <button class="filter-btn" data-filter="GTM" aria-pressed="false">Go-to-market<span class="c"></span></button>
+      <button class="filter-btn" data-filter="Growth" aria-pressed="false">Growth<span class="c"></span></button>
+      <button class="filter-btn" data-filter="Cultural" aria-pressed="false">Cultural<span class="c"></span></button>
+      <button class="filter-btn" data-filter="Influencer" aria-pressed="false">Influencer<span class="c"></span></button>
+    </div>
   </div>
 
-  <div class="case-card" id="work-rarebeauty">
+  <p class="jump-nav-label">Jump to a campaign</p>
+  <div class="jump-nav" id="jumpNav">
+    <span class="jump-chip" data-target="work-rarebeauty" role="button" tabindex="0" data-type="Brand">Rare Beauty</span>
+    <span class="jump-chip" data-target="work-nike" role="button" tabindex="0" data-type="Product">Nike</span>
+    <span class="jump-chip" data-target="work-slip" role="button" tabindex="0" data-type="Brand">Slip</span>
+    <span class="jump-chip" data-target="work-squish" role="button" tabindex="0" data-type="Brand">Squishmallows</span>
+    <span class="jump-chip" data-target="work-mlc" role="button" tabindex="0" data-type="Performance">MLC</span>
+    <span class="jump-chip" data-target="work-spotify" role="button" tabindex="0" data-type="Product">Spotify</span>
+    <span class="jump-chip" data-target="work-tiktok" role="button" tabindex="0" data-type="Product">TikTok</span>
+    <span class="jump-chip" data-target="work-vicks" role="button" tabindex="0" data-type="GTM">Vicks</span>
+    <span class="jump-chip" data-target="work-apple" role="button" tabindex="0" data-type="Product">Apple</span>
+    <span class="jump-chip" data-target="work-lego" role="button" tabindex="0" data-type="Brand">LEGO Architecture</span>
+    <span class="jump-chip" data-target="work-coke" role="button" tabindex="0" data-type="Growth">Coca-Cola</span>
+    <span class="jump-chip" data-target="work-sbux" role="button" tabindex="0" data-type="Product">Starbucks</span>
+    <span class="jump-chip" data-target="work-owala" role="button" tabindex="0" data-type="Cultural">Owala</span>
+    <span class="jump-chip" data-target="work-opi" role="button" tabindex="0" data-type="Influencer">OPI</span>
+  </div>
+
+  <div class="case-card" id="work-rarebeauty" data-type="Brand">
     <p class="kicker">Rare Beauty · Soft Pinch Blush · Brand Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Rare Beauty</p>
     <h3>Wear Your Truth</h3>
@@ -1090,7 +1164,7 @@
     </div>
   </div>
 
-  <div class="case-card nike" id="work-nike">
+  <div class="case-card nike" id="work-nike" data-type="Product">
     <p class="kicker">Nike · Pegasus 42, Women's · Product Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Nike</p>
     <h3>More Return.</h3>
@@ -1126,7 +1200,7 @@
     </div>
   </div>
 
-  <div class="case-card slip" id="work-slip">
+  <div class="case-card slip" id="work-slip" data-type="Brand">
     <p class="kicker">Slip · Silk Pillowcases · Brand Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Slip</p>
     <h3>Sleep On It.</h3>
@@ -1162,7 +1236,7 @@
     </div>
   </div>
 
-  <div class="case-card squish" id="work-squish">
+  <div class="case-card squish" id="work-squish" data-type="Brand">
     <p class="kicker">Squishmallows · Brand Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Squishmallows / Jazwares</p>
     <h3>Everyone Needs A Squish.</h3>
@@ -1198,7 +1272,7 @@
     </div>
   </div>
 
-  <div class="case-card mlc" id="work-mlc">
+  <div class="case-card mlc" id="work-mlc" data-type="Performance">
     <p class="kicker">Major League Cricket · Performance Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by MLC</p>
     <h3>Your First Six.</h3>
@@ -1232,7 +1306,7 @@
     </div>
   </div>
 
-  <div class="case-card spotify" id="work-spotify">
+  <div class="case-card spotify" id="work-spotify" data-type="Product">
     <p class="kicker">Spotify · Prompted Playlist · Product Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Spotify</p>
     <h3>Say The Vibe.</h3>
@@ -1267,7 +1341,7 @@
     </div>
   </div>
 
-  <div class="case-card tiktok" id="work-tiktok">
+  <div class="case-card tiktok" id="work-tiktok" data-type="Product">
     <p class="kicker">TikTok · Local Feeds · Product Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by TikTok</p>
     <h3>Right Here.</h3>
@@ -1302,7 +1376,7 @@
     </div>
   </div>
 
-  <div class="case-card vicks" id="work-vicks">
+  <div class="case-card vicks" id="work-vicks" data-type="GTM">
     <p class="kicker">Vicks DayQuil / NyQuil · Honey · GTM Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Vicks / P&G</p>
     <h3>Honey, You're Covered.</h3>
@@ -1337,7 +1411,7 @@
     </div>
   </div>
 
-  <div class="case-card apple" id="work-apple">
+  <div class="case-card apple" id="work-apple" data-type="Product">
     <p class="kicker">Apple · iPhone Duo · Product Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Apple</p>
     <h3>Everything Opens Up.</h3>
@@ -1372,7 +1446,7 @@
     </div>
   </div>
 
-  <div class="case-card lego" id="work-lego">
+  <div class="case-card lego" id="work-lego" data-type="Brand">
     <p class="kicker">LEGO Architecture · Skyline Series · Brand Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by LEGO</p>
     <h3>Build What You've Seen.</h3>
@@ -1408,7 +1482,7 @@
     </div>
   </div>
 
-  <div class="case-card coke" id="work-coke">
+  <div class="case-card coke" id="work-coke" data-type="Growth">
     <p class="kicker">Coca-Cola · Growth Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by The Coca-Cola Company</p>
     <h3>Share It Forward.</h3>
@@ -1444,7 +1518,7 @@
     </div>
   </div>
 
-  <div class="case-card sbux" id="work-sbux">
+  <div class="case-card sbux" id="work-sbux" data-type="Product">
     <p class="kicker">Starbucks · Holiday Menu 2026 · Product Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Starbucks</p>
     <h3>Order One New Thing.</h3>
@@ -1480,7 +1554,7 @@
     </div>
   </div>
 
-  <div class="case-card owala" id="work-owala">
+  <div class="case-card owala" id="work-owala" data-type="Cultural">
     <p class="kicker">Owala · Diwali 2026 · Cultural Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by Owala</p>
     <h3>Gift the Glow.</h3>
@@ -1516,7 +1590,7 @@
     </div>
   </div>
 
-  <div class="case-card opi" id="work-opi">
+  <div class="case-card opi" id="work-opi" data-type="Influencer">
     <p class="kicker">OPI · Gel · Influencer Marketing</p>
     <p class="spec-badge">Spec campaign — not affiliated with or endorsed by OPI</p>
     <h3>Plan Your Three Weeks.</h3>
@@ -1553,6 +1627,10 @@
   </div>
 </section>
 
+<div class="page-next"><a class="btn btn-primary" href="#skills">Next: what I bring →</a></div>
+</div>
+
+<div class="page" data-page="skills">
 <section id="skills" class="reveal">
   <h2 class="section-title">What I bring to a marketing team</h2>
   <div class="skills-grid">
@@ -1635,6 +1713,10 @@
   <cite>— Sresha Rajesh</cite>
 </div>
 
+<div class="page-next"><a class="btn btn-primary" href="#contact">Next: get in touch →</a></div>
+</div>
+
+<div class="page" data-page="contact">
 <section id="contact" class="contact reveal">
   <h2>Let's talk.</h2>
   <p>Open to entry-level marketing and project management roles. Reach out anytime.</p>
@@ -1643,6 +1725,8 @@
     <a class="btn btn-ghost" href="https://www.linkedin.com/in/sresha-rajesh-2825a1271/" target="_blank">LinkedIn</a>
   </div>
 </section>
+</div>
+</main>
 
 <footer>
   <div>© 2026 Sresha Rajesh</div>
@@ -1724,6 +1808,103 @@
       setTimeout(() => target.classList.remove('pulse'), 950);
     });
   });
+
+
+
+
+  // Single-file page router (hash based)
+  (function(){
+    const pages = [...document.querySelectorAll('.page')];
+    const names = pages.map(p => p.dataset.page);
+    const navLinks = [...document.querySelectorAll('nav [data-nav]')];
+    const titles = { home:'Sresha Rajesh — Aspiring Digital Marketer', work:'Work — Sresha Rajesh', skills:'Skills — Sresha Rajesh', contact:'Contact — Sresha Rajesh' };
+    let current = null;
+    function show(name){
+      if(name === current) return false;
+      pages.forEach(p => p.classList.toggle('active', p.dataset.page === name));
+      navLinks.forEach(a => { if(a.dataset.nav === name) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+      document.title = titles[name] || document.title;
+      current = name; return true;
+    }
+    function route(){
+      const h = decodeURIComponent(location.hash.replace('#',''));
+      if(!h){ show('home'); window.scrollTo(0,0); return; }
+      if(names.includes(h)){
+        const changed = show(h);
+        window.scrollTo({ top:0, behavior:'instant' });
+        if(changed){ const m = document.getElementById('main'); if(m) m.focus({ preventScroll:true }); }
+        return;
+      }
+      const el = document.getElementById(h);
+      const pg = el && el.closest('.page');
+      if(pg){
+        show(pg.dataset.page);
+        requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }));
+      }
+      // other hashes (like #main) leave the current page as is
+      else if(!current){ show('home'); }
+    }
+    window.addEventListener('hashchange', route);
+    route();
+  })();
+
+  // Keep the sticky filter bar flush under the nav
+  (function(){
+    const nav = document.querySelector('nav');
+    function setNavH(){ if(nav) document.documentElement.style.setProperty('--nav-h', (nav.getBoundingClientRect().height - 1) + 'px'); }
+    setNavH(); window.addEventListener('resize', setNavH);
+  })();
+
+  // Digital media plan: collapsible on small screens
+  document.querySelectorAll('.dl-head').forEach(h => {
+    h.setAttribute('tabindex', '0'); h.setAttribute('role', 'button');
+    const toggle = () => { if(window.matchMedia('(max-width: 640px)').matches){ h.parentElement.classList.toggle('open'); h.setAttribute('aria-expanded', h.parentElement.classList.contains('open')); } };
+    h.addEventListener('click', toggle);
+    h.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); } });
+  });
+
+  // Keyboard support for jump chips
+  document.querySelectorAll('.jump-chip').forEach(chip => {
+    chip.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); chip.click(); }
+    });
+  });
+
+  // Marketing-type filter
+  (function(){
+    const btns = document.querySelectorAll('.filter-btn');
+    const cards = [...document.querySelectorAll('.case-card[data-type]')];
+    const chips = [...document.querySelectorAll('.jump-chip[data-type]')];
+    const countEl = document.getElementById('filterCount');
+    if(!btns.length) return;
+    btns.forEach(b => {
+      const f = b.dataset.filter;
+      const n = f === 'all' ? cards.length : cards.filter(c => c.dataset.type === f).length;
+      b.querySelector('.c').textContent = n;
+    });
+    function apply(f, scroll){
+      let shown = 0;
+      cards.forEach(c => {
+        const ok = f === 'all' || c.dataset.type === f;
+        c.hidden = !ok;
+        if(ok){
+          shown++;
+          c.classList.add('card-in');
+          c.querySelectorAll('.case-stats .num').forEach(num => {
+            if(!num.dataset.animated){ animateStat(num); num.dataset.animated = 'true'; }
+          });
+        }
+      });
+      chips.forEach(ch => { ch.hidden = !(f === 'all' || ch.dataset.type === f); });
+      btns.forEach(b => { const on = b.dataset.filter === f; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+      countEl.textContent = f === 'all' ? 'Showing all ' + cards.length : 'Showing ' + shown + ' of ' + cards.length;
+      if(scroll){
+        const top = document.getElementById('filterBar').getBoundingClientRect().top + window.scrollY - 60;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    }
+    btns.forEach(b => b.addEventListener('click', () => apply(b.dataset.filter, true)));
+  })();
 
   const roles = ["Aspiring Digital Marketer", "Brand Strategist", "Campaign Builder", "Storyteller (with a spreadsheet)"];
   const rotateEl = document.getElementById('rotateText');
