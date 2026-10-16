@@ -6,7 +6,7 @@
 <title>Sresha Rajesh — Aspiring Digital Marketer</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Baloo+2:wght@500;600;700;800&family=Oswald:wght@500;600;700&family=Poppins:wght@500;600;700;800&family=Sora:wght@500;600;700;800&family=Quicksand:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Anton&family=Baloo+2:wght@500;600;700;800&family=Oswald:wght@500;600;700&family=Poppins:wght@500;600;700;800&family=Sora:wght@500;600;700;800&family=Quicksand:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper: #EEEBE0;
@@ -281,6 +281,76 @@
   nav ul a[aria-current="page"]{ color: var(--sage); }
   nav ul a[aria-current="page"]::after{ transform: scaleX(1); }
   main:focus{ outline:none; }
+
+
+  /* HOME v2 */
+  .hero.hero-v2{ padding-top: 56px; padding-bottom: 36px; }
+  .hero-v2 .hero-title{
+    --face: 'Bricolage Grotesque', 'Arial Black', system-ui, sans-serif;
+    font-family: var(--face); font-weight: 800;
+    font-size: clamp(58px, 12.5vw, 138px); line-height: .92; letter-spacing: -0.035em;
+    max-width: 11ch; margin: 0 0 22px; color: var(--ink);
+    font-variation-settings: 'opsz' 96;
+    animation: heroIn 900ms cubic-bezier(.2,.8,.2,1) both;
+    transition: font-size 200ms ease;
+  }
+  .hero-v2 .hero-lede{
+    font-family:'Instrument Serif', Georgia, serif; font-size: clamp(28px, 4.4vw, 46px); line-height: 1.12;
+    color: var(--sage); max-width: 17em; margin: 0 0 22px;
+    animation: heroIn 900ms 140ms cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes heroIn{ from{ opacity:0; transform: translateY(26px); } to{ opacity:1; transform:none; } }
+  .hero-v2 .rotate-wrap{ font-size: 15px; margin-bottom: 30px; }
+  .hero-v2 .bio{ font-size: 18px; line-height: 1.65; max-width: 56ch; color: var(--ink); margin-bottom: 20px; }
+  .open-note{ display:flex; align-items:center; gap:10px; font-weight:600; font-size:15px; margin-bottom: 26px; max-width: 46ch; }
+  .open-dot{ flex:0 0 10px; width:10px; height:10px; border-radius:50%; background:#2F9E6B; box-shadow:0 0 0 0 rgba(47,158,107,.5); animation: openPulse 2.4s ease-out infinite; }
+  @keyframes openPulse{ 0%{ box-shadow:0 0 0 0 rgba(47,158,107,.5);} 70%,100%{ box-shadow:0 0 0 10px rgba(47,158,107,0);} }
+  .doors{ padding-top: 28px; padding-bottom: 56px; }
+  .doors-title{ font-family:'Bricolage Grotesque', sans-serif; font-weight:700; font-size: clamp(26px, 4vw, 36px); letter-spacing:-0.02em; margin-bottom: 14px; }
+  .door-list{ list-style:none; border-top: 2px solid var(--ink); }
+  .door-list a{ display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1.2fr); gap: 8px 32px; align-items:baseline; padding: 22px 4px; border-bottom: 1px solid var(--line); transition: padding-left 200ms ease, background 200ms ease; }
+  .door-list a:hover, .door-list a:focus-visible{ padding-left: 14px; background: rgba(46,62,140,.06); }
+  .door-name{ font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size: clamp(28px, 4.6vw, 44px); letter-spacing:-0.03em; line-height:1.05; }
+  .door-list a:hover .door-name{ color: var(--sage); }
+  .door-desc{ color: var(--ink-soft); font-size: 16px; line-height: 1.5; max-width: 44ch; }
+  @media (max-width: 640px){
+    .door-list a{ grid-template-columns: 1fr; padding: 18px 2px; }
+    .hero.hero-v2{ padding-top: 40px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-v2 .hero-title, .hero-v2 .hero-lede{ animation:none; }
+    .open-dot{ animation:none; }
+    .door-list a{ transition:none; }
+  }
+
+
+  /* WORK: tiles + detail */
+  .jump-nav, .jump-nav-label{ display:none !important; }
+  .work.mode-list .case-card, .work.mode-detail .case-card:not(.is-open){ display:none !important; }
+  .work.mode-detail .tile-grid, .work.mode-detail .filter-bar, .work.mode-detail .section-title, .work.mode-detail .section-sub{ display:none; }
+  .work.mode-list .detail-bar, .work.mode-list .detail-nav{ display:none; }
+  .work.mode-detail .case-card.is-open{ margin-top: 8px; }
+  .detail-bar{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin: 0 0 14px; position: sticky; top: var(--nav-h, 60px); z-index: 30; padding: 10px 0; background: rgba(238,235,224,0.92); backdrop-filter: blur(8px); }
+  .back-link{ font-weight:700; font-size:15px; padding: 10px 16px; min-height:44px; display:inline-flex; align-items:center; border-radius:999px; border:1px solid var(--line); background:#fff; color: var(--ink); }
+  .back-link:hover{ border-color: var(--sage); color: var(--sage); }
+  .detail-pos{ font-size:13px; font-weight:600; color: var(--ink-soft); }
+  .detail-nav{ display:flex; justify-content:space-between; gap:12px; margin-top: 22px; }
+  .detail-nav a{ font-weight:700; font-size:15px; padding: 12px 18px; min-height:44px; display:inline-flex; align-items:center; border-radius:999px; border:1px solid var(--line); background:#fff; }
+  .detail-nav a:hover{ border-color: var(--sage); color: var(--sage); }
+  .tile-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+  .tile{
+    display:flex; flex-direction:column; gap:6px; padding: 22px 22px 20px; border-radius: 20px; border: 1px solid transparent;
+    min-height: 260px; transition: transform 180ms ease, box-shadow 180ms ease; box-shadow: 0 18px 40px -30px rgba(0,0,0,.45);
+  }
+  .tile[hidden]{ display:none; }
+  .tile:hover, .tile:focus-visible{ transform: translateY(-4px); box-shadow: 0 26px 50px -28px rgba(0,0,0,.55); }
+  .tile-type{ font-size:12.5px; font-weight:700; }
+  .tile-brand{ font-size:14px; font-weight:600; opacity:.85; }
+  .tile-title{ font-size: 30px; line-height:1.05; font-weight:700; margin: 2px 0 4px; letter-spacing:-0.01em; }
+  .tile-desc{ font-size:14px; line-height:1.5; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  .tile-cta{ margin-top:auto; padding-top:10px; font-weight:700; font-size:14px; text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 640px){ .tile-grid{ grid-template-columns: 1fr; } .tile{ min-height: 0; } .detail-nav a{ flex:1; justify-content:center; font-size:14px; padding: 12px 10px; } }
+  @media (prefers-reduced-motion: reduce){ .tile{ transition:none; } .tile:hover{ transform:none; } }
 
   /* USABILITY */
   .skip-link{ position:absolute; left:12px; top:-60px; z-index:100; background:#2E3E8C; color:#fff; padding:10px 16px; border-radius:10px; font-weight:700; font-size:14px; transition: top 160ms ease; }
@@ -1027,35 +1097,35 @@
 
 <main id="main" tabindex="-1">
 <div class="page active" data-page="home">
-<section class="hero">
+<section class="hero hero-v2">
   <div class="hero-blob hero-blob-1"></div>
   <div class="hero-blob hero-blob-2"></div>
-  <p class="greeting"><span class="wave">👋</span> Hi, I am</p>
-  <h1>Sresha<br>Rajesh</h1>
+
+  <h1 class="hero-title" id="heroTitle">Hi, I'm Sresha.</h1>
+  <p class="hero-lede">I turn small brand details into big campaign ideas.</p>
 
   <div class="rotate-wrap">
-    <span class="static">I am a</span>
+    <span class="static">Sresha Rajesh,</span>
     <span class="rotate-text" id="rotateText">Aspiring Digital Marketer</span>
   </div>
 
-  <svg class="growth-line" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 34 C 40 34, 55 30, 75 24 C 100 16, 115 10, 140 8 C 165 6, 190 8, 218 2"
-      stroke="#2E3E8C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    <circle cx="218" cy="2" r="4" fill="#2E3E8C"/>
-  </svg>
-
   <p class="bio">I am the person who reads the ingredient list on a shampoo bottle for fun and has strong opinions about font choices on restaurant menus. Turns out that's basically the job. I like taking something a brand already has, a name, a color, a weird little detail nobody's used yet, and building a whole idea around it instead of starting from a blank page every time.</p>
 
-  <div class="fact-strip">
-    <span class="fact-pill">End-to-end campaign case studies</span>
-    <span class="fact-pill">Strategy through execution</span>
-    <span class="fact-pill">Focus: cross-category consumer brands</span>
-  </div>
+  <p class="open-note"><span class="open-dot" aria-hidden="true"></span>Open to entry-level marketing and project management roles.</p>
 
   <div class="hero-actions">
     <a class="btn btn-primary" href="#work">View featured work</a>
-    <a class="btn btn-ghost" href="https://www.linkedin.com/in/sresha-rajesh-2825a1271/" target="_blank" id="linkedinBtn">Connect on LinkedIn</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/sresha-rajesh-2825a1271/" target="_blank" rel="noopener" id="linkedinBtn">Connect on LinkedIn</a>
   </div>
+</section>
+
+<section class="doors" aria-labelledby="doorsTitle">
+  <h2 class="doors-title" id="doorsTitle">Where would you like to start?</h2>
+  <ul class="door-list">
+    <li><a href="#work"><span class="door-name">The campaigns</span><span class="door-desc">14 spec campaigns for brands like Nike, Spotify and Starbucks, each with a working prototype.</span></a></li>
+    <li><a href="#skills"><span class="door-name">How I work</span><span class="door-desc">Strategy, content and measurement, plus the planning and teamwork skills behind them.</span></a></li>
+    <li><a href="#contact"><span class="door-name">Say hello</span><span class="door-desc">Email or LinkedIn, whichever is easier for you.</span></a></li>
+  </ul>
 </section>
 
 <div class="marquee">
@@ -1088,13 +1158,12 @@
   </div>
 </section>
 
-<div class="page-next"><a class="btn btn-primary" href="#work">See the campaigns →</a></div>
 </div>
 
 <div class="page" data-page="work">
 <section id="work" class="work reveal">
   <h2 class="section-title">Fourteen brands, fourteen different problems</h2>
-  <p class="section-sub">Independent spec campaigns built to show how I think, not real client work, each with a different set of deliverables.</p>
+  <p class="section-sub">Independent spec campaigns built to show how I think, not real client work, each with a different set of deliverables. Pick one to open the full campaign.</p>
 
   <div class="filter-bar" id="filterBar">
     <p class="filter-label"><span>Filter by marketing type</span><span class="filter-count" id="filterCount" aria-live="polite">Showing all 14</span></p>
@@ -1812,6 +1881,7 @@
 
 
 
+
   // Single-file page router (hash based)
   (function(){
     const pages = [...document.querySelectorAll('.page')];
@@ -1831,6 +1901,7 @@
       if(!h){ show('home'); window.scrollTo(0,0); return; }
       if(names.includes(h)){
         const changed = show(h);
+        if(h === 'work' && window.setWorkMode) window.setWorkMode(null);
         window.scrollTo({ top:0, behavior:'instant' });
         if(changed){ const m = document.getElementById('main'); if(m) m.focus({ preventScroll:true }); }
         return;
@@ -1839,13 +1910,20 @@
       const pg = el && el.closest('.page');
       if(pg){
         show(pg.dataset.page);
-        requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }));
+        if(el.classList.contains('case-card') && window.setWorkMode){
+          window.setWorkMode(el.id);
+          window.scrollTo({ top:0, behavior:'instant' });
+          const hd = el.querySelector('h3'); if(hd){ hd.setAttribute('tabindex','-1'); hd.focus({ preventScroll:true }); }
+        } else {
+          if(pg.dataset.page === 'work' && window.setWorkMode) window.setWorkMode(null);
+          requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }));
+        }
       }
       // other hashes (like #main) leave the current page as is
       else if(!current){ show('home'); }
     }
     window.addEventListener('hashchange', route);
-    route();
+    window.__route = route;
   })();
 
   // Keep the sticky filter bar flush under the nav
@@ -1870,40 +1948,97 @@
     });
   });
 
-  // Marketing-type filter
+  // Work page: tile grid, marketing-type filter, and campaign detail view
   (function(){
-    const btns = document.querySelectorAll('.filter-btn');
+    const work = document.getElementById('work');
     const cards = [...document.querySelectorAll('.case-card[data-type]')];
-    const chips = [...document.querySelectorAll('.jump-chip[data-type]')];
+    const btns = document.querySelectorAll('.filter-btn');
     const countEl = document.getElementById('filterCount');
-    if(!btns.length) return;
-    btns.forEach(b => {
-      const f = b.dataset.filter;
-      const n = f === 'all' ? cards.length : cards.filter(c => c.dataset.type === f).length;
-      b.querySelector('.c').textContent = n;
+    if(!work || !cards.length) { if(window.__route) window.__route(); return; }
+    const labels = { Brand:'Brand marketing', Product:'Product marketing', Performance:'Performance marketing', GTM:'Go-to-market', Growth:'Growth marketing', Cultural:'Cultural marketing', Influencer:'Influencer marketing' };
+
+    // Build tiles from the existing cards so content lives in one place
+    const grid = document.createElement('div');
+    grid.className = 'tile-grid'; grid.id = 'tileGrid';
+    const tiles = cards.map(card => {
+      const cs = getComputedStyle(card);
+      const h3 = card.querySelector('h3'), kick = card.querySelector('.kicker'), desc = card.querySelector('p.desc');
+      const brand = (kick ? kick.textContent.split('·')[0] : '').trim();
+      const a = document.createElement('a');
+      a.className = 'tile'; a.href = '#' + card.id; a.dataset.type = card.dataset.type;
+      a.style.background = cs.backgroundImage !== 'none' ? cs.backgroundImage : cs.backgroundColor;
+      a.style.color = getComputedStyle(h3).color;
+      a.style.borderColor = cs.borderTopColor;
+      const kc = kick ? getComputedStyle(kick).color : 'currentColor';
+      const dc = desc ? getComputedStyle(desc).color : 'currentColor';
+      a.innerHTML = '<span class="tile-type"></span><span class="tile-brand"></span><span class="tile-title"></span><span class="tile-desc"></span><span class="tile-cta">View campaign</span>';
+      a.querySelector('.tile-type').textContent = labels[card.dataset.type] || card.dataset.type;
+      a.querySelector('.tile-type').style.color = kc;
+      a.querySelector('.tile-brand').textContent = brand;
+      a.querySelector('.tile-title').textContent = h3.textContent;
+      a.querySelector('.tile-title').style.fontFamily = getComputedStyle(h3).fontFamily;
+      a.querySelector('.tile-title').style.fontStyle = getComputedStyle(h3).fontStyle;
+      a.querySelector('.tile-title').style.textTransform = getComputedStyle(h3).textTransform;
+      a.querySelector('.tile-desc').textContent = desc ? desc.textContent : '';
+      a.querySelector('.tile-desc').style.color = dc;
+      a.querySelector('.tile-cta').style.color = kc;
+      grid.appendChild(a);
+      return a;
     });
-    function apply(f, scroll){
+    const firstCard = cards[0];
+    firstCard.parentNode.insertBefore(grid, firstCard);
+
+    // Detail bar and prev/next
+    const bar = document.createElement('div');
+    bar.className = 'detail-bar';
+    bar.innerHTML = '<a class="back-link" href="#work">&larr; All campaigns</a><span class="detail-pos" id="detailPos"></span>';
+    grid.parentNode.insertBefore(bar, grid);
+    const dnav = document.createElement('div');
+    dnav.className = 'detail-nav';
+    dnav.innerHTML = '<a id="prevCard" href="#work"></a><a id="nextCard" href="#work"></a>';
+    cards[cards.length - 1].after(dnav);
+
+    let filter = 'all';
+    function visibleCards(){ return cards.filter(c => filter === 'all' || c.dataset.type === filter); }
+
+    function applyFilter(f, scroll){
+      filter = f;
       let shown = 0;
-      cards.forEach(c => {
-        const ok = f === 'all' || c.dataset.type === f;
-        c.hidden = !ok;
-        if(ok){
-          shown++;
-          c.classList.add('card-in');
-          c.querySelectorAll('.case-stats .num').forEach(num => {
-            if(!num.dataset.animated){ animateStat(num); num.dataset.animated = 'true'; }
-          });
-        }
-      });
-      chips.forEach(ch => { ch.hidden = !(f === 'all' || ch.dataset.type === f); });
+      tiles.forEach(t => { const ok = f === 'all' || t.dataset.type === f; t.hidden = !ok; if(ok) shown++; });
       btns.forEach(b => { const on = b.dataset.filter === f; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
       countEl.textContent = f === 'all' ? 'Showing all ' + cards.length : 'Showing ' + shown + ' of ' + cards.length;
       if(scroll){
-        const top = document.getElementById('filterBar').getBoundingClientRect().top + window.scrollY - 60;
-        window.scrollTo({ top: top, behavior: 'smooth' });
+        const top = document.getElementById('filterBar').getBoundingClientRect().top + window.scrollY - 70;
+        if(top < window.scrollY) window.scrollTo({ top: top, behavior: 'smooth' });
       }
     }
-    btns.forEach(b => b.addEventListener('click', () => apply(b.dataset.filter, true)));
+    btns.forEach(b => {
+      const f = b.dataset.filter;
+      b.querySelector('.c').textContent = f === 'all' ? cards.length : cards.filter(c => c.dataset.type === f).length;
+      b.addEventListener('click', () => applyFilter(f, true));
+    });
+
+    window.setWorkMode = function(id){
+      cards.forEach(c => c.classList.toggle('is-open', c.id === id));
+      if(!id){ work.classList.remove('mode-detail'); work.classList.add('mode-list'); document.title = 'Work — Sresha Rajesh'; return; }
+      const card = document.getElementById(id);
+      work.classList.remove('mode-list'); work.classList.add('mode-detail');
+      card.classList.add('card-in');
+      card.querySelectorAll('.case-stats .num').forEach(num => { if(!num.dataset.animated){ animateStat(num); num.dataset.animated = 'true'; } });
+      // prev / next within the current filter (fall back to all)
+      let list = visibleCards(); if(!list.includes(card)) list = cards;
+      const i = list.indexOf(card);
+      const prev = list[(i - 1 + list.length) % list.length], next = list[(i + 1) % list.length];
+      const brandOf = c => c.querySelector('.kicker').textContent.split('·')[0].trim();
+      const pEl = document.getElementById('prevCard'), nEl = document.getElementById('nextCard');
+      pEl.href = '#' + prev.id; pEl.textContent = '\u2190 ' + brandOf(prev);
+      nEl.href = '#' + next.id; nEl.textContent = brandOf(next) + ' \u2192';
+      document.getElementById('detailPos').textContent = (i + 1) + ' of ' + list.length + (filter === 'all' ? '' : ' in ' + (labels[filter] || filter).toLowerCase());
+      document.title = brandOf(card) + ' campaign \u2014 Sresha Rajesh';
+    };
+    work.classList.add('mode-list');
+    applyFilter('all', false);
+    if(window.__route) window.__route();
   })();
 
   const roles = ["Aspiring Digital Marketer", "Brand Strategist", "Campaign Builder", "Storyteller (with a spreadsheet)"];
